@@ -1,7 +1,7 @@
 function App () {
   return (
     <div className="App">
-      1123123
+      Здесь будет игра KAKAXALOV
     </div>
   )
 }
