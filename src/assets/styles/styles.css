@@ -1,0 +1,22 @@
+:root{
+    --body1: 1rem;
+    --body2: 0.875rem;
+
+    --bg-main: #150801;
+    --paper: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-family: "SFProText", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    background-color: var(--bg-main);
+    color: var(--paper);
+}
