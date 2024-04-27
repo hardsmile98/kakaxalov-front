@@ -7,7 +7,7 @@ import { Referals, Leadboard, Boosts, Trade } from './pages'
 const router = createBrowserRouter([
   {
     path: '/*',
-    element: <Referals />
+    element: <Leadboard />
   },
   {
     path: '/referals',
