@@ -1,0 +1,35 @@
+.inputWrapper {
+    width: 100%;
+    position: relative;
+}
+
+.inputWrapper input {
+    width: 100%;
+    height: 56px;
+    background-color: var(--bg-secondary);
+    outline: none;
+    border: 1px solid var(--border);
+    border-radius: var(--unit);
+    color: var(--white);
+    padding: 0 calc(var(--unit) * 2);
+    text-overflow: ellipsis;
+}
+
+.inputWrapperWithCopy input {
+    padding-right: calc(var(--unit) * 5);
+}
+
+.button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: calc(var(--unit) * 0.5);
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}

@@ -11,7 +11,11 @@
     --unit: 10px;
 
     --bg-main: #150801;
+    --bg-secondary: #2E1A0F;
+    --primary: #D8853C;
     --paper: #fff;
+    --white: #fff;
+    --border: #6D4A36;
 
     --text-secondary: #926E5B;
 }

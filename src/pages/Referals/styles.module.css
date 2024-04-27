@@ -1,5 +1,5 @@
 .root {
-    padding: var(--unit);
+    padding: calc(var(--unit) * 1.5);
 }
 
 .imageWrapper {
@@ -15,7 +15,7 @@
 
 .head {
     text-align: center;
-    margin: 0 calc(var(--unit) * 3);
+    margin: 0 calc(var(--unit) * 2);
 }
 
 .head img {
@@ -30,9 +30,18 @@
     color: var(--text-secondary);
 }
 
+.linkWrapper {
+    margin-top: calc(var(--unit) * 2);
+}
+
+.linkWrapper h5 {
+    padding: 0 calc(var(--unit) * 1.5);
+    margin-bottom: var(--unit);
+}
+
 .buttonWrapper {
     position: fixed;
-    bottom: var(--unit);
-    left: var(--unit);
-    right: var(--unit);
+    bottom: calc(var(--unit) * 1.5);
+    left: calc(var(--unit) * 1.5);
+    right: calc(var(--unit) * 1.5);
 }

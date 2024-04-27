@@ -1,6 +1,7 @@
 import inviteImage from 'assets/images/inviteImage.webp'
 import inviteIcon from 'assets/images/inviteIcon.svg'
 import styles from './styles.module.css'
+import { Input } from 'components'
 
 function Referals () {
   return (
@@ -25,6 +26,18 @@ function Referals () {
         <p>
           За каждого приведенного друга, ты получаешь по 5 тысяч КАКАХ
         </p>
+      </div>
+
+      <div className={styles.linkWrapper}>
+        <h5>
+          Реферальная ссылка
+        </h5>
+
+        <Input
+          value="https://t.me/kakaxalov_game_bot?userId=48285 https://t.me/kakaxalov_game_bot?userId=48285"
+          readOnly
+          withCopy
+        />
       </div>
 
       <div className={styles.buttonWrapper}>
