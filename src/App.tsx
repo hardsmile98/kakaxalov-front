@@ -2,12 +2,12 @@ import {
   createBrowserRouter,
   RouterProvider
 } from 'react-router-dom'
-import { Referals, Leadboard, Boosts, Trade } from './pages'
+import { Game, Referals, Leadboard, Boosts, Trade } from './pages'
 
 const router = createBrowserRouter([
   {
     path: '/*',
-    element: <Leadboard />
+    element: <Game />
   },
   {
     path: '/referals',
