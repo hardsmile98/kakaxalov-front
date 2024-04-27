@@ -1,9 +1,19 @@
 :root{
     --body1: 1rem;
     --body2: 0.875rem;
+    --h1: 2rem;
+    --h2: 1.8rem;
+    --h3: 1.7rem;
+    --h4: 1.5rem;
+    --h5: 1.3rem;
+    --h6: 1.15rem;
+
+    --unit: 10px;
 
     --bg-main: #150801;
     --paper: #fff;
+
+    --text-secondary: #926E5B;
 }
 
 * {
@@ -19,4 +29,28 @@ body {
     font-size: 14px;
     background-color: var(--bg-main);
     color: var(--paper);
+}
+
+h1 {
+    font-size: var(--h1);
+}
+
+h2 {
+    font-size: var(--h2);
+}
+
+h3 {
+    font-size: var(--h3);
+}
+
+h4 {
+    font-size: var(--h4);
+}
+
+h5 {
+    font-size: var(--h5);
+}
+
+h6 {
+    font-size: var(--h6);
 }
