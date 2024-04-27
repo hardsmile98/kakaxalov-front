@@ -1,7 +1,8 @@
 import inviteImage from 'assets/images/inviteImage.webp'
 import inviteIcon from 'assets/images/inviteIcon.svg'
+import { Button, Input } from 'components'
+import UserList from './UserList'
 import styles from './styles.module.css'
-import { Input } from 'components'
 
 function Referals () {
   return (
@@ -28,7 +29,7 @@ function Referals () {
         </p>
       </div>
 
-      <div className={styles.linkWrapper}>
+      <div className={styles.blockWrapper}>
         <h5>
           Реферальная ссылка
         </h5>
@@ -40,8 +41,18 @@ function Referals () {
         />
       </div>
 
+      <div className={styles.blockWrapper}>
+        <h5>
+          Твои говнари
+        </h5>
+
+        <UserList />
+      </div>
+
       <div className={styles.buttonWrapper}>
-        <div>Пригласить</div>
+        <Button>
+          Пригласить
+        </Button>
       </div>
     </div>
   )

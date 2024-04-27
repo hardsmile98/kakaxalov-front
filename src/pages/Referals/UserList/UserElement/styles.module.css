@@ -1,0 +1,37 @@
+.root {
+    width: 100%;
+    border: 1px solid var(--border);
+    padding: var(--unit) calc(var(--unit) * 1.5);
+    border-radius: var(--unit);
+    background-color: var(--bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--unit);
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    background-color: var(--primary);
+    border-radius: 50%;
+}
+
+.icon img {
+    width: 22px;
+    height: 22px;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    gap: var(--unit);
+}
+
+.value {
+    font-weight: 500;
+    color: var(--primary);
+}

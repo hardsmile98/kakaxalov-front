@@ -1,5 +1,6 @@
 .root {
     padding: calc(var(--unit) * 1.5);
+    padding-bottom: calc(var(--unit) * 10);
 }
 
 .imageWrapper {
@@ -30,11 +31,11 @@
     color: var(--text-secondary);
 }
 
-.linkWrapper {
+.blockWrapper {
     margin-top: calc(var(--unit) * 2);
 }
 
-.linkWrapper h5 {
+.blockWrapper h5 {
     padding: 0 calc(var(--unit) * 1.5);
     margin-bottom: var(--unit);
 }
