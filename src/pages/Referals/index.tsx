@@ -1,8 +1,25 @@
 import inviteImage from 'assets/images/inviteImage.webp'
 import inviteIcon from 'assets/images/inviteIcon.svg'
-import { Button, Input } from 'components'
-import UserList from './UserList'
+import { Button, Input, UserList } from 'components'
 import styles from './styles.module.css'
+
+const referalList = [
+  {
+    id: 1,
+    name: 'Alex',
+    value: '+5000 KAKAX'
+  },
+  {
+    id: 2,
+    name: 'Nick',
+    value: '+5000 KAKAX'
+  },
+  {
+    id: 3,
+    name: 'Moty',
+    value: '+5000 KAKAX'
+  }
+]
 
 function Referals () {
   return (
@@ -46,7 +63,7 @@ function Referals () {
           Твои говнари
         </h5>
 
-        <UserList />
+        <UserList list={referalList} />
       </div>
 
       <div className={styles.buttonWrapper}>
