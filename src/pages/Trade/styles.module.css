@@ -1,7 +1,9 @@
 .root {
     padding: calc(var(--unit) * 1.5);
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     flex-grow: 1;
 }
 

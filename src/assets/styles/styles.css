@@ -38,16 +38,7 @@ body {
     background-color: var(--bg-main);
     background: var(--bg-main);;
     color: var(--paper);
-    height: 100%;
-    overflow: hidden;
-}
-
-
-#root {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 h1 {
