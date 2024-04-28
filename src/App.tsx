@@ -25,7 +25,7 @@ function App () {
       tg.BackButton.show()
       tg.BackButton.onClick(() => navigate(-1))
     }
-  }, [])
+  }, [navigate, tg, pathname])
 
   return <Routes>
     <Route path='/*' element={<Game />} />
