@@ -4,7 +4,8 @@ const tg = window.Telegram.WebApp
 
 const useTelegram = () => {
   useEffect(() => {
-    tg.BackButton.isVisible = true
+    tg.backgroundColor = '#150801'
+    tg.headerColor = '#150801'
   }, [])
 
   return {
