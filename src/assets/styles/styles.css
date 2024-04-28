@@ -47,7 +47,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 100%;
-    overflow: auto;
+    overflow-y: auto;
 }
 
 h1 {
