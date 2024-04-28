@@ -18,14 +18,16 @@ function App () {
     tg.expand()
     tg.backgroundColor = '#150801'
     tg.headerColor = '#150801'
-  }, [])
+  }, [tg])
 
   useEffect(() => {
     if (pathname !== '/') {
       tg.BackButton.show()
       tg.BackButton.onClick(() => navigate(-1))
+    } else {
+      tg.BackButton.hide()
     }
-  }, [navigate, pathname])
+  }, [tg, navigate, pathname])
 
   return <Routes>
     <Route path='/*' element={<Game />} />
