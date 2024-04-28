@@ -1,7 +1,7 @@
 import tradeImage from 'assets/images/tradeImage.webp'
 import tradeIcon from 'assets/images/tradeIcon.svg'
-import { Button } from 'components'
 import styles from './styles.module.css'
+import Form from './Form'
 
 function Referals () {
   return (
@@ -28,10 +28,12 @@ function Referals () {
         </p>
       </div>
 
-      <div className={styles.buttonWrapper}>
-        <Button>
-          Обменять
-        </Button>
+      <div className={styles.blockWrapper}>
+        <h5>
+          Обмен
+        </h5>
+
+        <Form />
       </div>
     </div>
   )

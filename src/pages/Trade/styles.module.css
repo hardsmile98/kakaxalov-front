@@ -39,10 +39,3 @@
     padding: 0 calc(var(--unit) * 1.5);
     margin-bottom: var(--unit);
 }
-
-.buttonWrapper {
-    position: fixed;
-    bottom: calc(var(--unit) * 1.5);
-    left: calc(var(--unit) * 1.5);
-    right: calc(var(--unit) * 1.5);
-}

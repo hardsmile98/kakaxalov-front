@@ -12,13 +12,16 @@
 
     --bg-main: #150801;
     --bg-secondary: #2E1A0F;
+    --bg-secondary-light: #452E20;
     --primary: #D8853C;
     --primary-dark: #d3792b;
     --paper: #fff;
     --white: #fff;
     --border: #6D4A36;
+    --disabled: #D8853C;
 
     --text-secondary: #926E5B;
+    --text-disabled: #cbcbcb;
 }
 
 * {

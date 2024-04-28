@@ -11,6 +11,12 @@
     transition: 0.3s all ease;
 }
 
-.button:hover {
+.button:disabled {
+    cursor: not-allowed;
+    background-color: var(--disabled);
+    color: var(--text-disabled);
+}
+
+.button:not(:disabled):hover {
     background-color: var(--primary-dark);
 }

@@ -1,0 +1,89 @@
+.buttonWrapper {
+    position: fixed;
+    bottom: calc(var(--unit) * 1.5);
+    left: calc(var(--unit) * 1.5);
+    right: calc(var(--unit) * 1.5);
+}
+
+.root {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--unit);
+    padding: calc(var(--unit) * 1.5);
+}
+
+.head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--unit);
+    margin-bottom: var(--unit);
+}
+
+.maxSum {
+    color: var(--text-secondary);
+}
+
+.maxSum span {
+    color: var(--primary);
+}
+
+.inputWrapper {
+    margin-bottom: var(--unit);
+}
+
+.toggleWrapper {
+    position: relative;
+    border-bottom: 1px solid var(--border);
+    margin: var(--unit) calc(var(--unit) * -1.5);
+}
+
+.toggleWrapper button {
+    transition: 0.1s all;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: calc(var(--unit) * 3);
+    bottom: 50%;
+    transform: translateY(50%);
+    position: absolute;
+    border: none;
+    outline: none;
+    background-color: var(--bg-secondary-light);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.toggleWrapper button:hover {
+    border: 1px solid var(--border);
+}
+
+.inputWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--unit);
+    font-size: 1.8rem;
+}
+
+.inputWrapper input {
+    width: 100%;
+    color: var(--white);
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.inputWrapper span {
+    font-weight: 700;
+    flex-shrink: 0;
+    color: var(--text-secondary);
+}
+
+.rate {
+    color: var(--text-secondary);
+}
