@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App'
 import './assets/styles/fonts.css'
 import './assets/styles/styles.css'
+import { BrowserRouter } from 'react-router-dom'
 
 const rootElement = document?.getElementById?.('root')
 
@@ -11,7 +12,9 @@ if (rootElement !== null) {
 
   root.render(
     <React.StrictMode>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </React.StrictMode>
   )
 }
