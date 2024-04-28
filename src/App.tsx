@@ -4,6 +4,7 @@ import {
 } from 'react-router-dom'
 import { Game, Referals, Leadboard, Boosts, Trade } from './pages'
 import { useTelegram } from 'hooks'
+import { useEffect } from 'react'
 
 const router = createBrowserRouter([
   {
@@ -29,7 +30,13 @@ const router = createBrowserRouter([
 ])
 
 function App () {
-  useTelegram()
+  const tg = useTelegram()
+
+  useEffect(() => {
+    tg.expand()
+    tg.backgroundColor = '#150801'
+    tg.headerColor = '#150801'
+  }, [])
 
   return <RouterProvider router={router} />
 }
