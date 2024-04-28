@@ -38,22 +38,16 @@ body {
     background-color: var(--bg-main);
     background: var(--bg-main);;
     color: var(--paper);
-}
-
-html {
     height: 100%;
+    overflow: hidden;
 }
 
-body {
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-}
 
 #root {
-    flex-grow: 1;
     display: flex;
     flex-direction: column;
+    height: 100%;
+    overflow: auto;
 }
 
 h1 {
