@@ -39,6 +39,8 @@ body {
     background: var(--bg-main);;
     color: var(--paper);
     height: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 #root {
