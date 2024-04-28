@@ -38,6 +38,13 @@ body {
     background-color: var(--bg-main);
     background: var(--bg-main);;
     color: var(--paper);
+    height: 100%;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 h1 {

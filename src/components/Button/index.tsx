@@ -5,9 +5,9 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   children: ReactNode
 }
 
-function Button ({ children, ...props }: ButtonProps) {
+function Button ({ children, className, ...props }: ButtonProps) {
   return (
-    <button className={styles.button} {...props}>
+    <button className={`${styles.button} ${className ?? ''}`} {...props}>
         {children}
     </button>
   )

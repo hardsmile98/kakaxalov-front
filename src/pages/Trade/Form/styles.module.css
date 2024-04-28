@@ -1,15 +1,16 @@
-.buttonWrapper {
-    position: fixed;
-    bottom: calc(var(--unit) * 1.5);
-    left: calc(var(--unit) * 1.5);
-    right: calc(var(--unit) * 1.5);
+.form {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.root {
+.wrapper {
     background-color: var(--bg-secondary);
     border: 1px solid var(--border);
     border-radius: var(--unit);
     padding: calc(var(--unit) * 1.5);
+    margin-bottom: calc(var(--unit) * 1.5);
 }
 
 .head {

@@ -15,8 +15,8 @@ function Form () {
   const isDisabled = +sentCoin <= 0
 
   return (
-    <>
-    <form className={styles.root} onSubmit={(e) => e.preventDefault()}>
+    <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
+      <div className={styles.wrapper}>
       <div>
         <div className={styles.head}>
           <p>Вы платите</p>
@@ -40,7 +40,7 @@ function Form () {
       </div>
 
       <div className={styles.toggleWrapper}>
-        <button onClick={changeTradeType}>
+        <button type="button" onClick={changeTradeType}>
           <img src={changeIcon} alt='change icon' />
         </button>
       </div>
@@ -58,14 +58,12 @@ function Form () {
           <span>{config.getSlug}</span>
         </div>
       </div>
-    </form>
-
-    <div className={styles.buttonWrapper}>
-        <Button disabled={isDisabled}>
-          Обменять
-        </Button>
       </div>
-    </>
+
+      <Button type="submit" disabled={isDisabled}>
+        Обменять
+      </Button>
+    </form>
   )
 }
 

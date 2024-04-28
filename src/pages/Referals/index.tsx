@@ -24,53 +24,40 @@ const referalList = [
 function Referals () {
   return (
     <div className={styles.root}>
-      <div className={styles.imageWrapper}>
-        <img
-          className={styles.image}
-          src={inviteImage}
-          alt="invite image"
-        />
+      <div>
+        <div className={styles.imageWrapper}>
+          <img className={styles.image} src={inviteImage} alt="invite image" />
+        </div>
+
+        <div className={styles.head}>
+          <img src={inviteIcon} alt="ivite icon" />
+
+          <h2>Пригласи друзей и собирай КАКАХИ вместе</h2>
+          <p>За каждого приведенного друга, ты получаешь по 5 тысяч КАКАХ</p>
+        </div>
+
+        <div className={styles.blockWrapper}>
+          <h5>Реферальная ссылка</h5>
+
+          <Input
+            value="https://t.me/kakaxalov_game_bot?userId=48285"
+            readOnly
+            withCopy
+          />
+        </div>
+
+        {referalList.length > 0 && (
+          <div className={styles.blockWrapper}>
+            <h5>Твои говнари</h5>
+
+            <UserList list={referalList} />
+          </div>
+        )}
       </div>
 
-      <div className={styles.head}>
-        <img
-          src={inviteIcon}
-          alt="ivite icon"
-        />
-
-        <h2>
-          Пригласи друзей и собирай КАКАХИ вместе
-        </h2>
-        <p>
-          За каждого приведенного друга, ты получаешь по 5 тысяч КАКАХ
-        </p>
-      </div>
-
-      <div className={styles.blockWrapper}>
-        <h5>
-          Реферальная ссылка
-        </h5>
-
-        <Input
-          value="https://t.me/kakaxalov_game_bot?userId=48285 https://t.me/kakaxalov_game_bot?userId=48285"
-          readOnly
-          withCopy
-        />
-      </div>
-
-      <div className={styles.blockWrapper}>
-        <h5>
-          Твои говнари
-        </h5>
-
-        <UserList list={referalList} />
-      </div>
-
-      <div className={styles.buttonWrapper}>
-        <Button>
-          Пригласить
-        </Button>
-      </div>
+      <Button className={styles.button}>
+        Пригласить
+      </Button>
     </div>
   )
 }
