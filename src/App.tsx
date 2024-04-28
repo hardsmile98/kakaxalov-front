@@ -3,6 +3,7 @@ import {
   RouterProvider
 } from 'react-router-dom'
 import { Game, Referals, Leadboard, Boosts, Trade } from './pages'
+import { useTelegram } from 'hooks'
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,8 @@ const router = createBrowserRouter([
 ])
 
 function App () {
+  useTelegram()
+
   return <RouterProvider router={router} />
 }
 
