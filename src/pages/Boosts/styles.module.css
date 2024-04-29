@@ -1,6 +1,5 @@
 .root {
     padding: calc(var(--unit) * 1.5);
-    padding-bottom: calc(var(--unit) * 8);
 }
 
 .imageWrapper {

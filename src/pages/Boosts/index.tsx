@@ -1,5 +1,7 @@
 import boostsImage from 'assets/images/boostsImage.webp'
 import boostsIcon from 'assets/images/boostsIcon.svg'
+import DailyBoosts from './Daily'
+import Improvements from './Improvements'
 import styles from './styles.module.css'
 
 function Boosts () {
@@ -31,12 +33,16 @@ function Boosts () {
         <h5>
           Eжеденевно
         </h5>
+
+        <DailyBoosts />
       </div>
 
       <div className={styles.blockWrapper}>
         <h5>
           Бусты
         </h5>
+
+        <Improvements />
       </div>
     </div>
   )

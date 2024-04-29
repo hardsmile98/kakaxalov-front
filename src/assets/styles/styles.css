@@ -19,6 +19,8 @@
     --white: #fff;
     --border: #6D4A36;
     --disabled: #D8853C;
+    --green: #C2D83C;
+    --red: #F14C2E;
 
     --text-secondary: #926E5B;
     --text-disabled: #cbcbcb;
@@ -63,4 +65,10 @@ h5 {
 
 h6 {
     font-size: var(--h6);
+}
+
+ul, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
