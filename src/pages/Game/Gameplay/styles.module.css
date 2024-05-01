@@ -1,0 +1,45 @@
+.root {
+   flex-grow: 1;
+   display: flex;
+   flex-direction: column;
+}
+
+.score {
+    margin-top: var(--unit);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: 700;
+    gap: var(--unit);
+}
+
+.score img {
+    width: 45px;
+    height: auto;
+}
+
+.wrapper {
+    position: relative;
+    width: 100%;
+    flex-grow: 1;
+}
+
+.kakaxa {
+    z-index: 20;
+    position: absolute;
+    width: 160px;
+    height: auto;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.islandBig {
+    width: 1400px;
+    z-index: 1;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -900px;
+}

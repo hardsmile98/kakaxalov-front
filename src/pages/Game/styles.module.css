@@ -4,6 +4,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    overflow: hidden;
 }
 
 .wrapper {
@@ -12,4 +13,7 @@
     max-width: 900px;
     height: 100vh;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--unit) * 2);
 }

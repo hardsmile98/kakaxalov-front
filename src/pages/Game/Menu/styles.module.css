@@ -1,14 +1,14 @@
 .root {
-    position: absolute;
-    bottom: calc(var(--unit) * 4);
-    left: 50%;
-    transform: translate(-50%);
+    padding-bottom: calc(var(--unit) * 2);
+    display: flex;
+    justify-content: center;
 }
 
 .menu {
     font-size: var(--body2);
+    z-index: 40;
     position: relative;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     background: rgb(111,41,6);
