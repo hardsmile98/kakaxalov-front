@@ -29,6 +29,17 @@
     z-index: 20;
     position: absolute;
     width: 170px;
+    height: 245px;
+    height: auto;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.kakaxaLeftBottom {
+    z-index: 20;
+    position: absolute;
+    width: 400px;
     height: auto;
     bottom: 0;
     left: 50%;
