@@ -23,3 +23,60 @@
     font-size: var(--body1);
     font-weight: 700;
 }
+
+.progressbar {
+    margin-top: var(--unit);
+    border-radius: var(--unit);
+	height: 20px;
+    width: 100%;
+	position: relative;
+    overflow: hidden;
+	background: #421400;
+}
+
+.line {
+    display: block;
+    height: 100%;
+    background-color: #a3541b;
+    position: relative;
+  }
+
+.line:after {
+    z-index: 1;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0; 
+    bottom: 0;
+    right: 0;
+    background-image: linear-gradient(
+      -45deg, 
+      rgba(255, 255, 255, .2) 25%, 
+      transparent 25%, 
+      transparent 50%, 
+      rgba(255, 255, 255, .2) 50%, 
+      rgba(255, 255, 255, .2) 75%, 
+      transparent 75%, 
+      transparent
+    );
+    background-size: 50px 50px;
+    animation: move 4s linear infinite;
+  }
+
+@keyframes move {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 50px 50px;
+    }
+}
+
+.score {
+    font-size: var(--body2);
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}

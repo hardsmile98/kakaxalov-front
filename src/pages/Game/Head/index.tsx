@@ -23,7 +23,10 @@ function Head () {
         </button>
       </div>
 
-      <div>progress</div>
+      <div className={styles.progressbar}>
+        <span className={styles.line} style={{ width: '30%' }}></span>
+        <span className={styles.score}>4053</span>
+      </div>
     </div>
   )
 }
