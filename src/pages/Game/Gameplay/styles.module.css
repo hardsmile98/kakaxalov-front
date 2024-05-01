@@ -28,9 +28,9 @@
 .kakaxa {
     z-index: 20;
     position: absolute;
-    width: 160px;
+    width: 170px;
     height: auto;
-    bottom: 10px;
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -42,4 +42,66 @@
     left: 50%;
     transform: translateX(-50%);
     bottom: -900px;
+}
+
+.islandLeftTop {
+    transform: scaleX(-1);
+    left: 0;
+    bottom: 170px;
+    position: absolute;
+}
+
+.islandLeftBottom {
+    transform: scaleX(-1);
+    left: 0;
+    bottom: 40px;
+    position: absolute;
+}
+
+.islandRightTop {
+    right: 0;
+    bottom: 170px;
+    position: absolute;
+}
+
+.islandRightBottom {
+    right: 0;
+    bottom: 40px;
+    position: absolute;
+}
+
+@media (max-width: 900px) { 
+    .islandLeftTop {
+        left: -180px;
+    }
+    
+    .islandLeftBottom {
+        left: -180px;
+    }
+    
+    .islandRightTop {
+        right: -180px;
+    }
+    
+    .islandRightBottom {
+        right: -180px;
+    }
+}
+
+@media (max-width: 420px) { 
+    .islandLeftTop {
+        left: -210px;
+    }
+    
+    .islandLeftBottom {
+        left: -210px;
+    }
+    
+    .islandRightTop {
+        right: -210px;
+    }
+    
+    .islandRightBottom {
+        right: -210px;
+    }
 }
