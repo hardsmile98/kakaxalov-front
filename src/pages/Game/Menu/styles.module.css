@@ -1,0 +1,58 @@
+.root {
+    position: absolute;
+    bottom: calc(var(--unit) * 4);
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.menu {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(111,41,6);
+    background: linear-gradient(90deg, rgba(111,41,6,1) 0%, rgba(21,8,0,1) 80%);
+    border-radius: calc(var(--unit) * 1.5);
+    padding: 0 calc(var(--unit) * 1);
+}
+
+.menu > li > a {
+    position: relative;
+    color: #D37B4C;
+    cursor: pointer;
+    padding: 30px 20px;
+    position: relative;
+    display: flex;
+    text-decoration: none;
+}
+
+.menu > li:not(:last-of-type) > a::after {
+    content: "";
+    width: 1px;
+    height: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #7E330D;
+    position: absolute;
+    right: 0;
+}
+
+.menu > li > a img {
+    top: -15px;
+    right: 50%;
+    transform: translateX(50%);
+    position: absolute;
+}
+
+.image {
+    bottom: -28px;
+    height: auto;
+    width: 100%;
+    position: absolute;
+}
+
+@media (max-width: 360px) { 
+    .menu > li > a {
+        padding: 30px 16px;
+    }
+ }

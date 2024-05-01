@@ -1,9 +1,5 @@
-import inviteIcon from 'assets/images/inviteIcon.svg'
-import boostIcon from 'assets/images/boostsIcon.svg'
-import topIcon from 'assets/images/topIcon.svg'
-import tradeIcon from 'assets/images/tradeIcon.svg'
+import Menu from './Menu'
 import styles from './styles.module.css'
-import { Link } from 'react-router-dom'
 
 function Game () {
   return (
@@ -15,35 +11,7 @@ function Game () {
           </button>
         </div>
 
-          <ul className={styles.menu}>
-            <li>
-              <Link to="/referals">
-                <img src={inviteIcon} alt='Invite'/>
-                Invite
-              </Link>
-            </li>
-
-            <li>
-              <Link to="/boosts">
-              <img src={boostIcon} alt='Boosts'/>
-                Boosts
-              </Link>
-            </li>
-
-            <li>
-              <Link to="/leadboard">
-              <img src={topIcon} alt='Top100'/>
-                Top100
-              </Link>
-            </li>
-
-            <li>
-              <Link to="/trade">
-              <img src={tradeIcon} alt='Trade'/>
-                Trade
-              </Link>
-            </li>
-          </ul>
+        <Menu />
       </div>
     </div>
   )
