@@ -1,0 +1,25 @@
+.buttonsWrapper {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: var(--unit);
+}
+
+.buttonsWrapper > button {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: var(--unit);
+    height: 45px;
+    color: var(--white);
+    background: rgba(130, 65, 18, 0.5);
+    display: flex;
+    align-items: center;
+    gap: calc(var(--unit) * 0.5);
+    justify-content: center;
+    font-size: var(--body2);
+}
+
+.buttonsWrapper > button > span {
+    font-size: var(--body1);
+    font-weight: 700;
+}

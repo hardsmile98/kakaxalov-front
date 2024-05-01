@@ -6,6 +6,7 @@
 }
 
 .menu {
+    font-size: var(--body2);
     position: relative;
     display: flex;
     align-items: center;
@@ -20,7 +21,7 @@
     position: relative;
     color: #D37B4C;
     cursor: pointer;
-    padding: 30px 20px;
+    padding: 30px 25px;
     position: relative;
     display: flex;
     text-decoration: none;
@@ -38,7 +39,7 @@
 }
 
 .menu > li > a img {
-    top: -15px;
+    top: -12px;
     right: 50%;
     transform: translateX(50%);
     position: absolute;
@@ -53,6 +54,10 @@
 
 @media (max-width: 360px) { 
     .menu > li > a {
-        padding: 30px 16px;
+        padding: 28px 16px;
+    }
+
+    .image {
+        bottom: -20px;
     }
  }

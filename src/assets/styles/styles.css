@@ -1,6 +1,6 @@
 :root{
     --body1: 1rem;
-    --body2: 0.875rem;
+    --body2: 0.8rem;
     --h1: 2rem;
     --h2: 1.8rem;
     --h3: 1.7rem;
@@ -71,4 +71,8 @@ ul, li {
     margin: 0;
     padding: 0;
     list-style: none;
+}
+
+button:not(:disabled) {
+    cursor: pointer;
 }

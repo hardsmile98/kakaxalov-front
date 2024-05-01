@@ -9,37 +9,37 @@ import menu from 'assets/images/menu.webp'
 function Menu () {
   return (
     <div className={styles.root}>
-     <ul className={styles.menu}>
+      <ul className={styles.menu}>
         <li>
-            <Link to="/referals">
+          <Link to="/referals">
             <img src={inviteIcon} alt="Invite" />
             Invite
-            </Link>
+          </Link>
         </li>
 
         <li>
-            <Link to="/boosts">
+          <Link to="/boosts">
             <img src={boostIcon} alt="Boosts" />
             Boosts
-            </Link>
+          </Link>
         </li>
 
         <li>
-            <Link to="/leadboard">
+          <Link to="/leadboard">
             <img src={topIcon} alt="Top100" />
             Top100
-            </Link>
+          </Link>
         </li>
 
         <li>
-            <Link to="/trade">
+          <Link to="/trade">
             <img src={tradeIcon} alt="Trade" />
             Trade
-            </Link>
+          </Link>
         </li>
 
-        <img className={styles.image} src={menu} alt='menu'/>
-        </ul>
+        <img className={styles.image} src={menu} alt="menu" />
+      </ul>
     </div>
   )
 }
