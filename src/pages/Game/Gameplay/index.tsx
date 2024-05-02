@@ -64,6 +64,11 @@ function Gameplay () {
         </div>
 
         <div className={styles.wrapper}>
+            <span className={styles.clickableAreaLeftBottom} onClick={() => setPosition(Position.leftBottom)} />
+            <span className={styles.clickableAreaLeftTop} onClick={() => setPosition(Position.leftTop)} />
+            <span className={styles.clickableAreaRightBottom} onClick={() => setPosition(Position.rightBottom)} />
+            <span className={styles.clickableAreaRightTop} onClick={() => setPosition(Position.rightTop)} />
+
             <img className={`${styles.coin} ${styles.coinRightTop}`} src={kakaxaCoin} alt='coin' />
 
             <img className={styles.islandLeftTop} src={islandBlack} alt="island" />
