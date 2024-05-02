@@ -107,7 +107,7 @@ function Gameplay () {
     if (timeoutRef.current === null && coinPosition === null) {
       timeoutRef.current = setTimeout(
         () => generateCoin(),
-        randomInteger(3_000, 5_000)
+        randomInteger(2_000, 5_000)
       )
     }
   }, [generateCoin, coinPosition])
