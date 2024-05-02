@@ -42,7 +42,7 @@
     width: 170px;
     height: 245px;
     bottom: 0;
-    left: 270px;
+    left: 280px;
     transform: scaleX(-1);
 }
 
@@ -52,7 +52,26 @@
     width: 170px;
     height: 245px;
     bottom: 0;
-    right: 270px;
+    right: 280px;
+}
+
+.kakaxaLeftTop {
+    z-index: 20;
+    position: absolute;
+    width: 170px;
+    height: 245px;
+    bottom: 0;
+    left: 280px;
+    transform: scaleX(-1);
+}
+
+.kakaxaRightTop {
+    z-index: 20;
+    position: absolute;
+    width: 170px;
+    height: 245px;
+    bottom: 0;
+    right: 280px;
 }
 
 .islandBig {
@@ -67,27 +86,58 @@
 .islandLeftTop {
     transform: scaleX(-1);
     left: 0;
-    bottom: 170px;
+    bottom: 100px;
     position: absolute;
 }
 
 .islandLeftBottom {
     transform: scaleX(-1);
     left: 0;
-    bottom: 40px;
+    bottom: -10px;
     position: absolute;
 }
 
 .islandRightTop {
     right: 0;
-    bottom: 170px;
+    bottom: 100px;
     position: absolute;
 }
 
 .islandRightBottom {
     right: 0;
-    bottom: 40px;
+    bottom: -10px;
     position: absolute;
+}
+
+.coin {
+    position: absolute;
+    z-index: 30;
+    width: 75px;
+    height: auto;
+}
+
+.coinLeftTop {
+    transform: scaleX(-1) rotate(-40deg);
+    left: 60px;
+    bottom: 330px;
+}
+
+.coinLeftBottom {
+    transform: scaleX(-1) rotate(-40deg);
+    left: 60px;
+    bottom: 220px;
+}
+
+.coinRightTop {
+    transform: rotate(-40deg);
+    right: 60px;
+    bottom: 330px;
+}
+
+.coinRightBottom {
+    transform: rotate(-40deg);
+    right: 60px;
+    bottom: 220px;
 }
 
 @media (max-width: 900px) { 
@@ -107,12 +157,14 @@
         right: -180px;
     }
 
-    .kakaxaRightBottom {
-        right: 90px;
+    .kakaxaRightBottom,
+    .kakaxaRightTop {
+        right: 95px;
     }
 
-    .kakaxaLeftBottom {
-        left: 90px;
+    .kakaxaLeftBottom,
+    .kakaxaLeftTop {
+        left: 95px;
     }
 }
 
@@ -133,11 +185,13 @@
         right: -210px;
     }
 
-    .kakaxaRightBottom {
-        right: 60px;
+    .kakaxaRightBottom,
+    .kakaxaRightTop {
+        right: 70px;
     }
 
-    .kakaxaLeftBottom {
-        left: 60px;
+    .kakaxaLeftBottom,
+    .kakaxaLeftTop {
+        left: 70px;
     }
 }

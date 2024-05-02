@@ -5,6 +5,7 @@ import kakaxaBotoom from 'assets/images/kakaxa-bottom.webp'
 import islandBig from 'assets/images/island-big.svg'
 import islandOriginal from 'assets/images/island-original.svg'
 import islandBlack from 'assets/images/island-black.svg'
+import kakaxaCoin from 'assets/images/kakaxa-money.gif'
 import styles from './styles.module.css'
 import { useState } from 'react'
 
@@ -46,18 +47,11 @@ const settings: ISettingsMap = {
 
 function Gameplay () {
   const [position, setPosition] = useState(Position.initial)
+  const [coin, setCoin] = useState(localStorage.getItem('coin') ?? 0)
+
+  console.log(setCoin, setPosition)
 
   const setting = settings[position]
-
-  const onChange = () => {
-    setPosition(prev => {
-      if (prev === Position.initial) {
-        return Position.leftBottom
-      }
-
-      return Position.initial
-    })
-  }
 
   return (
     <div className={styles.root}>
@@ -65,11 +59,13 @@ function Gameplay () {
             <img src={coinIcon} alt="coin" />
 
             <span>
-              0
+              {coin}
             </span>
         </div>
 
-        <div className={styles.wrapper} onClick={onChange}>
+        <div className={styles.wrapper}>
+            <img className={`${styles.coin} ${styles.coinRightTop}`} src={kakaxaCoin} alt='coin' />
+
             <img className={styles.islandLeftTop} src={islandBlack} alt="island" />
             <img className={styles.islandLeftBottom} src={islandOriginal} alt="island" />
 
