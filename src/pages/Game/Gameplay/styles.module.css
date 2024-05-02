@@ -134,13 +134,10 @@
     }
 
     .kakaxaRightBottom {
-        right: 0;
-        left: 50%;
-        transform: translateX(-50%);
+        right: 60px;
     }
 
     .kakaxaLeftBottom {
-        left: 50%;
-        transform: translateX(-50%) scaleX(-1);
+        left: 60px;
     }
 }
