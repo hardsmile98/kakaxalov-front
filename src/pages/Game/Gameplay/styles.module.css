@@ -114,6 +114,7 @@
 }
 
 .coin {
+    transition: 0.5s opacity ease;
     position: absolute;
     z-index: 30;
     width: 75px;
@@ -121,24 +122,28 @@
 }
 
 .coinLeftTop {
+    opacity: 1;
     transform: scaleX(-1) rotate(-40deg);
     left: 60px;
     bottom: 330px;
 }
 
 .coinLeftBottom {
+    opacity: 1;
     transform: scaleX(-1) rotate(-40deg);
     left: 60px;
     bottom: 220px;
 }
 
 .coinRightTop {
+    opacity: 1;
     transform: rotate(-40deg);
     right: 60px;
     bottom: 330px;
 }
 
 .coinRightBottom {
+    opacity: 1;
     transform: rotate(-40deg);
     right: 60px;
     bottom: 220px;
@@ -186,6 +191,10 @@
     position: absolute;
     width: 300px;
     height: 290px;
+}
+
+.none {
+    opacity: 0;
 }
 
 @media (max-width: 900px) { 

@@ -22,6 +22,7 @@
     "baseUrl": "./src",
     "paths": {
       "assets/*": ["assets/*"],
+      "helpers/*": ["helpers/*"],
     }
   },
   "include": [
