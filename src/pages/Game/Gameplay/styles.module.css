@@ -39,11 +39,20 @@
 .kakaxaLeftBottom {
     z-index: 20;
     position: absolute;
-    width: 400px;
-    height: auto;
+    width: 170px;
+    height: 245px;
     bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 270px;
+    transform: scaleX(-1);
+}
+
+.kakaxaRightBottom {
+    z-index: 20;
+    position: absolute;
+    width: 170px;
+    height: 245px;
+    bottom: 0;
+    right: 270px;
 }
 
 .islandBig {
@@ -97,6 +106,14 @@
     .islandRightBottom {
         right: -180px;
     }
+
+    .kakaxaRightBottom {
+        right: 90px;
+    }
+
+    .kakaxaLeftBottom {
+        left: 90px;
+    }
 }
 
 @media (max-width: 420px) { 
@@ -114,5 +131,16 @@
     
     .islandRightBottom {
         right: -210px;
+    }
+
+    .kakaxaRightBottom {
+        right: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .kakaxaLeftBottom {
+        left: 50%;
+        transform: translateX(-50%) scaleX(-1);
     }
 }
