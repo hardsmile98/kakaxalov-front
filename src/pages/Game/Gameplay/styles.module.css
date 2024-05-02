@@ -124,29 +124,29 @@
 .coinLeftTop {
     opacity: 1;
     transform: scaleX(-1) rotate(-40deg);
-    left: 60px;
-    bottom: 330px;
+    left: 180px;
+    bottom: 260px;
 }
 
 .coinLeftBottom {
     opacity: 1;
     transform: scaleX(-1) rotate(-40deg);
-    left: 60px;
-    bottom: 220px;
+    left: 160px;
+    bottom: 160px;
 }
 
 .coinRightTop {
     opacity: 1;
     transform: rotate(-40deg);
-    right: 60px;
-    bottom: 330px;
+    right: 180px;
+    bottom: 260px;
 }
 
 .coinRightBottom {
     opacity: 1;
     transform: rotate(-40deg);
-    right: 60px;
-    bottom: 220px;
+    right: 160px;
+    bottom: 160px;
 }
 
 .clickableAreaLeftTop {
@@ -255,6 +255,26 @@
         width: 200px;
         height: 240px;
     }
+
+    .coinLeftTop {
+        left: 10px;
+        bottom: 250px;
+    }
+    
+    .coinLeftBottom {
+        left: 10px;
+        bottom: 140px;
+    }
+    
+    .coinRightTop {
+        right: 10px;
+        bottom: 250px;
+    }
+    
+    .coinRightBottom {
+        right: 10px;
+        bottom: 140px;
+    }
 }
 
 @media (max-width: 420px) { 
@@ -314,5 +334,25 @@
         right: -20px;
         width: 160px;
         height: 250px;
+    }
+
+    .coinLeftTop {
+        left: 10px;
+        bottom: 230px;
+    }
+    
+    .coinLeftBottom {
+        left: 10px;
+        bottom: 120px;
+    }
+    
+    .coinRightTop {
+        right: 10px;
+        bottom: 230px;
+    }
+    
+    .coinRightBottom {
+        right: 10px;
+        bottom: 120px;
     }
 }
