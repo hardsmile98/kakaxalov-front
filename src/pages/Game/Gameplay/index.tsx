@@ -100,7 +100,7 @@ function Gameplay () {
 
     setCoinPosition(positionArray[randomIndex])
 
-    setTimeout(() => check(), randomInteger(1_000, 2_000))
+    setTimeout(() => check(), randomInteger(800, 1_500))
   }, [])
 
   useEffect(() => {
