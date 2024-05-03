@@ -70,6 +70,8 @@ function Gameplay () {
   const [coin, setCoin] = useState(localStorage.getItem(COIN_LS) ?? 0)
   const [coinPosition, setCoinPosition] = useState<null | Position>(null)
 
+  const duration = useRef(2)
+
   const coinRef = useRef<null | HTMLImageElement>(null)
 
   const coinPositionRef = useRef(coinPosition)
@@ -98,6 +100,8 @@ function Gameplay () {
   }
 
   const generateCoin = useCallback(() => {
+    duration.current = (randomInteger(14, 20) / 10)
+
     const randomIndex = randomInteger(0, positionArray.length - 1)
 
     setCoinPosition(positionArray[randomIndex])
@@ -145,6 +149,7 @@ function Gameplay () {
         />
 
         <img
+          style={{ animationDuration: `${duration.current}s` }}
           ref={coinRef}
           className={`${styles.coin} ${
             coinPosition !== null
