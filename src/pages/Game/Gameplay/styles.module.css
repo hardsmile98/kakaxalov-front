@@ -114,7 +114,6 @@
 }
 
 .coin {
-    transition: 0.5s opacity ease;
     position: absolute;
     z-index: 30;
     width: 75px;
@@ -126,6 +125,7 @@
     transform: scaleX(-1) rotate(-40deg);
     left: 180px;
     bottom: 260px;
+    animation: 2s animate forwards;
 }
 
 .coinLeftBottom {
@@ -133,6 +133,7 @@
     transform: scaleX(-1) rotate(-40deg);
     left: 160px;
     bottom: 160px;
+    animation: 2s animate forwards;
 }
 
 .coinRightTop {
@@ -140,6 +141,7 @@
     transform: rotate(-40deg);
     right: 180px;
     bottom: 260px;
+    animation: 2s animate forwards;
 }
 
 .coinRightBottom {
@@ -147,6 +149,19 @@
     transform: rotate(-40deg);
     right: 160px;
     bottom: 160px;
+    animation: 2s animate forwards;
+}
+
+@keyframes animate {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(50px);
+    }
+    100% {
+      transform: translateX(0);
+    }
 }
 
 .clickableAreaLeftTop {

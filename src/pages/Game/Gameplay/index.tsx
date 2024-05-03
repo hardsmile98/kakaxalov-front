@@ -70,6 +70,8 @@ function Gameplay () {
   const [coin, setCoin] = useState(localStorage.getItem(COIN_LS) ?? 0)
   const [coinPosition, setCoinPosition] = useState<null | Position>(null)
 
+  const coinRef = useRef<null | HTMLImageElement>(null)
+
   const coinPositionRef = useRef(coinPosition)
   coinPositionRef.current = coinPosition
 
@@ -100,7 +102,9 @@ function Gameplay () {
 
     setCoinPosition(positionArray[randomIndex])
 
-    setTimeout(() => check(), randomInteger(800, 1_500))
+    if (coinRef.current !== null) {
+      coinRef.current.addEventListener('animationend', check, false)
+    }
   }, [])
 
   useEffect(() => {
@@ -140,7 +144,8 @@ function Gameplay () {
           onClick={() => setPosition(Position.rightTop)}
         />
 
-        {coinPosition !== null && <img
+        <img
+          ref={coinRef}
           className={`${styles.coin} ${
             coinPosition !== null
             ? stylesCoinMap[coinPosition]
@@ -148,7 +153,7 @@ function Gameplay () {
           }`}
           src={kakaxaCoin}
           alt="coin"
-        />}
+        />
 
         <img className={styles.islandLeftTop} src={islandBlack} alt="island" />
         <img
