@@ -37,7 +37,7 @@
     height: auto;
     bottom: 0;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateZ(0);
 }
 
 .kakaxaLeftBottom {
@@ -47,7 +47,7 @@
     height: 245px;
     bottom: 0;
     left: 280px;
-    transform: scaleX(-1);
+    transform: scaleX(-1) translateZ(0);
 }
 
 .kakaxaRightBottom {
@@ -57,6 +57,7 @@
     height: 245px;
     bottom: 0;
     right: 280px;
+    transform: translateZ(0);
 }
 
 .kakaxaLeftTop {
@@ -66,7 +67,7 @@
     height: 245px;
     bottom: 0;
     left: 280px;
-    transform: scaleX(-1);
+    transform: scaleX(-1) translateZ(0);
 }
 
 .kakaxaRightTop {
@@ -76,6 +77,7 @@
     height: 245px;
     bottom: 0;
     right: 280px;
+    transform: translateZ(0);
 }
 
 .islandBig {
@@ -83,19 +85,19 @@
     z-index: 1;
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateZ(0);
     bottom: -900px;
 }
 
 .islandLeftTop {
-    transform: scaleX(-1);
+    transform: scaleX(-1) translateZ(0);
     left: 0;
     bottom: 100px;
     position: absolute;
 }
 
 .islandLeftBottom {
-    transform: scaleX(-1);
+    transform: scaleX(-1) translateZ(0);
     left: 0;
     bottom: -10px;
     position: absolute;
@@ -105,12 +107,14 @@
     right: 0;
     bottom: 100px;
     position: absolute;
+    transform: translateZ(0);
 }
 
 .islandRightBottom {
     right: 0;
     bottom: -10px;
     position: absolute;
+    transform: translateZ(0);
 }
 
 .coin {
@@ -121,46 +125,162 @@
 }
 
 .coinLeftTop {
+    transition: 0.2s opacity ease;
     opacity: 1;
-    transform: scaleX(-1) rotate(-40deg);
-    left: 180px;
-    bottom: 260px;
-    animation: 2s animate forwards;
+    transform: scaleX(-1) rotate(-35deg) translateZ(0);
+    left: 95px;
+    bottom: 315px;
+    animation: 2s animate-coin-left-top forwards;
+}
+
+@keyframes animate-coin-left-top {
+    0% {
+        transform: scaleX(-1) rotate(-35deg) scale(0) translateZ(0);
+        opacity: 0;
+        left: 95px;
+        bottom: 315px;
+    }
+    10% {
+        transform: scaleX(-1) rotate(-35deg) scale(1) translateZ(0);
+        left: 95px;
+        bottom: 315px;
+        opacity: 1;
+      }
+    50% {
+        transform: scaleX(-1) rotate(-35deg) scale(1) translateZ(0);
+        opacity: 1;
+    }
+    90% {
+        transform: scaleX(-1) rotate(-35deg) scale(1) translateZ(0);
+        opacity: 1;
+        left: 245px;
+        bottom: 220px;
+    }
+    100% {
+        transform: scaleX(-1) rotate(-40deg) scale(0) translateZ(0);
+        left: 245px;
+        bottom: 220px;
+        opacity: 0;
+    }
 }
 
 .coinLeftBottom {
+    transition: 0.2s opacity ease;
     opacity: 1;
-    transform: scaleX(-1) rotate(-40deg);
-    left: 160px;
-    bottom: 160px;
-    animation: 2s animate forwards;
+    transform: scaleX(-1) rotate(-35deg) translateZ(0);
+    left: 95px;
+    bottom: 205px;
+    animation: 2s animate-coin-left-bottom forwards;
+}
+
+@keyframes animate-coin-left-bottom {
+    0% {
+        transform: scaleX(-1) rotate(-35deg) scale(0) translateZ(0);
+        opacity: 0;
+        left: 95px;
+        bottom: 205px;
+    }
+    10% {
+        transform: scaleX(-1) rotate(-35deg) scale(1) translateZ(0);
+        left: 95px;
+        bottom: 205px;
+        opacity: 1;
+      }
+    50% {
+        transform: scaleX(-1) rotate(-35deg) scale(1) translateZ(0);
+        opacity: 1;
+    }
+    90% {
+        transform: scaleX(-1) rotate(-35deg) scale(1) translateZ(0);
+        opacity: 1;
+        left: 245px;
+        bottom: 105px;
+    }
+    100% {
+        transform: scaleX(-1) rotate(-35deg) scale(0) translateZ(0);
+        left: 245px;
+        bottom: 105px;
+        opacity: 0;
+    }
 }
 
 .coinRightTop {
+    transition: 0.2s opacity ease;
     opacity: 1;
-    transform: rotate(-40deg);
-    right: 180px;
-    bottom: 260px;
-    animation: 2s animate forwards;
+    transform: rotate(-35deg) translateZ(0);
+    right: 95px;
+    bottom: 315px;
+    animation: 2s animate-coin-right-top forwards;
+}
+
+@keyframes animate-coin-right-top {
+    0% {
+        transform: rotate(-35deg) scale(0) translateZ(0);
+        opacity: 0;
+        right: 95px;
+        bottom: 315px;
+    }
+    10% {
+        transform: rotate(-35deg) scale(1) translateZ(0);
+        right: 95px;
+        bottom: 315px;
+        opacity: 1;
+      }
+    50% {
+        transform: rotate(-35deg) scale(1) translateZ(0);
+        opacity: 1;
+    }
+    90% {
+        transform: rotate(-35deg) scale(1) translateZ(0);
+        opacity: 1;
+        right: 245px;
+        bottom: 220px;
+    }
+    100% {
+        transform: rotate(-40deg) scale(0) translateZ(0);
+        right: 245px;
+        bottom: 220px;
+        opacity: 0;
+    }
 }
 
 .coinRightBottom {
+    transition: 0.2s opacity ease;
     opacity: 1;
-    transform: rotate(-40deg);
-    right: 160px;
-    bottom: 160px;
-    animation: 2s animate forwards;
+    transform: rotate(-35deg) translateZ(0);
+    right: 95px;
+    bottom: 205px;
+    animation: 2s animate-coin-right-bottom forwards;
 }
 
-@keyframes animate {
+@keyframes animate-coin-right-bottom {
     0% {
-      transform: translateX(0);
+        transform: rotate(-35deg) scale(0) translateZ(0);
+        opacity: 0;
+        right: 95px;
+        bottom: 205px;
     }
+    10% {
+        transform: rotate(-35deg) scale(1) translateZ(0);
+        right: 95px;
+        bottom: 205px;
+        opacity: 1;
+      }
     50% {
-      transform: translateX(50px);
+        opacity: 1;
+        transform: rotate(-35deg) scale(1) translateZ(0);
+    }
+    90% {
+        transform: rotate(-35deg) scale(1) translateZ(0);
+        opacity: 1;
+        right: 245px;
+        bottom: 105px;
     }
     100% {
-      transform: translateX(0);
+        transform: rotate(-35deg) scale(0) translateZ(0);
+        right: 245px;
+        bottom: 105px;
+        opacity: 0;
     }
 }
 
