@@ -105,10 +105,6 @@ function Gameplay () {
     const randomIndex = randomInteger(0, positionArray.length - 1)
 
     setCoinPosition(positionArray[randomIndex])
-
-    if (coinRef.current !== null) {
-      coinRef.current.addEventListener('animationend', check, false)
-    }
   }, [])
 
   useEffect(() => {
@@ -120,9 +116,15 @@ function Gameplay () {
     }
   }, [generateCoin, coinPosition])
 
-  useEffect(() => () => {
-    if (timeoutRef.current !== null) {
-      clearTimeout(timeoutRef.current)
+  useEffect(() => {
+    if (coinRef.current !== null) {
+      coinRef.current.addEventListener('animationend', check, false)
+    }
+
+    return () => {
+      if (timeoutRef.current !== null) {
+        clearTimeout(timeoutRef.current)
+      }
     }
   }, [])
 
