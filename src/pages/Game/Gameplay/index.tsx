@@ -100,7 +100,7 @@ function Gameplay () {
   }
 
   const generateCoin = useCallback(() => {
-    duration.current = (randomInteger(14, 20) / 10)
+    duration.current = randomInteger(1_200, 2_000)
 
     const randomIndex = randomInteger(0, positionArray.length - 1)
 
@@ -115,10 +115,16 @@ function Gameplay () {
     if (timeoutRef.current === null && coinPosition === null) {
       timeoutRef.current = setTimeout(
         () => generateCoin(),
-        randomInteger(2_000, 4_000)
+        randomInteger(1_500, 4_000)
       )
     }
   }, [generateCoin, coinPosition])
+
+  useEffect(() => () => {
+    if (timeoutRef.current !== null) {
+      clearTimeout(timeoutRef.current)
+    }
+  }, [])
 
   const setting = settings[position]
 
@@ -149,7 +155,7 @@ function Gameplay () {
         />
 
         <img
-          style={{ animationDuration: `${duration.current}s` }}
+          style={{ animationDuration: `${duration.current}ms` }}
           ref={coinRef}
           className={`${styles.coin} ${
             coinPosition !== null
