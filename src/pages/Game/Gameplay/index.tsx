@@ -100,7 +100,7 @@ function Gameplay () {
   }
 
   const generateCoin = useCallback(() => {
-    duration.current = randomInteger(1_200, 2_000)
+    duration.current = randomInteger(1_000, 1_800)
 
     const randomIndex = randomInteger(0, positionArray.length - 1)
 
