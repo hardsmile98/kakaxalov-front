@@ -40,7 +40,7 @@ function App () {
   }, [tg])
 
   useEffect(() => {
-    alert(tg.CloudStorage.getItem('user-1'))
+    alert(JSON.stringify(tg.CloudStorage.getItem('user-1')))
   }, [tg])
 
   return <Routes>
