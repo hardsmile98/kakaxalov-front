@@ -32,9 +32,9 @@ function Menu () {
         </li>
 
         <li>
-          <Link to="/trade">
-            <img src={tradeIcon} alt="Trade" />
-            Trade
+          <Link to="/earn">
+            <img src={tradeIcon} alt="Earn" />
+            Earn
           </Link>
         </li>
 
