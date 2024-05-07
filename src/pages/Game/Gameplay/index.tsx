@@ -25,13 +25,10 @@ const positionArray = [
   Position.rightTop
 ]
 
-type ISettingsMap = Record<
-Position,
-{
+type ISettingsMap = Record<Position, {
   style: string
   image: string
-}
->
+}>
 
 const stylesCoinMap: Record<string, string> = {
   [Position.rightTop]: styles.coinRightTop,
