@@ -35,6 +35,10 @@ function App () {
     }
   }, [tg, navigate, pathname])
 
+  useEffect(() => {
+    tg.CloudStorage.setItem('user-1', JSON.stringify({ coin: 30 }))
+  }, [tg])
+
   return <Routes>
     <Route path='/*' element={<Game />} />
     <Route path='/referals' element={<Referals />} />
