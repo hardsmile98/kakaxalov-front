@@ -36,7 +36,7 @@ function App () {
   }, [tg, navigate, pathname])
 
   useEffect(() => {
-    alert(tg.initData)
+    alert(tg.platform)
   }, [tg])
 
   return <Routes>
