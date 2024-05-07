@@ -35,10 +35,6 @@ function App () {
     }
   }, [tg, navigate, pathname])
 
-  useEffect(() => {
-    alert(tg.platform)
-  }, [tg])
-
   return <Routes>
     <Route path='/*' element={<Game />} />
     <Route path='/referals' element={<Referals />} />
