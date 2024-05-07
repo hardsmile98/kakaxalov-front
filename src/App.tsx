@@ -9,8 +9,7 @@ import {
   Referals,
   Leadboard,
   Boosts,
-  Trade,
-  OpenOnMobile
+  Trade
 } from './pages'
 import { useTelegram } from 'hooks'
 import { useEffect } from 'react'
@@ -20,8 +19,6 @@ function App () {
 
   const navigate = useNavigate()
   const { pathname } = useLocation()
-
-  console.log(tg.ready())
 
   useEffect(() => {
     tg.expand()
@@ -38,9 +35,9 @@ function App () {
     }
   }, [tg, navigate, pathname])
 
-  if (tg.ready() === undefined) {
-    return <OpenOnMobile />
-  }
+  useEffect(() => {
+    alert(tg.initData)
+  }, [tg])
 
   return <Routes>
     <Route path='/*' element={<Game />} />
