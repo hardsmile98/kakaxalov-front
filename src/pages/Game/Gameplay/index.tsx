@@ -7,6 +7,7 @@ import islandBig from 'assets/images/island-big.svg'
 import islandOriginal from 'assets/images/island-original.svg'
 import islandBlack from 'assets/images/island-black.svg'
 import kakaxaCoin from 'assets/images/kakaxa-money.gif'
+import bomb from 'assets/images/bomb.gif'
 import styles from './styles.module.css'
 import { randomInteger } from 'helpers/index'
 
@@ -66,11 +67,13 @@ function Gameplay () {
   const [position, setPosition] = useState(Position.initial)
   const [coin, setCoin] = useState(localStorage.getItem(COIN_LS) ?? 0)
   const [coinPosition, setCoinPosition] = useState<null | Position>(null)
+  const [isBomb, setIsBomb] = useState(false)
 
   const config = useRef({
     duration: 2,
     coinPosition,
-    position
+    position,
+    isBomb
   })
 
   const coinRef = useRef<null | HTMLImageElement>(null)
@@ -78,7 +81,8 @@ function Gameplay () {
   config.current = {
     ...config.current,
     coinPosition,
-    position
+    position,
+    isBomb
   }
 
   const timeoutRef = useRef<null | NodeJS.Timeout>(null)
@@ -89,7 +93,11 @@ function Gameplay () {
 
   const check = () => {
     if (config.current.position === config.current.coinPosition) {
-      setCoin(prev => +prev + 1)
+      if (config.current.isBomb) {
+        console.log('BOMB!')
+      } else {
+        setCoin(prev => +prev + 1)
+      }
     }
 
     setCoinPosition(null)
@@ -105,6 +113,8 @@ function Gameplay () {
       ...config.current,
       duration: randomInteger(1_000, 1_800)
     }
+
+    setIsBomb(randomInteger(0, 10) < 3)
 
     const randomIndex = randomInteger(0, positionArray.length - 1)
 
@@ -168,7 +178,7 @@ function Gameplay () {
             ? stylesCoinMap[coinPosition]
             : styles.none
           }`}
-          src={kakaxaCoin}
+          src={isBomb ? bomb : kakaxaCoin}
           alt="coin"
         />
 
