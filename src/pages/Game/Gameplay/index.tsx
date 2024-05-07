@@ -10,6 +10,7 @@ import kakaxaCoin from 'assets/images/kakaxa-money.gif'
 import bomb from 'assets/images/bomb.gif'
 import styles from './styles.module.css'
 import { randomInteger } from 'helpers/index'
+import { useImagesPreload } from 'hooks'
 
 enum Position {
   initial = 'initial',
@@ -141,6 +142,12 @@ function Gameplay () {
       }
     }
   }, [])
+
+  useImagesPreload([
+    bomb,
+    kakaxaTop,
+    kakaxaBotoom
+  ])
 
   const setting = settings[position]
 
