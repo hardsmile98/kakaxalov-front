@@ -1,31 +1,35 @@
-import starIcon from 'assets/images/starIcon.svg'
-import luckIcon from 'assets/images/luckIcon.svg'
+import coinIcon from 'assets/images/improvement2.webp'
+import helth from 'assets/images/helth.svg'
 import styles from './styles.module.css'
 
 function Head () {
+  const countHelth = 3
+
   return (
     <div className={styles.head}>
-      <div className={styles.buttonsWrapper}>
-        <button>
-            <img src={luckIcon} alt='luck' />
-            {'Clans: '}
-            <span>
-             $KAKAXA
-            </span>
-        </button>
+      <div className={styles.wrapper}>
+        <div className={styles.helthsWrapper}>
+          <div className={styles.helths}>
+            {new Array(countHelth).fill(null)
+              .map((_, idx) => <img
+                key={idx}
+                src={helth}
+                alt='helth'
+              />)}
+          </div>
+        </div>
 
-        <button>
-           <img src={starIcon} alt='star' />
-           {'Tg: '}
-            <span>
-             $KAKAXA
-            </span>
-        </button>
+        <div className={styles.coinWrapper}>
+          <img className={styles.coin} src={coinIcon} alt='coin' />
+          <span>
+            21.324 КАКАХ
+          </span>
+        </div>
       </div>
 
       <div className={styles.progressbar}>
-        <span className={styles.line} style={{ width: '30%' }}></span>
-        <span className={styles.score}>3527</span>
+        <span className={styles.line} style={{ width: '30%' }} />
+        <span className={styles.score}>53 / 100</span>
       </div>
     </div>
   )
