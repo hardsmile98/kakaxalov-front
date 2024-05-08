@@ -134,7 +134,10 @@ function Gameplay () {
         />
 
         <img
-          className={`${isExplosionVisible ? styles.explosion : styles.none} ${setting.explosionStyles}`}
+          className={`
+            ${isExplosionVisible ? styles.explosion : styles.none} 
+            ${setting.explosionStyles}`
+          }
           src={isExplosionVisible ? explosion : undefined}
         />
 
