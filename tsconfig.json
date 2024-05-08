@@ -23,6 +23,7 @@
     "paths": {
       "assets/*": ["assets/*"],
       "helpers/*": ["helpers/*"],
+      "store/*": ["store/*"],
     }
   },
   "include": [

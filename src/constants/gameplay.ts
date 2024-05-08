@@ -1,3 +1,12 @@
+const gameSettings = {
+  INITIAL_DURATION_ANIMATION_COIN: 1_500,
+  MIN_DURATION_ANIMATION_COIN: 1_000,
+  MAX_DURATION_ANIMATION_COIN: 1_800,
+  BOMB_DROP_CHANCE: 0.3,
+  MIN_DELAY_NEW_COIN: 1_500,
+  MAX_DELAY_NEW_COIN: 4_000
+}
+
 enum Position {
   initial = 'initial',
   leftTop = 'leftTop',
@@ -14,7 +23,7 @@ const positionArray = [
 ]
 
 export {
+  gameSettings,
   Position,
-
   positionArray
 }
