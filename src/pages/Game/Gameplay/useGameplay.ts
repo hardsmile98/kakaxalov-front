@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef } from 'react'
 import {
   positionArray,
   gameSettings,
-  Position
+  type Position
 } from 'constants/index'
 import { randomInteger } from 'helpers/index'
 import { useDispatch, useSelector } from 'store'
@@ -48,9 +48,9 @@ const useGameplay = () => {
       if (config.current.isBomb) {
         dispatch(caughtBomb())
 
-        setTimeout(() =>
-          dispatch(hideExplosion()),
-        gameSettings.DURATION_ANIMATION_EXPLOSION)
+        setTimeout(() => {
+          dispatch(hideExplosion())
+        }, gameSettings.DURATION_ANIMATION_EXPLOSION)
       } else {
         dispatch(incrementCoin())
       }
@@ -105,12 +105,6 @@ const useGameplay = () => {
       }
     }
   }, [check])
-
-  useEffect(() => {
-    if (helths === 0) {
-      dispatch(setPosition(Position.initial))
-    }
-  }, [dispatch, helths])
 
   const changePosition = (newPosition: Position) => {
     if (helths > 0) {

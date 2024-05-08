@@ -8,9 +8,10 @@ const SCORE_LS = 'score'
 const gameSlice = createSlice({
   name: 'game',
   initialState: {
-    helths: localStorage.getItem(HELTHS_LS) !== null
-      ? Number(localStorage.getItem(HELTHS_LS))
-      : 3,
+    // helths: localStorage.getItem(HELTHS_LS) !== null
+    //   ? Number(localStorage.getItem(HELTHS_LS))
+    //   : 3,
+    helths: 3,
     score: localStorage.getItem(SCORE_LS) !== null
       ? Number(localStorage.getItem(SCORE_LS))
       : 0,
@@ -49,6 +50,10 @@ const gameSlice = createSlice({
     },
     hideExplosion: (state) => {
       state.isExplosionVisible = false
+
+      if (state.helths === 0) {
+        state.position = Position.initial
+      }
     },
     setPosition: (state, action) => {
       state.position = action.payload
