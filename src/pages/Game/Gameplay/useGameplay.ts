@@ -43,12 +43,14 @@ const useGameplay = () => {
 
   const timeoutRef = useRef<null | NodeJS.Timeout>(null)
 
+  const hideBombRef = useRef<null | NodeJS.Timeout>(null)
+
   const check = useCallback(() => {
     if (config.current.position === config.current.coinPosition) {
       if (config.current.isBomb) {
         dispatch(caughtBomb())
 
-        setTimeout(() => {
+        hideBombRef.current = setTimeout(() => {
           dispatch(hideExplosion())
         }, gameSettings.DURATION_ANIMATION_EXPLOSION)
       } else {
@@ -102,6 +104,10 @@ const useGameplay = () => {
     return () => {
       if (timeoutRef.current !== null) {
         clearTimeout(timeoutRef.current)
+      }
+
+      if (hideBombRef.current !== null) {
+        clearTimeout(hideBombRef.current)
       }
     }
   }, [check])
