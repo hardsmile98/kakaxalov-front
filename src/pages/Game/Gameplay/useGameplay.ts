@@ -8,6 +8,7 @@ import { randomInteger } from 'helpers/index'
 import { useDispatch, useSelector } from 'store'
 import {
   caughtBomb,
+  hideExplosion,
   incrementCoin,
   setCoinPosition,
   setIsBomb,
@@ -46,6 +47,10 @@ const useGameplay = () => {
     if (config.current.position === config.current.coinPosition) {
       if (config.current.isBomb) {
         dispatch(caughtBomb())
+
+        setTimeout(() =>
+          dispatch(hideExplosion()),
+        gameSettings.DURATION_ANIMATION_EXPLOSION)
       } else {
         dispatch(incrementCoin())
       }

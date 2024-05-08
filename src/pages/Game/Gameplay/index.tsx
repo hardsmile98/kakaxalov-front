@@ -22,6 +22,7 @@ const stylesCoinMap: Record<string, string> = {
 
 const settings: Record<Position, {
   style: string
+  explosionStyles?: string
   image: string
 }> = {
   [Position.initial]: {
@@ -30,18 +31,22 @@ const settings: Record<Position, {
   },
   [Position.leftBottom]: {
     style: styles.kakaxaLeftBottom,
+    explosionStyles: styles.explosionLeftBottom,
     image: kakaxaBotoom
   },
   [Position.rightBottom]: {
     style: styles.kakaxaRightBottom,
+    explosionStyles: styles.explosionRightBottom,
     image: kakaxaBotoom
   },
   [Position.leftTop]: {
     style: styles.kakaxaLeftTop,
+    explosionStyles: styles.explosionLeftTop,
     image: kakaxaTop
   },
   [Position.rightTop]: {
     style: styles.kakaxaRightTop,
+    explosionStyles: styles.explosionRightTop,
     image: kakaxaTop
   }
 }
@@ -128,10 +133,10 @@ function Gameplay () {
           alt="island"
         />
 
-        {isExplosionVisible && <img
-          src={explosion}
-          alt='explosion'
-        />}
+        <img
+          className={`${isExplosionVisible ? styles.explosion : styles.none} ${setting.explosionStyles}`}
+          src={isExplosionVisible ? explosion : undefined}
+        />
 
         <img
           className={setting.style}
