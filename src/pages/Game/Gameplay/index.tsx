@@ -20,11 +20,14 @@ const stylesCoinMap: Record<string, string> = {
   [Position.leftBottom]: styles.coinLeftBottom
 }
 
-const settings: Record<Position, {
+const settings: Record<
+Position,
+{
   style: string
   explosionStyles?: string
   image: string
-}> = {
+}
+> = {
   [Position.initial]: {
     style: styles.kakaxa,
     image: kakaxaInit
@@ -63,11 +66,7 @@ function Gameplay () {
     isExplosionVisible
   } = useGameplay()
 
-  useImagesPreload([
-    bomb,
-    kakaxaTop,
-    kakaxaBotoom
-  ])
+  useImagesPreload([bomb, kakaxaTop, kakaxaBotoom])
 
   const setting = settings[position]
 
@@ -101,19 +100,13 @@ function Gameplay () {
           style={{ animationDuration: `${config.current.duration}ms` }}
           ref={coinRef}
           className={`${styles.coin} ${
-            coinPosition !== null
-            ? stylesCoinMap[coinPosition]
-            : styles.none
+            coinPosition !== null ? stylesCoinMap[coinPosition] : styles.none
           }`}
           src={isBomb ? bomb : kakaxaCoin}
           alt="coin"
         />
 
-        <img
-          className={styles.islandLeftTop}
-          src={islandBlack}
-          alt="island"
-        />
+        <img className={styles.islandLeftTop} src={islandBlack} alt="island" />
 
         <img
           className={styles.islandLeftBottom}
@@ -121,11 +114,7 @@ function Gameplay () {
           alt="island"
         />
 
-        <img
-          className={styles.islandRightTop}
-          src={islandBlack}
-          alt="island"
-        />
+        <img className={styles.islandRightTop} src={islandBlack} alt="island" />
 
         <img
           className={styles.islandRightBottom}
@@ -136,22 +125,13 @@ function Gameplay () {
         <img
           className={`
             ${isExplosionVisible ? styles.explosion : styles.none} 
-            ${setting.explosionStyles}`
-          }
+            ${setting.explosionStyles}`}
           src={isExplosionVisible ? explosion : undefined}
         />
 
-        <img
-          className={setting.style}
-          src={setting.image}
-          alt="kakaxa"
-        />
+        <img className={setting.style} src={setting.image} alt="kakaxa" />
 
-        <img
-          className={styles.islandBig}
-          src={islandBig}
-          alt="island"
-        />
+        <img className={styles.islandBig} src={islandBig} alt="island" />
       </div>
     </div>
   )
