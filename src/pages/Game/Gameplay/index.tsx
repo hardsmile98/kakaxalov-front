@@ -66,7 +66,12 @@ function Gameplay () {
     isExplosionVisible
   } = useGameplay()
 
-  useImagesPreload([bomb, kakaxaTop, kakaxaBotoom])
+  useImagesPreload([
+    bomb,
+    kakaxaTop,
+    kakaxaBotoom,
+    explosion
+  ])
 
   const setting = settings[position]
 
@@ -123,8 +128,7 @@ function Gameplay () {
         />
 
         <img
-          className={`
-            ${isExplosionVisible ? styles.explosion : styles.none} 
+          className={`${isExplosionVisible ? styles.explosion : styles.none} 
             ${setting.explosionStyles}`}
           src={isExplosionVisible ? explosion : undefined}
         />
