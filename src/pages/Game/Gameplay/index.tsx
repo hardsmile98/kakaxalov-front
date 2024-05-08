@@ -51,7 +51,7 @@ function Gameplay () {
     coinPosition,
     coinRef,
     position,
-    setPosition,
+    changePosition,
     coin,
     isBomb
   } = useGameplay()
@@ -75,19 +75,19 @@ function Gameplay () {
       <div className={styles.wrapper}>
         <span
           className={styles.clickableAreaLeftBottom}
-          onClick={() => setPosition(Position.leftBottom)}
+          onClick={() => changePosition(Position.leftBottom)}
         />
         <span
           className={styles.clickableAreaLeftTop}
-          onClick={() => setPosition(Position.leftTop)}
+          onClick={() => changePosition(Position.leftTop)}
         />
         <span
           className={styles.clickableAreaRightBottom}
-          onClick={() => setPosition(Position.rightBottom)}
+          onClick={() => changePosition(Position.rightBottom)}
         />
         <span
           className={styles.clickableAreaRightTop}
-          onClick={() => setPosition(Position.rightTop)}
+          onClick={() => changePosition(Position.rightTop)}
         />
 
         <img

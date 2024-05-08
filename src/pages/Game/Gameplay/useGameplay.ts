@@ -1,12 +1,27 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
-import { Position, positionArray, gameSettings } from 'constants/index'
+import { useCallback, useEffect, useRef } from 'react'
+import {
+  positionArray,
+  gameSettings,
+  Position
+} from 'constants/index'
 import { randomInteger } from 'helpers/index'
+import { useDispatch, useSelector } from 'store'
+import {
+  caughtBomb,
+  incrementCoin,
+  setCoinPosition,
+  setIsBomb,
+  setPosition
+} from 'store/slices/game'
 
 const useGameplay = () => {
-  const [position, setPosition] = useState(Position.initial)
-  const [coin, setCoin] = useState(0)
-  const [coinPosition, setCoinPosition] = useState<null | Position>(null)
-  const [isBomb, setIsBomb] = useState(false)
+  const dispatch = useDispatch()
+
+  const position = useSelector(state => state.game.position)
+  const coin = useSelector(state => state.game.coin)
+  const coinPosition = useSelector(state => state.game.coinPosition)
+  const isBomb = useSelector(state => state.game.isBomb)
+  const helths = useSelector(state => state.game.helths)
 
   const config = useRef({
     duration: gameSettings.INITIAL_DURATION_ANIMATION_COIN,
@@ -26,22 +41,22 @@ const useGameplay = () => {
 
   const timeoutRef = useRef<null | NodeJS.Timeout>(null)
 
-  const check = () => {
+  const check = useCallback(() => {
     if (config.current.position === config.current.coinPosition) {
       if (config.current.isBomb) {
-        console.log('BOMB!')
+        dispatch(caughtBomb())
       } else {
-        setCoin(prev => +prev + 1)
+        dispatch(incrementCoin())
       }
     }
 
-    setCoinPosition(null)
+    dispatch(setCoinPosition(null))
 
     if (timeoutRef.current !== null) {
       clearTimeout(timeoutRef.current)
       timeoutRef.current = null
     }
-  }
+  }, [dispatch])
 
   const generateCoin = useCallback(() => {
     config.current = {
@@ -52,12 +67,14 @@ const useGameplay = () => {
       )
     }
 
-    setIsBomb(randomInteger(0, 10) < gameSettings.BOMB_DROP_CHANCE * 10)
+    const isBomb = randomInteger(0, 10) < gameSettings.BOMB_DROP_CHANCE * 10
+
+    dispatch(setIsBomb(isBomb))
 
     const randomIndex = randomInteger(0, positionArray.length - 1)
 
-    setCoinPosition(positionArray[randomIndex])
-  }, [])
+    dispatch(setCoinPosition(positionArray[randomIndex]))
+  }, [dispatch])
 
   useEffect(() => {
     if (timeoutRef.current === null && coinPosition === null) {
@@ -81,14 +98,26 @@ const useGameplay = () => {
         clearTimeout(timeoutRef.current)
       }
     }
-  }, [])
+  }, [check])
+
+  useEffect(() => {
+    if (helths === 0) {
+      dispatch(setPosition(Position.initial))
+    }
+  }, [dispatch, helths])
+
+  const changePosition = (newPosition: Position) => {
+    if (helths > 0) {
+      dispatch(setPosition(newPosition))
+    }
+  }
 
   return {
     config,
     coinPosition,
     coinRef,
     position,
-    setPosition,
+    changePosition,
     coin,
     isBomb
   }

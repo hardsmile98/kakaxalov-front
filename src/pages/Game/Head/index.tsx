@@ -1,13 +1,13 @@
 import coinIcon from 'assets/images/improvement2.webp'
 import helth from 'assets/images/helth.svg'
-import { useAppSelector } from 'store'
+import { useSelector } from 'store'
 import { gameSettings } from 'constants/index'
 import styles from './styles.module.css'
 
 function Head () {
-  const helths = useAppSelector(state => state.game.helths)
-  const score = useAppSelector(state => state.game.score)
-  const coin = useAppSelector(state => state.game.coin)
+  const helths = useSelector(state => state.game.helths)
+  const score = useSelector(state => state.game.score)
+  const coin = useSelector(state => state.game.coin)
 
   return (
     <div className={styles.head}>

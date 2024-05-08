@@ -1,4 +1,8 @@
-import { type TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
+import {
+  type TypedUseSelectorHook,
+  useDispatch as useDispatchTyped,
+  useSelector as useSelectorTyped
+} from 'react-redux'
 import gameReducer from './slices/game'
 import { configureStore } from '@reduxjs/toolkit'
 
@@ -14,10 +18,10 @@ export default store
 type RootState = ReturnType<typeof store.getState>
 type AppDispatch = typeof store.dispatch
 
-const useAppDispatch: () => AppDispatch = useDispatch
-const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
+const useDispatch: () => AppDispatch = useDispatchTyped
+const useSelector: TypedUseSelectorHook<RootState> = useSelectorTyped
 
 export {
-  useAppDispatch,
-  useAppSelector
+  useDispatch,
+  useSelector
 }
