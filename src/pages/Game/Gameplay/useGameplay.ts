@@ -22,6 +22,7 @@ const useGameplay = () => {
   const coinPosition = useSelector(state => state.game.coinPosition)
   const isBomb = useSelector(state => state.game.isBomb)
   const helths = useSelector(state => state.game.helths)
+  const isExplosionVisible = useSelector(state => state.game.isExplosionVisible)
 
   const config = useRef({
     duration: gameSettings.INITIAL_DURATION_ANIMATION_COIN,
@@ -59,6 +60,10 @@ const useGameplay = () => {
   }, [dispatch])
 
   const generateCoin = useCallback(() => {
+    const isBomb = randomInteger(0, 10) < gameSettings.BOMB_DROP_CHANCE * 10
+
+    dispatch(setIsBomb(isBomb))
+
     config.current = {
       ...config.current,
       duration: randomInteger(
@@ -66,10 +71,6 @@ const useGameplay = () => {
         gameSettings.MAX_DURATION_ANIMATION_COIN
       )
     }
-
-    const isBomb = randomInteger(0, 10) < gameSettings.BOMB_DROP_CHANCE * 10
-
-    dispatch(setIsBomb(isBomb))
 
     const randomIndex = randomInteger(0, positionArray.length - 1)
 
@@ -119,7 +120,8 @@ const useGameplay = () => {
     position,
     changePosition,
     coin,
-    isBomb
+    isBomb,
+    isExplosionVisible
   }
 }
 

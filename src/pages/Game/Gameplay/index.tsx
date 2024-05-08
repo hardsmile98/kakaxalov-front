@@ -7,6 +7,7 @@ import islandOriginal from 'assets/images/island-original.svg'
 import islandBlack from 'assets/images/island-black.svg'
 import kakaxaCoin from 'assets/images/kakaxa-money.gif'
 import bomb from 'assets/images/bomb.gif'
+import explosion from 'assets/images/explosion.gif'
 import styles from './styles.module.css'
 import { useImagesPreload } from 'hooks'
 import { Position } from 'constants/index'
@@ -53,7 +54,8 @@ function Gameplay () {
     position,
     changePosition,
     coin,
-    isBomb
+    isBomb,
+    isExplosionVisible
   } = useGameplay()
 
   useImagesPreload([
@@ -125,6 +127,11 @@ function Gameplay () {
           src={islandOriginal}
           alt="island"
         />
+
+        {isExplosionVisible && <img
+          src={explosion}
+          alt='explosion'
+        />}
 
         <img
           className={setting.style}
