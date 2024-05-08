@@ -62,6 +62,7 @@
 }
 
 .line {
+  transition: 0.4s width ease;
   display: block;
   height: 100%;
   text-align: center;
