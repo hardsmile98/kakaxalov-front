@@ -1,4 +1,5 @@
 import topImage from 'assets/images/topImage.webp'
+import topText from 'assets/images/topText.svg'
 import topIcon from 'assets/images/topIcon.svg'
 import { UserList } from 'components'
 import styles from './styles.module.css'
@@ -35,6 +36,12 @@ function Leadboard () {
   return (
     <div className={styles.root}>
       <div className={styles.imageWrapper}>
+        <img
+          className={styles.textImage}
+          src={topText}
+          alt="top text"
+        />
+
         <img
           className={styles.image}
           src={topImage}

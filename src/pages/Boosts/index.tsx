@@ -1,4 +1,5 @@
 import boostsImage from 'assets/images/boostsImage.webp'
+import boostsText from 'assets/images/boostsText.svg'
 import boostsIcon from 'assets/images/boostsIcon.svg'
 import DailyBoosts from './Daily'
 import Improvements from './Improvements'
@@ -8,6 +9,12 @@ function Boosts () {
   return (
     <div className={styles.root}>
       <div className={styles.imageWrapper}>
+        <img
+          className={styles.textImage}
+          src={boostsText}
+          alt="boosts text"
+        />
+
         <img
           className={styles.image}
           src={boostsImage}
