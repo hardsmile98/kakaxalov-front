@@ -1,4 +1,4 @@
-import coinIcon from 'assets/images/improvement2.webp'
+import coinIcon from 'assets/images/kakaxaCoin.webp'
 import helth from 'assets/images/helth.svg'
 import { useSelector } from 'store'
 import { gameSettings } from 'constants/index'

@@ -43,7 +43,7 @@
     z-index: 0;
     bottom: 0;
     right: 0;
-    width: 75px;
+    width: 72px;
     height: auto;
 }
 
@@ -52,7 +52,11 @@
     position: relative;
 }
 
-@media (max-width: 420px) { 
+.content > div:last-of-type {
+    font-size: var(--body2);
+}
+
+@media (max-width: 380px) { 
     .root {
         flex-direction: column;
     }

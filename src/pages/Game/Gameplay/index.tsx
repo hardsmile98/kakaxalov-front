@@ -1,4 +1,4 @@
-import coinIcon from 'assets/images/improvement2.webp'
+import coinIcon from 'assets/images/kakaxaCoin.webp'
 import kakaxaInit from 'assets/images/kakaxa-init.gif'
 import kakaxaTop from 'assets/images/kakaxa-top.webp'
 import kakaxaBotoom from 'assets/images/kakaxa-bottom.webp'

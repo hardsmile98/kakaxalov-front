@@ -46,7 +46,7 @@ function Boosts () {
 
       <div className={styles.blockWrapper}>
         <h5>
-          Бусты
+          Бусты с прокачкой
         </h5>
 
         <Improvements />

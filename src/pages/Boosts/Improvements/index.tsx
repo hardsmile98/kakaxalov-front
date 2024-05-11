@@ -1,39 +1,44 @@
 import improvement1 from 'assets/images/improvement1.webp'
-import improvement2 from 'assets/images/improvement2.webp'
-import improvement3 from 'assets/images/improvement3.webp'
+import improvement2 from 'assets/images/improvement2.svg'
 import styles from './styles.module.css'
 
 enum Slugs {
   multiply = 'multiply',
-  coin = 'coin',
-  robot = 'robot'
+  miner = 'miner',
+  devourer = 'devourer',
 }
 
 const improvements = [
   {
     slug: Slugs.multiply,
-    title: 'Удвоение КАКАХИ',
-    price: '4.000',
+    title: 'Улучшатель сбора',
+    price: '300',
     level: 1
   },
   {
-    slug: Slugs.coin,
-    title: 'КАKAХА COIN',
-    price: '10.000',
+    slug: Slugs.miner,
+    title: 'Время Минера',
+    price: '500',
     level: 1
   },
   {
-    slug: Slugs.robot,
-    title: 'Говнарь Robot',
-    price: '100.000',
+    slug: Slugs.devourer,
+    title: 'Время Пожирателя',
+    price: '500',
     level: 1
   }
 ]
 
 const iconsMap = {
   [Slugs.multiply]: improvement1,
-  [Slugs.coin]: improvement2,
-  [Slugs.robot]: improvement3
+  [Slugs.miner]: improvement2,
+  [Slugs.devourer]: improvement2
+}
+
+const stylesMap = {
+  [Slugs.multiply]: styles.improvement1,
+  [Slugs.miner]: undefined,
+  [Slugs.devourer]: undefined
 }
 
 function Improvements () {
@@ -44,7 +49,11 @@ function Improvements () {
           <button className={styles.button}>
             <div className={styles.content}>
               <div className={styles.imageWrapper}>
-                <img src={iconsMap[improvement.slug]} alt={improvement.title} />
+                <img
+                  className={stylesMap[improvement.slug]}
+                  src={iconsMap[improvement.slug]}
+                  alt={improvement.title}
+                />
               </div>
 
               <div>
