@@ -1,0 +1,84 @@
+.button {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--unit);
+    text-align: left;
+    font-weight: 600;
+}
+
+.button:not(:disabled) {
+    cursor: pointer;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--unit) * 1.5);
+}
+
+.imageWrapper {
+    overflow: hidden;
+    width: 70px;
+    height: 70px;
+    border-radius: var(--unit);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.primary .imageWrapper {
+    background-color: var(--bg-main);
+}
+
+.green .imageWrapper {
+    background-color: var(--green-dark);
+}
+
+.red .imageWrapper {
+    background-color: var(--red-dark);
+}
+
+.description {
+    margin-top: calc(var(--unit) * 0.5);
+}
+
+.primary .description {
+    color: var(--primary);
+}
+
+.green .description {
+    color: var(--green);
+}
+
+.red .description {
+    color: var(--red);
+}
+
+.extra {
+    flex-shrink: 0;
+    background-color: var(--border);
+    color: var(--primary);
+    padding: calc(var(--unit) * 1) calc(var(--unit) * 1.5);
+    border-radius: calc(var(--unit) * 2);
+}
+
+.primary .extra {
+    background-color: var(--border);
+    color: var(--primary);
+}
+
+.green .extra {
+    background-color: var(--green-dark);
+    color: var(--green);
+}
+
+.red .extra {
+    background-color: var(--red-dark);
+    color: var(--red);
+}

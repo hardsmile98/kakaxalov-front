@@ -19,8 +19,12 @@
     --white: #fff;
     --border: #6D4A36;
     --disabled: #D8853C;
-    --green: #C2D83C;
+    --green: #D8FF3D;
+    --green-dark: #626D36;
+    --green-bg: #2E2D0F;
     --red: #F14C2E;
+    --red-bg: #2E0F0F;
+    --red-dark: #6D3636;
 
     --text-secondary: #926E5B;
     --text-disabled: #cbcbcb;

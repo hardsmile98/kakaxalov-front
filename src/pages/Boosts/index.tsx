@@ -3,6 +3,8 @@ import boostsText from 'assets/images/boostsText.svg'
 import boostsIcon from 'assets/images/boostsIcon.svg'
 import DailyBoosts from './Daily'
 import Improvements from './Improvements'
+import Paid from './Paid'
+import Nft from './Nft'
 import styles from './styles.module.css'
 
 function Boosts () {
@@ -50,6 +52,22 @@ function Boosts () {
         </h5>
 
         <Improvements />
+      </div>
+
+      <div className={styles.blockWrapper}>
+        <h5>
+          Бусты за покупку
+        </h5>
+
+        <Paid />
+      </div>
+
+      <div className={styles.blockWrapper}>
+        <h5>
+          Проверка NTF
+        </h5>
+
+        <Nft />
       </div>
     </div>
   )

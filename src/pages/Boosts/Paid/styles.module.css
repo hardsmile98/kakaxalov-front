@@ -1,7 +1,7 @@
 .root {
     padding: calc(var(--unit) * 1.5);
-    border: 1px solid var(--border);
-    background-color: var(--bg-secondary);
+    border: 1px solid var(--green);
+    background-color: var( --green-bg);
     border-radius: var(--unit);
 }
 
@@ -15,6 +15,7 @@
 }
 
 .improvement2Image {
-    width: 32px;
+    width: 60px;
     height: auto;
+    margin-bottom: -10px;
 }

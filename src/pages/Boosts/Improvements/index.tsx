@@ -1,6 +1,7 @@
 import improvement1 from 'assets/images/improvement1.webp'
 import improvement2 from 'assets/images/improvement2.svg'
 import styles from './styles.module.css'
+import { Boost } from 'components'
 
 enum Slugs {
   multiply = 'multiply',
@@ -12,20 +13,20 @@ const improvements = [
   {
     slug: Slugs.multiply,
     title: 'Улучшатель сбора',
-    price: '300',
-    level: 1
+    description: '300 KAKAX',
+    extra: '1 LVL'
   },
   {
     slug: Slugs.miner,
     title: 'Время Минера',
-    price: '500',
-    level: 1
+    description: '500 KAKAX',
+    extra: '1 LVL'
   },
   {
     slug: Slugs.devourer,
     title: 'Время Пожирателя',
-    price: '500',
-    level: 1
+    description: '500 KAKAX',
+    extra: '1 LVL'
   }
 ]
 
@@ -36,35 +37,24 @@ const iconsMap = {
 }
 
 const stylesMap = {
-  [Slugs.multiply]: styles.improvement1,
-  [Slugs.miner]: undefined,
-  [Slugs.devourer]: undefined
+  [Slugs.multiply]: styles.improvement1Image,
+  [Slugs.miner]: styles.improvement2Image,
+  [Slugs.devourer]: styles.improvement2Image
 }
 
 function Improvements () {
   return (
     <ul className={styles.root}>
       {improvements.map((improvement) => (
-        <li key={improvement.slug}>
-          <button className={styles.button}>
-            <div className={styles.content}>
-              <div className={styles.imageWrapper}>
-                <img
-                  className={stylesMap[improvement.slug]}
-                  src={iconsMap[improvement.slug]}
-                  alt={improvement.title}
-                />
-              </div>
-
-              <div>
-                <div>{improvement.title}</div>
-                <div className={styles.price}>{improvement.price} КАКАХ</div>
-              </div>
-            </div>
-
-            <div className={styles.level}>{improvement.level} LVL</div>
-          </button>
-        </li>
+        <Boost
+          color="primary"
+          key={improvement.slug}
+          boost={{
+            ...improvement,
+            icon: iconsMap[improvement.slug],
+            iconStyle: stylesMap[improvement.slug]
+          }}
+        />
       ))}
     </ul>
   )
