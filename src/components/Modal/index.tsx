@@ -23,7 +23,7 @@ function Modal ({ children, isOpen, onClose }: ModalProps) {
       className={`${styles.root} ${isOpen ? styles.visible : styles.hidden}`}
     >
       <div className={styles.modal}>
-        <button onClick={onClose} className={styles.close}>X</button>
+        <button onClick={onClose} className={styles.close}>&#x2715;</button>
 
         <div>{children}</div>
       </div>
