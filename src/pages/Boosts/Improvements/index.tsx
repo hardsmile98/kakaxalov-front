@@ -9,7 +9,7 @@ enum Slugs {
   devourer = 'devourer',
 }
 
-const improvements = [
+const boosts = [
   {
     slug: Slugs.multiply,
     title: 'Улучшатель сбора',
@@ -45,14 +45,14 @@ const stylesMap = {
 function Improvements () {
   return (
     <ul className={styles.root}>
-      {improvements.map((improvement) => (
+      {boosts.map((boost) => (
         <Boost
           color="primary"
-          key={improvement.slug}
+          key={boost.slug}
           boost={{
-            ...improvement,
-            icon: iconsMap[improvement.slug],
-            iconStyle: stylesMap[improvement.slug]
+            ...boost,
+            icon: iconsMap[boost.slug],
+            iconStyle: stylesMap[boost.slug]
           }}
         />
       ))}

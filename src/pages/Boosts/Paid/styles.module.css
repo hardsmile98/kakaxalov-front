@@ -9,12 +9,12 @@
     margin-bottom: var(--unit);
 }
 
-.improvement1Image {
+.boost1Image {
     width: 55px;
     height: auto;
 }
 
-.improvement2Image {
+.boost2Image {
     width: 60px;
     height: auto;
     margin-bottom: -10px;
