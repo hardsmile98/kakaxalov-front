@@ -19,6 +19,13 @@
     height: auto;
 }
 
+.timer {
+    margin-top: var(--unit);
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
 .wrapper {
     position: relative;
     width: 100%;

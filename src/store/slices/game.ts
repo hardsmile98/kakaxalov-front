@@ -21,7 +21,8 @@ const gameSlice = createSlice({
       : 0,
     coinPosition: null,
     isBomb: false,
-    isExplosionVisible: false
+    isExplosionVisible: false,
+    boost: null
   },
   reducers: {
     setIsBomb: (state, action) => {
@@ -57,6 +58,9 @@ const gameSlice = createSlice({
     },
     setPosition: (state, action) => {
       state.position = action.payload
+    },
+    setBoost: (state, action) => {
+      state.boost = action.payload
     }
   }
 })
@@ -69,5 +73,6 @@ export const {
   incrementCoin,
   setPosition,
   setCoinPosition,
-  hideExplosion
+  hideExplosion,
+  setBoost
 } = gameSlice.actions

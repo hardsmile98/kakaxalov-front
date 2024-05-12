@@ -8,6 +8,8 @@ import islandBlack from 'assets/images/island-black.svg'
 import kakaxaCoin from 'assets/images/kakaxa-money.gif'
 import bomb from 'assets/images/bomb.gif'
 import explosion from 'assets/images/explosion.gif'
+import devourer from 'assets/images/devourer.gif'
+import miner from 'assets/images/miner.gif'
 import styles from './styles.module.css'
 import { useImagesPreload } from 'hooks'
 import { Position } from 'constants/index'
@@ -63,17 +65,23 @@ function Gameplay () {
     changePosition,
     coin,
     isBomb,
-    isExplosionVisible
+    boost,
+    isExplosionVisible,
+    boostTime
   } = useGameplay()
 
   useImagesPreload([
     bomb,
     kakaxaTop,
     kakaxaBotoom,
-    explosion
+    explosion,
+    devourer,
+    miner
   ])
 
   const setting = settings[position]
+
+  const personImage = boost !== null ? devourer : setting.image
 
   return (
     <div className={styles.root}>
@@ -82,6 +90,10 @@ function Gameplay () {
 
         <span>{coin}</span>
       </div>
+
+      {boostTime !== null && <div className={styles.timer}>
+        {boostTime} с
+      </div>}
 
       <div className={styles.wrapper}>
         <span
@@ -133,7 +145,7 @@ function Gameplay () {
           src={isExplosionVisible ? explosion : undefined}
         />
 
-        <img className={setting.style} src={setting.image} alt="kakaxa" />
+        <img className={setting.style} src={personImage} alt="kakaxa" />
 
         <img className={styles.islandBig} src={islandBig} alt="island" />
       </div>

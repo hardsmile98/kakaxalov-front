@@ -6,6 +6,8 @@ import dailyBoostModal2 from 'assets/images/dailyBoostModal2.webp'
 import { Button, Modal } from 'components'
 import { useNavigate } from 'react-router'
 import styles from './styles.module.css'
+import { useDispatch } from 'react-redux'
+import { setBoost } from 'store/slices/game'
 
 enum Slugs {
   devourer = 'devourer',
@@ -27,7 +29,7 @@ const boosts = [
     description: `Всасывает в себя мины, которые оставлял когда-то, в течение 30 секунд,
     нажми на кнопку “Применить”, возвращайся в игру и собирай КАКАХИ`,
     extra: 'Доступно - 1 раз',
-    disabled: false
+    disabled: true
   }
 ]
 
@@ -42,11 +44,18 @@ const modalImages = {
 }
 
 function DailyBoosts () {
+  const dispatch = useDispatch()
+
   const [startBoost, setStartBoost] = useState<null | Slugs>(null)
 
   const navigate = useNavigate()
 
   const setting = boosts.find(boost => boost.slug === startBoost)
+
+  const onBoostEnable = (slug: string) => {
+    dispatch(setBoost(slug))
+    navigate('/')
+  }
 
   return (
     <>
@@ -79,18 +88,18 @@ function DailyBoosts () {
       >
         {setting !== undefined && <div className={styles.modalWrapper}>
           <div className={styles.modalContent}>
-           <img src={modalImages[setting?.slug]} alt={setting?.title} />
+           <img src={modalImages[setting?.slug]} alt={setting.title} />
 
             <h4>
-              {setting?.title}
+              {setting.title}
             </h4>
 
             <p>
-              {setting?.description}
+              {setting.description}
             </p>
           </div>
 
-          <Button onClick={() => navigate('/')}>
+          <Button onClick={() => onBoostEnable(setting.slug)}>
             Прменить
           </Button>
         </div>}
