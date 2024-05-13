@@ -34,7 +34,8 @@ const useGameplay = () => {
     coinPosition,
     position,
     isBomb,
-    boost
+    boost,
+    coin
   })
 
   const coinRef = useRef<null | HTMLImageElement>(null)
@@ -44,7 +45,8 @@ const useGameplay = () => {
     coinPosition,
     position,
     isBomb,
-    boost
+    boost,
+    coin
   }
 
   const timeoutRef = useRef<null | NodeJS.Timeout>(null)
@@ -88,8 +90,8 @@ const useGameplay = () => {
     config.current = {
       ...config.current,
       duration: randomInteger(
-        config.current.boost !== null ? 500 : gameSettings.MIN_DURATION_ANIMATION_COIN,
-        config.current.boost !== null ? 800 : gameSettings.MAX_DURATION_ANIMATION_COIN
+        config.current.boost !== null ? 500 : gameSettings.MIN_DURATION_ANIMATION_COIN - (config.current.coin * 5),
+        config.current.boost !== null ? 800 : gameSettings.MAX_DURATION_ANIMATION_COIN - (config.current.coin * 5)
       )
     }
 
@@ -103,8 +105,8 @@ const useGameplay = () => {
       timeoutRef.current = setTimeout(
         () => generateCoin(),
         randomInteger(
-          config.current.boost !== null ? 800 : gameSettings.MIN_DELAY_NEW_COIN,
-          config.current.boost !== null ? 1_000 : gameSettings.MAX_DELAY_NEW_COIN
+          config.current.boost !== null ? 800 : gameSettings.MIN_DELAY_NEW_COIN - (config.current.coin * 10),
+          config.current.boost !== null ? 1_000 : gameSettings.MAX_DELAY_NEW_COIN - (config.current.coin * 10)
         )
       )
     }
