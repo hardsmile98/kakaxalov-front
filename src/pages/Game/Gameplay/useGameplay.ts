@@ -105,8 +105,8 @@ const useGameplay = () => {
       timeoutRef.current = setTimeout(
         () => generateCoin(),
         randomInteger(
-          config.current.boost !== null ? 800 : gameSettings.MIN_DELAY_NEW_COIN - (config.current.coin * 10),
-          config.current.boost !== null ? 1_000 : gameSettings.MAX_DELAY_NEW_COIN - (config.current.coin * 10)
+          config.current.boost !== null ? 800 : gameSettings.MIN_DELAY_NEW_COIN - (config.current.coin * 15),
+          config.current.boost !== null ? 1_000 : gameSettings.MAX_DELAY_NEW_COIN - (config.current.coin * 15)
         )
       )
     }
