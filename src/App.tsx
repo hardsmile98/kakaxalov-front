@@ -35,6 +35,10 @@ function App () {
     }
   }, [tg, navigate, pathname])
 
+  useEffect(() => {
+    alert(tg.initData)
+  }, [tg])
+
   return <Routes>
     <Route path='/*' element={<Game />} />
     <Route path='/referals' element={<Referals />} />
