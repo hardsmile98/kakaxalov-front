@@ -35,17 +35,13 @@ function App () {
     }
   }, [tg, navigate, pathname])
 
-  return <>
-  <div>{tg.initData}</div>
-
-  <Routes>
+  return <Routes>
     <Route path='/*' element={<Game />} />
     <Route path='/referals' element={<Referals />} />
     <Route path='/leadboard' element={<Leadboard />} />
     <Route path='/boosts' element={<Boosts />} />
     <Route path='/trade' element={<Trade />} />
   </Routes>
-  </>
 }
 
 export default App
