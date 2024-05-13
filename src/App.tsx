@@ -35,17 +35,17 @@ function App () {
     }
   }, [tg, navigate, pathname])
 
-  useEffect(() => {
-    alert(tg.initData)
-  }, [tg])
+  return <>
+  <div>{tg.initData}</div>
 
-  return <Routes>
+  <Routes>
     <Route path='/*' element={<Game />} />
     <Route path='/referals' element={<Referals />} />
     <Route path='/leadboard' element={<Leadboard />} />
     <Route path='/boosts' element={<Boosts />} />
     <Route path='/trade' element={<Trade />} />
   </Routes>
+  </>
 }
 
 export default App
