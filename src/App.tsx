@@ -9,7 +9,7 @@ import {
   Referals,
   Leadboard,
   Boosts,
-  Trade
+  Earn
 } from './pages'
 import { useTelegram } from 'hooks'
 import { useEffect } from 'react'
@@ -40,7 +40,7 @@ function App () {
     <Route path='/referals' element={<Referals />} />
     <Route path='/leadboard' element={<Leadboard />} />
     <Route path='/boosts' element={<Boosts />} />
-    <Route path='/trade' element={<Trade />} />
+    <Route path='/earn' element={<Earn />} />
   </Routes>
 }
 

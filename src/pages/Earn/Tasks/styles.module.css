@@ -1,0 +1,36 @@
+.root > li:not(:last-of-type) {
+    margin-bottom: 3px
+}
+
+.link {
+    width: 100%;
+    border: 1px solid var(--border);
+    padding: calc(var(--unit) * 2) calc(var(--unit) * 1.5);
+    border-radius: var(--unit);
+    background-color: var(--bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--unit);
+    color: inherit;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.icon {
+    color: var(--bg-secondary-light);
+}
+
+.checked {
+    color: var(--success);
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    column-gap: var(--unit);
+}
+
+.bonus {
+    color: var(--primary);
+}

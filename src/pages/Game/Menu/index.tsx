@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import inviteIcon from 'assets/images/inviteIcon.svg'
 import boostIcon from 'assets/images/boostsIcon.svg'
 import topIcon from 'assets/images/topIcon.svg'
-import tradeIcon from 'assets/images/tradeIcon.svg'
+import earnIcon from 'assets/images/earnIcon.svg'
 import styles from './styles.module.css'
 import menu from 'assets/images/menu.webp'
 
@@ -33,7 +33,7 @@ function Menu () {
 
         <li>
           <Link to="/earn">
-            <img src={tradeIcon} alt="Earn" />
+            <img src={earnIcon} alt="Earn" />
             Earn
           </Link>
         </li>
