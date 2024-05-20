@@ -1,20 +1,12 @@
-import robotBoost from 'assets/images/robotBoost.webp'
 import skinBoost from 'assets/images/skinBoost.webp'
 import styles from './styles.module.css'
 import { Boost } from 'components'
 
 enum Slugs {
-  robot = 'robot',
   skin = 'skin',
 }
 
 const boosts = [
-  {
-    slug: Slugs.robot,
-    title: 'Говнарь Robot',
-    description: '50$',
-    extra: 'Купить'
-  },
   {
     slug: Slugs.skin,
     title: 'Выбор скина',
@@ -24,13 +16,11 @@ const boosts = [
 ]
 
 const iconsMap = {
-  [Slugs.robot]: robotBoost,
   [Slugs.skin]: skinBoost
 }
 
 const stylesMap = {
-  [Slugs.robot]: styles.boost1Image,
-  [Slugs.skin]: styles.boost2Image
+  [Slugs.skin]: styles.boostImage
 }
 
 function Paid () {

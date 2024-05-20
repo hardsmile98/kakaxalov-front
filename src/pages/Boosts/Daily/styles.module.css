@@ -38,12 +38,22 @@
     font-weight: 600;
 }
 
-.image {
+.iconDaily1 {
     position: absolute;
     z-index: 0;
     bottom: 0;
     right: 0;
     width: 72px;
+    height: auto;
+}
+
+.iconDaily2 {
+    position: absolute;
+    z-index: 0;
+    bottom: 50%;
+    transform: translateY(50%);
+    right: var(--unit);
+    width: 38px;
     height: auto;
 }
 
@@ -68,8 +78,17 @@
 }
 
 .modalContent img {
-    max-width: 220px;
+    width: 100%;
     height: auto;
+    margin-bottom: var(--unit);
+}
+
+.modalImage1Style {
+    max-width: 220px;
+}
+
+.modalImage2Style {
+    max-width: 180px;
 }
 
 .modalContent h4 {

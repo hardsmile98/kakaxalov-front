@@ -43,11 +43,10 @@
 .helths {
   display: flex;
   align-items: center;
-  gap: 2px;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: 58px;
+  left: 50px;
 }
 
 .progressbar {

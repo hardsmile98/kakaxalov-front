@@ -1,14 +1,16 @@
 import { type ButtonHTMLAttributes, type ReactNode } from 'react'
+import Loader from '../Loader'
 import styles from './styles.module.css'
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   children: ReactNode
+  loading?: boolean
 }
 
-function Button ({ children, className, ...props }: ButtonProps) {
+function Button ({ children, loading, className, disabled, ...props }: ButtonProps) {
   return (
-    <button className={`${styles.button} ${className ?? ''}`} {...props}>
-        {children}
+    <button disabled={disabled ?? loading} className={`${styles.button} ${className ?? ''}`} {...props}>
+        {loading === true ? <Loader /> : children}
     </button>
   )
 }

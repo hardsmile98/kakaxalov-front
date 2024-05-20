@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import dailyBoost1 from 'assets/images/dailyBoost1.webp'
-import dailyBoost2 from 'assets/images/dailyBoost2.webp'
+import dailyBoost2 from 'assets/images/helth.svg'
 import dailyBoostModal1 from 'assets/images/dailyBoostModal1.webp'
-import dailyBoostModal2 from 'assets/images/dailyBoostModal2.webp'
 import { Button, Modal } from 'components'
 import { useNavigate } from 'react-router'
 import styles from './styles.module.css'
@@ -11,7 +10,7 @@ import { setBoost } from 'store/slices/game'
 
 enum Slugs {
   devourer = 'devourer',
-  miner = 'miner',
+  energy = 'energy',
 }
 
 const boosts = [
@@ -24,23 +23,27 @@ const boosts = [
     disabled: false
   },
   {
-    slug: Slugs.miner,
-    title: 'Минер',
-    description: `Всасывает в себя мины, которые оставлял когда-то, в течение 30 секунд,
-    нажми на кнопку “Применить”, возвращайся в игру и собирай КАКАХИ`,
-    extra: 'Доступно - 1 раз',
+    slug: Slugs.energy,
+    title: 'Энергия',
+    description: 'Восстанавливает 1 единицу энергии',
+    extra: 'Через 3 часа 20 мин',
     disabled: true
   }
 ]
 
-const iconsMap = {
-  [Slugs.devourer]: dailyBoost1,
-  [Slugs.miner]: dailyBoost2
-}
-
-const modalImages = {
-  [Slugs.devourer]: dailyBoostModal1,
-  [Slugs.miner]: dailyBoostModal2
+const settingsMap = {
+  [Slugs.devourer]: {
+    icon: dailyBoost1,
+    iconStyle: styles.iconDaily1,
+    modalImage: dailyBoostModal1,
+    modalImageStyle: styles.modalImage1Style
+  },
+  [Slugs.energy]: {
+    icon: dailyBoost2,
+    iconStyle: styles.iconDaily2,
+    modalImage: dailyBoost2,
+    modalImageStyle: styles.modalImage2Style
+  }
 }
 
 function DailyBoosts () {
@@ -74,8 +77,8 @@ function DailyBoosts () {
             </div>
 
             <img
-              className={styles.image}
-              src={iconsMap[boost.slug]}
+              className={settingsMap[boost.slug].iconStyle}
+              src={settingsMap[boost.slug].icon}
               alt={boost.title}
             />
           </button>
@@ -88,7 +91,10 @@ function DailyBoosts () {
       >
         {setting !== undefined && <div className={styles.modalWrapper}>
           <div className={styles.modalContent}>
-           <img src={modalImages[setting?.slug]} alt={setting.title} />
+            <img
+              src={settingsMap[setting?.slug].modalImage}
+              className={settingsMap[setting?.slug].modalImageStyle}
+              alt={setting.title} />
 
             <h4>
               {setting.title}
