@@ -1,38 +1,23 @@
 import topImage from 'assets/images/topImage.webp'
 import topText from 'assets/images/topText.svg'
 import topIcon from 'assets/images/topIcon.svg'
-import { UserList } from 'components'
+import { ErrorPage, PageLoader, UserList } from 'components'
 import styles from './styles.module.css'
-
-const topList = [
-  {
-    id: 1,
-    name: 'Alex',
-    value: '150.000 KAKAX'
-  },
-  {
-    id: 2,
-    name: 'Nick',
-    value: '10.5000 KAKAX'
-  },
-  {
-    id: 3,
-    name: 'Moty',
-    value: '10.000 KAKAX'
-  },
-  {
-    id: 4,
-    name: 'Alex',
-    value: '5.000 KAKAX'
-  },
-  {
-    id: 5,
-    name: 'Nick',
-    value: '3.000 KAKAX'
-  }
-]
+import { useGetTop100Query } from 'services/api'
 
 function Leadboard () {
+  const { isLoading, isError, data } = useGetTop100Query(undefined)
+
+  const topList = data?.top
+
+  if (isError) {
+    return <ErrorPage />
+  }
+
+  if (isLoading) {
+    return <PageLoader />
+  }
+
   return (
     <div className={styles.root}>
       <div className={styles.imageWrapper}>
@@ -74,7 +59,7 @@ function Leadboard () {
       <div className={styles.scoreWrapper}>
         <div className={styles.positionWrapper}>
           <div>
-            13.3K
+            {data?.position.index}
           </div>
 
           <div>
@@ -83,7 +68,7 @@ function Leadboard () {
         </div>
 
         <div className={styles.score}>
-          40.200 KAKAX
+          {data?.position.leadboardScore} KAKAX
         </div>
       </div>
     </div>

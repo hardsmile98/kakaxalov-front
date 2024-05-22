@@ -1,27 +1,17 @@
 import inviteImage from 'assets/images/inviteImage.webp'
 import inviteIcon from 'assets/images/inviteIcon.svg'
-import { Button, Input, UserList } from 'components'
+import { Button, Input, Loader, UserList } from 'components'
+import { useGetProfileQuery, useGetReferalsQuery } from 'services/api'
+import { envs } from 'constants/index'
 import styles from './styles.module.css'
 
-const referalList = [
-  {
-    id: 1,
-    name: 'Alex',
-    value: '+5000 KAKAX'
-  },
-  {
-    id: 2,
-    name: 'Nick',
-    value: '+5000 KAKAX'
-  },
-  {
-    id: 3,
-    name: 'Moty',
-    value: '+5000 KAKAX'
-  }
-]
-
 function Referals () {
+  const { data: profile } = useGetProfileQuery(undefined)
+
+  const inviteCode = profile?.user?.inviteCode
+
+  const { isLoading, data } = useGetReferalsQuery(undefined)
+
   return (
     <div className={styles.root}>
       <div>
@@ -40,24 +30,28 @@ function Referals () {
           <h5>Реферальная ссылка</h5>
 
           <Input
-            value="https://t.me/kakaxalov_game_bot?userId=48285"
+            value={`${envs.miniAppUrl}?refCode=${inviteCode}`}
             readOnly
             withCopy
           />
         </div>
 
-        {referalList.length > 0 && (
-          <div className={styles.blockWrapper}>
-            <h5>Твои говнари</h5>
+        <div className={styles.blockWrapper}>
+          <h5>Твои говнари</h5>
 
-            <UserList list={referalList} />
-          </div>
-        )}
+          {isLoading
+            ? (
+            <div className={styles.loader}>
+              <Loader />
+            </div>
+              )
+            : (
+            <UserList list={data} />
+              )}
+        </div>
       </div>
 
-      <Button className={styles.button}>
-        Пригласить
-      </Button>
+      <Button className={styles.button}>Пригласить</Button>
     </div>
   )
 }

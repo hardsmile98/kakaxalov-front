@@ -1,0 +1,25 @@
+.root {
+    padding: calc(var(--unit) * 1.5);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.errorImage {
+    max-width: 310px;
+    height: auto;
+    margin-bottom: calc(var(--unit) * 3);
+}
+
+.errorText {
+    color: var(--primary);
+    font-weight: 700;
+    font-size: var(--h4);
+    margin-bottom: calc(var(--unit) * 2);
+}
+
+.root > button {
+    max-width: 240px;
+}

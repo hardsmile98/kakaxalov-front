@@ -7,19 +7,23 @@ interface UserListProps {
     id: number
     name: string
     value: string
-  }>
+  }> | undefined
 }
 
 function UserList ({ list, type = 'default' }: UserListProps) {
+  console.log(list)
+
   return (
     <div className={styles.root}>
-      {list.map((user, index) => <UserElement
+      {list?.length !== 0 && list !== undefined
+        ? list.map((user, index) => <UserElement
         key={user.id}
         user={{
           ...user,
           index: type === 'numeric' ? index + 1 : undefined
         }}
-       />)}
+       />)
+        : 'Список пуст'}
     </div>
   )
 }

@@ -7,7 +7,7 @@ function PageLoader () {
         <img className={styles.loadingImage} src={loadingImage} alt="loading image" />
 
         <p className={styles.loadingText}>
-            Loading...
+          Loading...
         </p>
     </div>
   )

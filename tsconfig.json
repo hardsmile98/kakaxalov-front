@@ -24,6 +24,7 @@
       "assets/*": ["assets/*"],
       "helpers/*": ["helpers/*"],
       "store/*": ["store/*"],
+      "services/*": ["services/*"],
     }
   },
   "include": [

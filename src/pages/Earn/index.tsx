@@ -3,8 +3,20 @@ import earnText from 'assets/images/earnText.svg'
 import earnIcon from 'assets/images/earnIcon.svg'
 import Tasks from './Tasks'
 import styles from './styles.module.css'
+import { useGetTasksQuery } from 'services/api'
+import { ErrorPage, PageLoader } from 'components'
 
 function Earn () {
+  const { data, isLoading, isError } = useGetTasksQuery(undefined)
+
+  if (isError) {
+    return <ErrorPage />
+  }
+
+  if (isLoading) {
+    return <PageLoader />
+  }
+
   return (
     <div className={styles.root}>
       <div className={styles.imageWrapper}>
@@ -40,7 +52,7 @@ function Earn () {
           Задания
         </h5>
 
-        <Tasks />
+        <Tasks tasks={data?.tasks} />
       </div>
     </div>
   )

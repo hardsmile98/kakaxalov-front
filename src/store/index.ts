@@ -5,12 +5,14 @@ import {
 } from 'react-redux'
 import gameReducer from './slices/game'
 import { configureStore } from '@reduxjs/toolkit'
+import { publicApi } from 'services/api'
 
 const store = configureStore({
   reducer: {
+    [publicApi.reducerPath]: publicApi.reducer,
     game: gameReducer
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware()
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(publicApi.middleware)
 })
 
 export default store

@@ -48,3 +48,7 @@
     flex-shrink: 0;
     margin-top: calc(var(--unit) * 2);
 }
+
+.loader {
+    text-align: center;
+}

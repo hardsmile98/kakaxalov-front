@@ -4,6 +4,7 @@ import UserList from './UserList'
 import Boost from './Boost'
 import Modal from './Modal'
 import PageLoader from './PageLoader'
+import ErrorPage from './ErrorPage'
 import Loader from './Loader'
 
 export {
@@ -13,5 +14,6 @@ export {
   Boost,
   Modal,
   PageLoader,
+  ErrorPage,
   Loader
 }

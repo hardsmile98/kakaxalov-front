@@ -1,42 +1,19 @@
-import { Link } from 'react-router-dom'
-import { ReactComponent as CheckIcon } from 'assets/images/checkIcon.svg'
+import { type TasksResponse } from 'services'
 import styles from './styles.module.css'
+import Task from './Task'
 
-const tasks = [
-  {
-    id: 1,
-    title: 'Подписаться на канал',
-    href: '',
-    bonus: 300,
-    completed: true
-  },
-  {
-    id: 2,
-    title: 'Подписаться на чат',
-    href: '',
-    bonus: 200,
-    completed: false
-  }
-]
+interface TasksProps {
+  tasks: TasksResponse['tasks'] | undefined
+}
 
-function Tasks () {
+function Tasks ({ tasks }: TasksProps) {
   return (
     <ul className={styles.root}>
-      {tasks.map((task) => (
-        <li key={task.id} className={styles.task}>
-          <Link to={task.completed ? '' : task.href} className={styles.link}>
-            <div className={styles.wrapper}>
-              <CheckIcon className={task.completed ? styles.checked : styles.icon} />
-
-              <div>{task.title}</div>
-            </div>
-
-            <div className={styles.bonus}>
-              {task.bonus} KAKAX
-            </div>
-          </Link>
-        </li>
-      ))}
+      {tasks?.length !== 0 && tasks !== undefined
+        ? tasks.map((task) => (
+            <Task key={task.id} task={task} />
+        ))
+        : 'Нет заданий'}
     </ul>
   )
 }
