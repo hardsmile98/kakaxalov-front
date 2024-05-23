@@ -2,7 +2,7 @@ import coinIcon from 'assets/images/kakaxaCoin.webp'
 import helth from 'assets/images/helth.svg'
 import { useSelector } from 'store'
 import { useGetProfileQuery } from 'services/api'
-import { gameSettings } from 'constants/index'
+import { GameStatuses, gameSettings } from 'constants/index'
 import { declOfWords } from 'helpers'
 import styles from './styles.module.css'
 
@@ -10,7 +10,7 @@ function Head () {
   const { data } = useGetProfileQuery(undefined)
 
   const gameTimer = useSelector(state => state.game.gameTimer)
-  const isGame = useSelector(state => state.game.isGame)
+  const gameStatus = useSelector(state => state.game.gameStatus)
 
   const gameTime = data?.user?.gameTime ?? gameSettings.DEFAULT_GAME_TIME
 
@@ -44,7 +44,9 @@ function Head () {
         />
 
         <span className={styles.score}>
-          {isGame ? `${gameTimer} ${declOfWords(gameTimer, ['секунда', 'секунды', 'секунд'])}` : null}
+          {gameStatus !== GameStatuses.notRuning
+            ? `${gameTimer} ${declOfWords(gameTimer, ['секунда', 'секунды', 'секунд'])}`
+            : null}
         </span>
       </div>
     </div>

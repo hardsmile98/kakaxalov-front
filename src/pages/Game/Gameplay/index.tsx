@@ -12,7 +12,7 @@ import devourer from 'assets/images/devourer.gif'
 import miner from 'assets/images/miner.gif'
 import styles from './styles.module.css'
 import { useImagesPreload } from 'hooks'
-import { Position } from 'constants/index'
+import { GameStatuses, Position } from 'constants/index'
 import useGameplay from './useGameplay'
 
 const stylesCoinMap: Record<string, string> = {
@@ -58,15 +58,13 @@ Position,
 
 function Gameplay () {
   const {
-    isGame,
+    gameStatus,
     isGameAvailable,
-
     config,
     coinPosition,
     coinRef,
     position,
     changePosition,
-    start,
     coin,
     isBomb,
     boost,
@@ -81,7 +79,7 @@ function Gameplay () {
 
   return (
     <div className={styles.root}>
-      {isGame
+      {gameStatus !== GameStatuses.notRuning
         ? (
         <div className={styles.score}>
           <img src={coinIcon} alt="coin" />
@@ -91,7 +89,7 @@ function Gameplay () {
         : (
         <div className={styles.playWrapper}>
           <button
-            onClick={() => start()}
+            onClick={() => {}}
             disabled={!isGameAvailable}
             type="button"
           />

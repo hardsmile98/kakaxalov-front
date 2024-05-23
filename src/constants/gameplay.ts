@@ -19,6 +19,13 @@ enum Position {
   rightBottom = 'rightBottom',
 }
 
+enum GameStatuses {
+  notRuning = 'NOT_RUNNING',
+  started = 'STARTED',
+  runing = 'RUNING',
+  finishing = 'FINISHING'
+}
+
 const positionArray = [
   Position.leftBottom,
   Position.leftTop,
@@ -29,5 +36,6 @@ const positionArray = [
 export {
   gameSettings,
   Position,
+  GameStatuses,
   positionArray
 }

@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { Position } from 'constants/index'
+import { Position, GameStatuses } from 'constants/index'
 
 const initialState = {
   gameTimer: 0,
-  isGame: false,
+  gameStatus: GameStatuses.notRuning,
   boost: null,
   position: Position.initial,
   coin: 0,
@@ -41,8 +41,10 @@ const gameSlice = createSlice({
       state.boost = action.payload
     },
     startGame: (state, action) => {
-      state.isGame = true
       state.gameTimer = action.payload
+    },
+    stopGame: (state) => {
+      state = initialState
     }
   }
 })
@@ -58,5 +60,6 @@ export const {
   hideExplosion,
   setBoost,
   startGame,
-  decrementTimer
+  decrementTimer,
+  stopGame
 } = gameSlice.actions
