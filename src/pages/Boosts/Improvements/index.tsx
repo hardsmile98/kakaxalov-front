@@ -1,29 +1,27 @@
 import improvement2 from 'assets/images/improvement2.svg'
 import styles from './styles.module.css'
 import { Boost } from 'components'
-
-enum Slugs {
-  energy = 'energy'
-}
-
-const boosts = [
-  {
-    slug: Slugs.energy,
-    title: 'Время игры +5 сек.',
-    description: '300 KAKAX',
-    extra: '1 LVL'
-  }
-]
+import { BoostSlugs, type Boosts } from 'services'
 
 const iconsMap = {
-  [Slugs.energy]: improvement2
+  [BoostSlugs.devourer]: undefined,
+  [BoostSlugs.energy]: improvement2
 }
 
 const stylesMap = {
-  [Slugs.energy]: styles.improvement2Image
+  [BoostSlugs.devourer]: undefined,
+  [BoostSlugs.energy]: styles.improvement2Image
 }
 
-function Improvements () {
+interface ImprovementsProps {
+  boosts?: Boosts['improveList']
+}
+
+function Improvements ({ boosts }: ImprovementsProps) {
+  if (boosts?.length === 0 || boosts === undefined) {
+    return null
+  }
+
   return (
     <ul className={styles.root}>
       {boosts.map((boost) => (

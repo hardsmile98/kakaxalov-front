@@ -6,8 +6,20 @@ import Improvements from './Improvements'
 // import Paid from './Paid'
 // import Nft from './Nft'
 import styles from './styles.module.css'
+import { useGetBoostsQuery } from 'services/api'
+import { ErrorPage, PageLoader } from 'components'
 
 function Boosts () {
+  const { data, isLoading, isError } = useGetBoostsQuery(undefined)
+
+  if (isError) {
+    return <ErrorPage />
+  }
+
+  if (isLoading) {
+    return <PageLoader />
+  }
+
   return (
     <div className={styles.root}>
       <div className={styles.imageWrapper}>
@@ -51,7 +63,7 @@ function Boosts () {
           Бусты с прокачкой
         </h5>
 
-        <Improvements />
+        <Improvements boosts={data?.improveList} />
       </div>
 
       {/* <div className={styles.blockWrapper}>

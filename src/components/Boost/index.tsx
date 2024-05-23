@@ -4,7 +4,7 @@ interface BoostProps {
   color: 'primary' | 'green' | 'red'
   boost: {
     slug: string
-    icon: string
+    icon?: string
     iconStyle?: string
     title: string
     description: string
