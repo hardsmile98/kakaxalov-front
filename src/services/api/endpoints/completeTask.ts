@@ -9,7 +9,7 @@ const completeTask = {
     }
   }),
 
-  invalidatesTags: [tagTypes.tasks]
+  invalidatesTags: [tagTypes.tasks, tagTypes.profile]
 }
 
 export {
