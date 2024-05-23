@@ -20,7 +20,7 @@ export const publicApi = createApi({
   }),
 
   endpoints: (builder) => ({
-    getProfile: builder.query(endpoints.getProfile),
+    getProfile: builder.query<endpoints.ProfileResponse, undefined>(endpoints.getProfile),
     getTop100: builder.query(endpoints.getTop100),
     getTasks: builder.query<endpoints.TasksResponse, undefined>(endpoints.getTasks),
     completeTask: builder.mutation(endpoints.completeTask),

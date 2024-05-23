@@ -66,8 +66,7 @@ function Gameplay () {
     coin,
     isBomb,
     boost,
-    isExplosionVisible,
-    boostTime
+    isExplosionVisible
   } = useGameplay()
 
   useImagesPreload([
@@ -90,10 +89,6 @@ function Gameplay () {
 
         <span>{coin}</span>
       </div>
-
-      {boostTime !== null && <div className={styles.timer}>
-        {boostTime} с
-      </div>}
 
       <div className={styles.wrapper}>
         <span

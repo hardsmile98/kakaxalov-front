@@ -1,20 +1,25 @@
 import coinIcon from 'assets/images/kakaxaCoin.webp'
 import helth from 'assets/images/helth.svg'
 import { useSelector } from 'store'
+import { useGetProfileQuery } from 'services/api'
 import { gameSettings } from 'constants/index'
+import { declOfWords } from 'helpers'
 import styles from './styles.module.css'
 
 function Head () {
-  const helths = useSelector(state => state.game.helths)
-  const score = useSelector(state => state.game.score)
-  const coin = useSelector(state => state.game.coin)
+  const { data } = useGetProfileQuery(undefined)
+
+  const gameTimer = useSelector(state => state.game.gameTimer)
+  const isGame = useSelector(state => state.game.isGame)
+
+  const gameTime = data?.user?.gameTime ?? gameSettings.DEFAULT_GAME_TIME
 
   return (
     <div className={styles.head}>
       <div className={styles.wrapper}>
         <div className={styles.helthsWrapper}>
           <div className={styles.helths}>
-            {new Array(helths).fill(null)
+            {new Array(data?.user.amountEnergy).fill(null)
               .map((_, idx) => <img
                 key={idx}
                 src={helth}
@@ -25,8 +30,9 @@ function Head () {
 
         <div className={styles.coinWrapper}>
           <img className={styles.coin} src={coinIcon} alt='coin' />
+
           <span>
-            {score} КАКАХ
+            {data?.user.currentScore} КАКАХ
           </span>
         </div>
       </div>
@@ -34,11 +40,11 @@ function Head () {
       <div className={styles.progressbar}>
         <span
           className={styles.line}
-          style={{ width: `${(coin / gameSettings.LIMIT_COLLECTION) * 100}%` }}
+          style={{ width: `${(gameTimer / gameTime) * 100}%` }}
         />
 
         <span className={styles.score}>
-          {coin} / {gameSettings.LIMIT_COLLECTION}
+          {isGame ? `${gameTimer} ${declOfWords(gameTimer, ['секунда, секунды, секунд'])}` : null}
         </span>
       </div>
     </div>

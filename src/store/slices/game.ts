@@ -8,9 +8,10 @@ const SCORE_LS = 'score'
 const gameSlice = createSlice({
   name: 'game',
   initialState: {
-    // helths: localStorage.getItem(HELTHS_LS) !== null
-    //   ? Number(localStorage.getItem(HELTHS_LS))
-    //   : 3,
+    gameTimer: 0,
+    isGame: false,
+
+    // old
     helths: 3,
     score: localStorage.getItem(SCORE_LS) !== null
       ? Number(localStorage.getItem(SCORE_LS))

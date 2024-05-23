@@ -3,7 +3,7 @@ import Head from './Head'
 import Menu from './Menu'
 import styles from './styles.module.css'
 
-function Game () {
+function Game2 () {
   return (
     <div className={styles.root}>
       <div className={styles.wrapper}>
@@ -17,4 +17,4 @@ function Game () {
   )
 }
 
-export default Game
+export default Game2

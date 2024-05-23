@@ -21,6 +21,10 @@ function Improvements ({ boosts }: ImprovementsProps) {
 
   const { data } = useGetProfileQuery(undefined)
 
+  const currentScore = data?.user?.currentScore !== undefined
+    ? data.user.currentScore
+    : 0
+
   const [improve, { isLoading, isSuccess, isError }] = useImproveBoostMutation()
 
   useEffect(() => {
@@ -51,7 +55,7 @@ function Improvements ({ boosts }: ImprovementsProps) {
           }}
           boost={{
             ...boost,
-            disabled: boost.disabled || data?.user?.currentScore < boost.levelPrice,
+            disabled: boost.disabled || currentScore < boost.levelPrice,
             icon: settingsMap[boost.slug].icon,
             iconStyle: settingsMap[boost.slug].iconStyle
           }}

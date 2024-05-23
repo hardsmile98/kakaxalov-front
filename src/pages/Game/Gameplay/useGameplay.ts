@@ -101,15 +101,15 @@ const useGameplay = () => {
   }, [dispatch])
 
   useEffect(() => {
-    if (timeoutRef.current === null && coinPosition === null) {
-      timeoutRef.current = setTimeout(
-        () => generateCoin(),
-        randomInteger(
-          config.current.boost !== null ? 800 : gameSettings.MIN_DELAY_NEW_COIN - (config.current.coin * 75),
-          config.current.boost !== null ? 1_000 : gameSettings.MAX_DELAY_NEW_COIN - (config.current.coin * 75)
-        )
-      )
-    }
+    // if (timeoutRef.current === null && coinPosition === null) {
+    //   timeoutRef.current = setTimeout(
+    //     () => generateCoin(),
+    //     randomInteger(
+    //       config.current.boost !== null ? 800 : gameSettings.MIN_DELAY_NEW_COIN - (config.current.coin * 75),
+    //       config.current.boost !== null ? 1_000 : gameSettings.MAX_DELAY_NEW_COIN - (config.current.coin * 75)
+    //     )
+    //   )
+    // }
   }, [generateCoin, coinPosition])
 
   useEffect(() => {
