@@ -58,25 +58,22 @@ Position,
 
 function Gameplay () {
   const {
+    isGame,
+    isGameAvailable,
+
     config,
     coinPosition,
     coinRef,
     position,
     changePosition,
+    start,
     coin,
     isBomb,
     boost,
     isExplosionVisible
   } = useGameplay()
 
-  useImagesPreload([
-    bomb,
-    kakaxaTop,
-    kakaxaBotoom,
-    explosion,
-    devourer,
-    miner
-  ])
+  useImagesPreload([bomb, kakaxaTop, kakaxaBotoom, explosion, devourer, miner])
 
   const setting = settings[position]
 
@@ -84,11 +81,22 @@ function Gameplay () {
 
   return (
     <div className={styles.root}>
-      <div className={styles.score}>
-        <img src={coinIcon} alt="coin" />
-
-        <span>{coin}</span>
-      </div>
+      {isGame
+        ? (
+        <div className={styles.score}>
+          <img src={coinIcon} alt="coin" />
+          <span>{coin}</span>
+        </div>
+          )
+        : (
+        <div className={styles.playWrapper}>
+          <button
+            onClick={() => start()}
+            disabled={!isGameAvailable}
+            type="button"
+          />
+        </div>
+          )}
 
       <div className={styles.wrapper}>
         <span

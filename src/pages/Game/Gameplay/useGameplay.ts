@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 import {
   positionArray,
   gameSettings,
@@ -8,24 +8,30 @@ import { randomInteger } from 'helpers/index'
 import { useDispatch, useSelector } from 'store'
 import {
   caughtBomb,
+  decrementTimer,
   hideExplosion,
   incrementCoin,
-  setBoost,
   setCoinPosition,
   setIsBomb,
-  setPosition
+  setPosition,
+  startGame
 } from 'store/slices/game'
+import { useGetProfileQuery } from 'services/api'
 
 const useGameplay = () => {
   const dispatch = useDispatch()
 
-  const [boostTime, setBoostTime] = useState<null | number>(null)
+  const { data } = useGetProfileQuery(undefined)
 
+  const isGameAvailable = data?.user.amountEnergy !== 0
+  const gameTime = data?.user.gameTime
+
+  const isGame = useSelector(state => state.game.isGame)
+  const gameTimer = useSelector(state => state.game.gameTimer)
   const position = useSelector(state => state.game.position)
   const coin = useSelector(state => state.game.coin)
   const coinPosition = useSelector(state => state.game.coinPosition)
   const isBomb = useSelector(state => state.game.isBomb)
-  const helths = useSelector(state => state.game.helths)
   const boost = useSelector(state => state.game.boost)
   const isExplosionVisible = useSelector(state => state.game.isExplosionVisible)
 
@@ -51,9 +57,9 @@ const useGameplay = () => {
 
   const timeoutRef = useRef<null | NodeJS.Timeout>(null)
 
-  const hideBombRef = useRef<null | NodeJS.Timeout>(null)
+  const gameTimerRef = useRef<null | NodeJS.Timeout>(null)
 
-  const boostTimerRef = useRef<null | NodeJS.Timeout>(null)
+  const hideBombRef = useRef<null | NodeJS.Timeout>(null)
 
   const check = useCallback(() => {
     if (config.current.boost !== null) {
@@ -101,40 +107,31 @@ const useGameplay = () => {
   }, [dispatch])
 
   useEffect(() => {
-    // if (timeoutRef.current === null && coinPosition === null) {
-    //   timeoutRef.current = setTimeout(
-    //     () => generateCoin(),
-    //     randomInteger(
-    //       config.current.boost !== null ? 800 : gameSettings.MIN_DELAY_NEW_COIN - (config.current.coin * 75),
-    //       config.current.boost !== null ? 1_000 : gameSettings.MAX_DELAY_NEW_COIN - (config.current.coin * 75)
-    //     )
-    //   )
-    // }
-  }, [generateCoin, coinPosition])
+    if (timeoutRef.current === null && coinPosition === null && isGame) {
+      timeoutRef.current = setTimeout(
+        () => generateCoin(),
+        randomInteger(
+          config.current.boost !== null ? 800 : gameSettings.MIN_DELAY_NEW_COIN - (config.current.coin * 75),
+          config.current.boost !== null ? 1_000 : gameSettings.MAX_DELAY_NEW_COIN - (config.current.coin * 75)
+        )
+      )
+    }
+  }, [generateCoin, isGame, coinPosition])
 
   useEffect(() => {
-    if (boost !== null) {
-      setBoostTime(30)
-
-      boostTimerRef.current = setInterval(() => setBoostTime((prev) => prev !== null && prev > 0 ? prev - 1 : 0), 1_000)
+    if (isGame && gameTimerRef.current === null) {
+      gameTimerRef.current = setInterval(() => {
+        dispatch(decrementTimer())
+      }, 1_000)
     }
-  }, [boost])
-
-  const disableBoost = useCallback(() => {
-    if (boostTimerRef.current !== null) {
-      clearInterval(boostTimerRef.current)
-    }
-
-    setBoostTime(null)
-
-    dispatch(setBoost(null))
-  }, [dispatch])
+  }, [dispatch, isGame])
 
   useEffect(() => {
-    if (boost !== null && boostTime === 0) {
-      disableBoost()
+    if (gameTimer <= 0 && gameTimerRef.current !== null) {
+      clearInterval(gameTimerRef.current)
+      // end game
     }
-  }, [boost, boostTime, disableBoost])
+  }, [gameTimer])
 
   useEffect(() => {
     if (coinRef.current !== null) {
@@ -143,7 +140,6 @@ const useGameplay = () => {
 
     return () => {
       dispatch(setPosition(Position.initial))
-      dispatch(setBoost(null))
 
       if (timeoutRef.current !== null) {
         clearTimeout(timeoutRef.current)
@@ -153,17 +149,19 @@ const useGameplay = () => {
         clearTimeout(hideBombRef.current)
       }
 
-      if (boostTimerRef.current !== null) {
-        clearInterval(boostTimerRef.current)
+      if (gameTimerRef.current !== null) {
+        clearInterval(gameTimerRef.current)
       }
     }
   }, [dispatch, check])
 
   const changePosition = (newPosition: Position) => {
-    if (helths > 0 && boost === null) {
+    if (isGame) {
       dispatch(setPosition(newPosition))
     }
   }
+
+  const start = () => dispatch(startGame(gameTime))
 
   return {
     config,
@@ -171,11 +169,14 @@ const useGameplay = () => {
     coinRef,
     position,
     changePosition,
+    start,
     coin,
     isBomb,
     isExplosionVisible,
     boost,
-    boostTime
+
+    isGame,
+    isGameAvailable
   }
 }
 

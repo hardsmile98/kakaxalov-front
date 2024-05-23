@@ -44,7 +44,7 @@ function Head () {
         />
 
         <span className={styles.score}>
-          {isGame ? `${gameTimer} ${declOfWords(gameTimer, ['секунда, секунды, секунд'])}` : null}
+          {isGame ? `${gameTimer} ${declOfWords(gameTimer, ['секунда', 'секунды', 'секунд'])}` : null}
         </span>
       </div>
     </div>

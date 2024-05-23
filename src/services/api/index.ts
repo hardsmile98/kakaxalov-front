@@ -26,7 +26,10 @@ export const publicApi = createApi({
     completeTask: builder.mutation(endpoints.completeTask),
     getReferals: builder.query(endpoints.getReferals),
     getBoosts: builder.query(endpoints.getBoosts),
-    improveBoost: builder.mutation(endpoints.improveBoost)
+    improveBoost: builder.mutation(endpoints.improveBoost),
+    applyBoost: builder.mutation(endpoints.applyBoost),
+    startGame: builder.mutation(endpoints.startGame),
+    endGame: builder.mutation(endpoints.endGame)
   }),
 
   tagTypes: Object.values(tagTypes)
@@ -39,7 +42,10 @@ export const {
   useCompleteTaskMutation,
   useGetReferalsQuery,
   useGetBoostsQuery,
-  useImproveBoostMutation
+  useImproveBoostMutation,
+  useApplyBoostMutation,
+  useStartGameMutation,
+  useEndGameMutation
 } = publicApi
 
 export * from './endpoints'

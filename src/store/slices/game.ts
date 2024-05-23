@@ -1,67 +1,48 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { Position, gameSettings } from 'constants/index'
+import { Position } from 'constants/index'
 
-const COIN_LS = 'coin'
-const HELTHS_LS = 'helths'
-const SCORE_LS = 'score'
+const initialState = {
+  gameTimer: 0,
+  isGame: false,
+  boost: null,
+  position: Position.initial,
+  coin: 0,
+  coinPosition: null,
+  isBomb: false,
+  isExplosionVisible: false
+}
 
 const gameSlice = createSlice({
   name: 'game',
-  initialState: {
-    gameTimer: 0,
-    isGame: false,
-
-    // old
-    helths: 3,
-    score: localStorage.getItem(SCORE_LS) !== null
-      ? Number(localStorage.getItem(SCORE_LS))
-      : 0,
-    position: Position.initial,
-    coin: localStorage.getItem(COIN_LS) !== null
-      ? Number(localStorage.getItem(COIN_LS))
-      : 0,
-    coinPosition: null,
-    isBomb: false,
-    isExplosionVisible: false,
-    boost: null
-  },
+  initialState,
   reducers: {
     setIsBomb: (state, action) => {
       state.isBomb = action.payload
     },
     incrementCoin: (state) => {
       state.coin = state.coin + 1
-      localStorage.setItem(COIN_LS, String(state.coin))
-
-      if (state.coin === gameSettings.LIMIT_COLLECTION) {
-        state.score = state.score + state.coin
-        state.coin = 0
-
-        localStorage.setItem(COIN_LS, String(state.coin))
-        localStorage.setItem(SCORE_LS, String(state.score))
-      }
+    },
+    decrementTimer: (state) => {
+      state.gameTimer = state.gameTimer - 1
     },
     setCoinPosition: (state, action) => {
       state.coinPosition = action.payload
     },
     caughtBomb: (state) => {
       state.isExplosionVisible = true
-      state.coin = 0
-      state.helths = state.helths - 1
-      localStorage.setItem(HELTHS_LS, String(state.helths))
     },
     hideExplosion: (state) => {
       state.isExplosionVisible = false
-
-      if (state.helths === 0) {
-        state.position = Position.initial
-      }
     },
     setPosition: (state, action) => {
       state.position = action.payload
     },
     setBoost: (state, action) => {
       state.boost = action.payload
+    },
+    startGame: (state, action) => {
+      state.isGame = true
+      state.gameTimer = action.payload
     }
   }
 })
@@ -75,5 +56,7 @@ export const {
   setPosition,
   setCoinPosition,
   hideExplosion,
-  setBoost
+  setBoost,
+  startGame,
+  decrementTimer
 } = gameSlice.actions
