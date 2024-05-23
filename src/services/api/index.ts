@@ -25,7 +25,8 @@ export const publicApi = createApi({
     getTasks: builder.query<endpoints.TasksResponse, undefined>(endpoints.getTasks),
     completeTask: builder.mutation(endpoints.completeTask),
     getReferals: builder.query(endpoints.getReferals),
-    getBoosts: builder.query(endpoints.getBoosts)
+    getBoosts: builder.query(endpoints.getBoosts),
+    improveBoost: builder.mutation(endpoints.improveBoost)
   }),
 
   tagTypes: Object.values(tagTypes)
@@ -37,7 +38,8 @@ export const {
   useGetTasksQuery,
   useCompleteTaskMutation,
   useGetReferalsQuery,
-  useGetBoostsQuery
+  useGetBoostsQuery,
+  useImproveBoostMutation
 } = publicApi
 
 export * from './endpoints'

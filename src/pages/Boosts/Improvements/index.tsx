@@ -1,8 +1,9 @@
 import improvement2 from 'assets/images/improvement2.svg'
 import styles from './styles.module.css'
 import { Boost } from 'components'
-import { BoostSlugs, useGetProfileQuery, type Boosts } from 'services'
+import { BoostSlugs, useGetProfileQuery, useImproveBoostMutation, type Boosts } from 'services'
 import { useSnackbar } from 'notistack'
+import { useEffect } from 'react'
 
 const settingsMap: Record<string, { icon: string, iconStyle: string }> = {
   [BoostSlugs.energy]: {
@@ -20,6 +21,20 @@ function Improvements ({ boosts }: ImprovementsProps) {
 
   const { data } = useGetProfileQuery(undefined)
 
+  const [improve, { isLoading, isSuccess, isError }] = useImproveBoostMutation()
+
+  useEffect(() => {
+    if (isSuccess) {
+      enqueueSnackbar('Ваш буст улучшен', { variant: 'success' })
+    }
+  }, [enqueueSnackbar, isSuccess])
+
+  useEffect(() => {
+    if (isError) {
+      enqueueSnackbar('Ошибка прокачки буста', { variant: 'error' })
+    }
+  }, [enqueueSnackbar, isError])
+
   if (boosts?.length === 0 || boosts === undefined) {
     return null
   }
@@ -30,7 +45,10 @@ function Improvements ({ boosts }: ImprovementsProps) {
         <Boost
           color="primary"
           key={boost.slug}
-          onClick={() => enqueueSnackbar('I love hooks', { variant: 'success' })}
+          loading={isLoading}
+          onClick={() => {
+            void improve(boost.id)
+          }}
           boost={{
             ...boost,
             disabled: boost.disabled || data?.user?.currentScore < boost.levelPrice,

@@ -31,6 +31,7 @@ const transformBoosts = (response: BoostsResponse) => {
     improveList: response.boosts
       .filter(boost => boost.canImproved)
       .map(boost => ({
+        id: boost.id,
         slug: boost.slug,
         title: boost.improveTitle,
         description: `${boost.levelPrice} KAKAX`,
@@ -41,6 +42,7 @@ const transformBoosts = (response: BoostsResponse) => {
     dailyList: response.boosts
       .filter(boost => boost.type === 'daily')
       .map(boost => ({
+        id: boost.id,
         slug: boost.slug,
         title: boost.title,
         description: boost.description,

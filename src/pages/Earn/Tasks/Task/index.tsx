@@ -34,12 +34,18 @@ function Task ({ task }: TaskProps) {
     }
   }, [completeTask, task.id, isLinkClick])
 
+  useEffect(() => () => {
+    if (refTimeout.current !== null) {
+      clearTimeout(refTimeout.current)
+    }
+  }, [])
+
   return (
     <li className={styles.task}>
       <Link
         to={task.link}
         target="_blank"
-        className={`${styles.link} ${task.completed ? styles.disabled : ''}`}
+        className={`${styles.link} ${(task.completed || isLoading) ? styles.disabled : ''}`}
         onClick={() => setLinkClick(true)}
       >
         <div className={styles.wrapper}>

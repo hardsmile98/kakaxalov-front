@@ -12,7 +12,7 @@ interface BoostType {
 interface BoostProps {
   color: 'primary' | 'green' | 'red'
   loading?: boolean
-  onClick?: (boost: BoostType) => void
+  onClick?: () => void
   boost: BoostType & {
     iconStyle?: string
     icon?: string
@@ -31,7 +31,7 @@ function Boost ({ boost, loading, color, onClick }: BoostProps) {
   return (
     <li className={stylesMap[color]}>
       <button
-        onClick={() => onClick?.(boost)}
+        onClick={onClick}
         disabled={boost.disabled || loading}
         className={styles.button}>
         <div className={styles.content}>
