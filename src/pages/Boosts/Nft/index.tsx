@@ -32,6 +32,7 @@ function Nft () {
         key={boost.slug}
         boost={{
           ...boost,
+          disabled: false,
           icon: iconsMap[boost.slug],
           iconStyle: stylesMap[boost.slug]
         }} />

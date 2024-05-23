@@ -3,14 +3,11 @@ import styles from './styles.module.css'
 import { Boost } from 'components'
 import { BoostSlugs, type Boosts } from 'services'
 
-const iconsMap = {
-  [BoostSlugs.devourer]: undefined,
-  [BoostSlugs.energy]: improvement2
-}
-
-const stylesMap = {
-  [BoostSlugs.devourer]: undefined,
-  [BoostSlugs.energy]: styles.improvement2Image
+const settingsMap: Record<string, { icon: string, iconStyle: string }> = {
+  [BoostSlugs.energy]: {
+    icon: improvement2,
+    iconStyle: styles.improvement2Image
+  }
 }
 
 interface ImprovementsProps {
@@ -28,10 +25,11 @@ function Improvements ({ boosts }: ImprovementsProps) {
         <Boost
           color="primary"
           key={boost.slug}
+          onClick={() => {}}
           boost={{
             ...boost,
-            icon: iconsMap[boost.slug],
-            iconStyle: stylesMap[boost.slug]
+            icon: settingsMap[boost.slug].icon,
+            iconStyle: settingsMap[boost.slug].iconStyle
           }}
         />
       ))}

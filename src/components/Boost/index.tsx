@@ -1,14 +1,14 @@
+import Loader from 'components/Loader'
+import { type Boosts } from 'services'
 import styles from './styles.module.css'
 
 interface BoostProps {
   color: 'primary' | 'green' | 'red'
-  boost: {
-    slug: string
-    icon?: string
+  loading?: boolean
+  onClick?: (boost: Boosts['improveList'][0]) => void
+  boost: Boosts['improveList'][0] & {
     iconStyle?: string
-    title: string
-    description: string
-    extra: string
+    icon?: string
   }
 }
 
@@ -18,17 +18,22 @@ const stylesMap = {
   red: styles.red
 }
 
-function Boost ({ boost, color }: BoostProps) {
+function Boost ({ boost, loading, color, onClick }: BoostProps) {
   return (
     <li className={stylesMap[color]}>
-      <button className={styles.button}>
+      <button
+        onClick={() => onClick?.(boost)}
+        disabled={loading}
+        className={styles.button}>
         <div className={styles.content}>
           <div className={styles.imageWrapper}>
-            <img
-              className={boost.iconStyle}
-              src={boost.icon}
-              alt={boost.title}
-            />
+            {loading === true
+              ? <Loader />
+              : <img
+                className={boost.iconStyle}
+                src={boost.icon}
+                alt={boost.title}
+              />}
           </div>
 
           <div>

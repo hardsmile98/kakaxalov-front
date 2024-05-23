@@ -1,7 +1,8 @@
 const tagTypes = {
   profile: 'profile',
   tasks: 'tasks',
-  boosts: 'boosts'
+  boosts: 'boosts',
+  leadboard: 'leadboard'
 }
 
 export default tagTypes

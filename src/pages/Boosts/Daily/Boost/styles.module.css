@@ -1,0 +1,100 @@
+.root {
+    display: flex;
+    align-items: center;
+    gap: var(--unit);
+}
+
+.green {
+    color: var(--green);
+}
+
+.red { 
+    color: var(--red);
+}
+
+.button {
+    color: var(--white);
+    text-align: left;
+    position: relative;
+    width: 100%;
+    outline: none;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--unit);
+    padding: calc(var(--unit) * 1.5);
+}
+
+.button:not(:disabled) {
+    cursor: pointer;
+}
+
+.button:disabled,
+.button:disabled .green,
+.button:disabled .red {
+    color: var(--border);
+}
+
+.title {
+    font-weight: 600;
+}
+
+.iconDaily1 {
+    position: absolute;
+    z-index: 0;
+    bottom: 0;
+    right: 0;
+    width: 72px;
+    height: auto;
+}
+
+.iconDaily2 {
+    position: absolute;
+    z-index: 0;
+    bottom: 50%;
+    transform: translateY(50%);
+    right: var(--unit);
+    width: 38px;
+    height: auto;
+}
+
+.content {
+    z-index: 1;
+    position: relative;
+}
+
+.content > div:last-of-type {
+    font-size: var(--body2);
+}
+
+@media (max-width: 380px) { 
+    .root {
+        flex-direction: column;
+    }
+}
+
+.modalContent {
+    text-align: center;
+    margin-bottom: calc(var(--unit) * 3);
+}
+
+.modalContent img {
+    width: 100%;
+    height: auto;
+    margin-bottom: var(--unit);
+}
+
+.modalImage1Style {
+    max-width: 220px;
+}
+
+.modalImage2Style {
+    max-width: 180px;
+}
+
+.modalContent h4 {
+    margin-bottom: var(--unit);
+}
+
+.modalContent p {
+    color: var(--text-secondary);
+}

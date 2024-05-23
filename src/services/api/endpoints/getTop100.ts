@@ -1,4 +1,5 @@
 import { formatNumber } from 'helpers'
+import tagTypes from '../tagTypes'
 
 interface Top100Response {
   top: Array<{
@@ -33,7 +34,10 @@ const transformTop100 = (response: Top100Response) => {
 
 const getTop100 = {
   query: () => '/api/users/top',
-  transformResponse: transformTop100
+
+  transformResponse: transformTop100,
+
+  providesTags: [tagTypes.leadboard]
 }
 
 type Top100 = ReturnType<typeof transformTop100>

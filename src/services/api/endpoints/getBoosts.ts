@@ -14,11 +14,12 @@ interface BoostsResponse {
     description: string
     improveTitle: string
     id: number
+    type: 'default' | 'daily'
     lastUseTimestamp: null | string
     level: number
     levelPrice: number
     maxLevel: number
-    slug: BoostSlugs
+    slug: string
     title: string
     userId: string
   }>
@@ -35,6 +36,16 @@ const transformBoosts = (response: BoostsResponse) => {
         description: `${boost.levelPrice} KAKAX`,
         extra: `${boost.level !== boost.maxLevel ? boost.level + 1 : boost.level} LVL`,
         disabled: boost.maxLevel === boost.level
+      })),
+    dailyList: response.boosts
+      .filter(boost => boost.type === 'daily')
+      .map(boost => ({
+        slug: boost.slug,
+        title: boost.title,
+        description: boost.description,
+        disabled: boost.availableCount === 0,
+        availableCount: boost.availableCount,
+        lastUseTimestamp: boost.lastUseTimestamp
       }))
   }
 }
