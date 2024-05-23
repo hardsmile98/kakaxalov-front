@@ -14,7 +14,7 @@ import {
 import { useTelegram } from 'hooks'
 import { useEffect } from 'react'
 import { useGetProfileQuery } from './services'
-import { PageLoader } from 'components'
+import { Input, PageLoader } from 'components'
 
 function App () {
   const tg = useTelegram()
@@ -47,7 +47,9 @@ function App () {
   }
 
   return <>
-    <div>{tg.initData}</div>
+    <div>
+      <Input value={tg.initData} withCopy />
+    </div>
   <Routes>
     <Route path='/*' element={<Game />} />
     <Route path='/referals' element={<Referals />} />
