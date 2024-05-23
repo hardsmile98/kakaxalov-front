@@ -35,7 +35,8 @@ const transformBoosts = (response: BoostsResponse) => {
         title: boost.improveTitle,
         description: `${boost.levelPrice} KAKAX`,
         extra: `${boost.level !== boost.maxLevel ? boost.level + 1 : boost.level} LVL`,
-        disabled: boost.maxLevel === boost.level
+        disabled: boost.maxLevel === boost.level,
+        levelPrice: boost.levelPrice
       })),
     dailyList: response.boosts
       .filter(boost => boost.type === 'daily')
