@@ -2,6 +2,7 @@ import improvement2 from 'assets/images/improvement2.svg'
 import styles from './styles.module.css'
 import { Boost } from 'components'
 import { BoostSlugs, type Boosts } from 'services'
+import { useSnackbar } from 'notistack'
 
 const settingsMap: Record<string, { icon: string, iconStyle: string }> = {
   [BoostSlugs.energy]: {
@@ -15,6 +16,8 @@ interface ImprovementsProps {
 }
 
 function Improvements ({ boosts }: ImprovementsProps) {
+  const { enqueueSnackbar } = useSnackbar()
+
   if (boosts?.length === 0 || boosts === undefined) {
     return null
   }
@@ -25,7 +28,7 @@ function Improvements ({ boosts }: ImprovementsProps) {
         <Boost
           color="primary"
           key={boost.slug}
-          onClick={() => {}}
+          onClick={() => enqueueSnackbar('I love hooks', { variant: 'success' })}
           boost={{
             ...boost,
             icon: settingsMap[boost.slug].icon,

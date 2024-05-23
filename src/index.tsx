@@ -1,5 +1,6 @@
 import ReactDOM from 'react-dom/client'
 import { Provider } from 'react-redux'
+import { SnackbarProvider } from 'notistack'
 import { BrowserRouter } from 'react-router-dom'
 import store from 'store/index'
 import App from './App'
@@ -14,7 +15,9 @@ if (rootElement !== null) {
   root.render(
     <Provider store={store}>
       <BrowserRouter>
-        <App />
+        <SnackbarProvider anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
+          <App />
+        </SnackbarProvider>
       </BrowserRouter>
     </Provider>
   )

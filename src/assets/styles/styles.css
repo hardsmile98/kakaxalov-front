@@ -27,6 +27,7 @@
     --red-bg: #2E0F0F;
     --red-dark: #6D3636;
     --success: #54C34B;
+    --error: #F14C2E;
 
     --text-secondary: #926E5B;
     --text-disabled: #cbcbcb;
@@ -81,4 +82,19 @@ ul, li {
 
 button:not(:disabled) {
     cursor: pointer;
+}
+
+.notistack-MuiContent-default,
+.notistack-MuiContent-success,
+.notistack-MuiContent-error {
+    border: 1px solid var(--border);
+    background-color: var(--bg-secondary);
+}
+
+.notistack-MuiContent-success svg {
+    color: var(--success);
+}
+
+.notistack-MuiContent-error svg {
+    color: var(--error);
 }
