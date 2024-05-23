@@ -32,7 +32,7 @@ function Head () {
           <img className={styles.coin} src={coinIcon} alt='coin' />
 
           <span>
-            {data?.user.currentScore} КАКАХ
+            {data?.user.currentScore ?? 0} КАКАХ
           </span>
         </div>
       </div>
