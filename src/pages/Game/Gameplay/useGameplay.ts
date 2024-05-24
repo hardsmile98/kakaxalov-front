@@ -130,15 +130,23 @@ const useGameplay = () => {
   const generateCoin = useCallback(() => {
     let isBomb = false
 
-    isBomb = randomInteger(0, 10) < gameSettings.BOMB_DROP_CHANCE * 10
+    console.log(config.current)
+
+    if (config.current.boost === null) {
+      isBomb = randomInteger(0, 10) < gameSettings.BOMB_DROP_CHANCE * 10
+    }
 
     dispatch(setIsBomb(isBomb))
 
     config.current = {
       ...config.current,
       duration: randomInteger(
-        gameSettings.DURATION_ANIMATION_COIN_MIN - ((1 / config.current.gameTimer) * 100),
-        gameSettings.DURATION_ANIMATION_COIN_MAX - ((1 / config.current.gameTimer) * 100)
+        config.current.boost === null
+          ? gameSettings.DURATION_ANIMATION_COIN_MIN - ((1 / config.current.gameTimer) * 100)
+          : gameSettings.DURATION_ANIMATION_COIN_WITH_BOOST_MIN,
+        config.current.boost === null
+          ? gameSettings.DURATION_ANIMATION_COIN_MAX - ((1 / config.current.gameTimer) * 100)
+          : gameSettings.DURATION_ANIMATION_COIN_WITH_BOOST_MAX
       )
     }
 
@@ -154,15 +162,21 @@ const useGameplay = () => {
       timeoutRef.current = setTimeout(
         () => generateCoin(),
         randomInteger(
-          gameSettings.DELAY_NEW_COIN_MIN - ((1 / config.current.gameTimer) * 100),
-          gameSettings.DELAY_NEW_COIN_MAX - ((1 / config.current.gameTimer) * 100)
+          config.current.boost === null
+            ? gameSettings.DELAY_NEW_COIN_MIN - ((1 / config.current.gameTimer) * 100)
+            : gameSettings.DELAY_NEW_COIN_WITH_BOOST_MIN,
+          config.current.boost === null
+            ? gameSettings.DELAY_NEW_COIN_MAX - ((1 / config.current.gameTimer) * 100)
+            : gameSettings.DELAY_NEW_COIN_WITH_BOOST_MAX
         )
       )
     }
   }, [game.coinPosition, game.gameStatus, generateCoin])
 
   const check = useCallback(() => {
-    if (config.current.position === config.current.coinPosition) {
+    if (config.current.boost !== null) {
+      dispatch(incrementCoin())
+    } else if (config.current.position === config.current.coinPosition) {
       if (config.current.isBomb) {
         dispatch(caughtBomb())
 
