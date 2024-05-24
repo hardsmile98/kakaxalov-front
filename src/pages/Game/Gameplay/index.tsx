@@ -58,39 +58,38 @@ Position,
 
 function Gameplay () {
   const {
-    gameStatus,
+    game,
     isGameAvailable,
     config,
-    coinPosition,
+
     coinRef,
-    position,
+
+    isButtonLoading,
+
     changePosition,
-    coin,
-    isBomb,
-    boost,
-    isExplosionVisible
+    runGame
   } = useGameplay()
 
   useImagesPreload([bomb, kakaxaTop, kakaxaBotoom, explosion, devourer, miner])
 
-  const setting = settings[position]
+  const setting = settings[game.position]
 
-  const personImage = boost !== null ? devourer : setting.image
+  const personImage = game.boost !== null ? devourer : setting.image
 
   return (
     <div className={styles.root}>
-      {gameStatus !== GameStatuses.notRuning
+      {game.gameStatus !== GameStatuses.notRuning
         ? (
         <div className={styles.score}>
           <img src={coinIcon} alt="coin" />
-          <span>{coin}</span>
+          <span>{game.coin}</span>
         </div>
           )
         : (
         <div className={styles.playWrapper}>
           <button
-            onClick={() => {}}
-            disabled={!isGameAvailable}
+            onClick={runGame}
+            disabled={!isGameAvailable || isButtonLoading}
             type="button"
           />
         </div>
@@ -118,9 +117,9 @@ function Gameplay () {
           style={{ animationDuration: `${config.current.duration}ms` }}
           ref={coinRef}
           className={`${styles.coin} ${
-            coinPosition !== null ? stylesCoinMap[coinPosition] : styles.none
+            game.coinPosition !== null ? stylesCoinMap[game.coinPosition] : styles.none
           }`}
-          src={isBomb ? bomb : kakaxaCoin}
+          src={game.isBomb ? bomb : kakaxaCoin}
           alt="coin"
         />
 
@@ -141,9 +140,9 @@ function Gameplay () {
         />
 
         <img
-          className={`${isExplosionVisible ? styles.explosion : styles.none} 
+          className={`${game.isExplosionVisible ? styles.explosion : styles.none} 
             ${setting.explosionStyles}`}
-          src={isExplosionVisible ? explosion : undefined}
+          src={game.isExplosionVisible ? explosion : undefined}
         />
 
         <img className={setting.style} src={personImage} alt="kakaxa" />

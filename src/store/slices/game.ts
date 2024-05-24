@@ -16,35 +16,22 @@ const gameSlice = createSlice({
   name: 'game',
   initialState,
   reducers: {
-    setIsBomb: (state, action) => {
-      state.isBomb = action.payload
+    setInitial: (state) => {
+      state = initialState
     },
-    incrementCoin: (state) => {
-      state.coin = state.coin + 1
-    },
-    decrementTimer: (state) => {
-      state.gameTimer = state.gameTimer - 1
-    },
-    setCoinPosition: (state, action) => {
-      state.coinPosition = action.payload
-    },
-    caughtBomb: (state) => {
-      state.isExplosionVisible = true
-    },
-    hideExplosion: (state) => {
-      state.isExplosionVisible = false
+    setGameStatus: (state, action) => {
+      state.gameStatus = action.payload
     },
     setPosition: (state, action) => {
       state.position = action.payload
     },
-    setBoost: (state, action) => {
-      state.boost = action.payload
-    },
-    startGame: (state, action) => {
+    setTimer: (state, action) => {
       state.gameTimer = action.payload
     },
-    stopGame: (state) => {
-      state = initialState
+    decrementTimer: (state) => {
+      state.gameTimer = state.gameTimer > 0
+        ? state.gameTimer - 1
+        : 0
     }
   }
 })
@@ -52,14 +39,9 @@ const gameSlice = createSlice({
 export default gameSlice.reducer
 
 export const {
-  setIsBomb,
-  caughtBomb,
-  incrementCoin,
+  setInitial,
+  setGameStatus,
   setPosition,
-  setCoinPosition,
-  hideExplosion,
-  setBoost,
-  startGame,
-  decrementTimer,
-  stopGame
+  setTimer,
+  decrementTimer
 } = gameSlice.actions
