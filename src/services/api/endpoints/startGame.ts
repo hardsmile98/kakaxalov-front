@@ -1,9 +1,12 @@
 import tagTypes from '../tagTypes'
 
 const startGame = {
-  query: () => ({
+  query: ({ boostId }: { boostId?: number }) => ({
     url: '/api/game/start',
-    method: 'POST'
+    method: 'POST',
+    body: {
+      boostId
+    }
   }),
 
   invalidatesTags: [tagTypes.profile]

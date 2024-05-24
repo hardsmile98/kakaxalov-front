@@ -12,28 +12,40 @@ function Menu () {
       <ul className={styles.menu}>
         <li>
           <Link to="/referals">
-            <img src={inviteIcon} alt="Invite" />
+            <div>
+              <img src={inviteIcon} alt="Invite" />
+            </div>
+
             Invite
           </Link>
         </li>
 
         <li>
           <Link to="/boosts">
-            <img src={boostIcon} alt="Boosts" />
+            <div>
+              <img src={boostIcon} alt="Boosts" />
+            </div>
+
             Boosts
           </Link>
         </li>
 
         <li>
           <Link to="/leadboard">
-            <img src={topIcon} alt="Top100" />
+            <div>
+              <img src={topIcon} alt="Top100" />
+            </div>
+
             Top100
           </Link>
         </li>
 
         <li>
           <Link to="/earn">
-            <img src={earnIcon} alt="Earn" />
+            <div>
+              <img src={earnIcon} alt="Earn" />
+            </div>
+
             Earn
           </Link>
         </li>

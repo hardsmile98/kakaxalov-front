@@ -5,6 +5,7 @@ const initialState = {
   gameTimer: 0,
   gameStatus: GameStatuses.notRuning,
   boost: null,
+  boostId: null,
   position: Position.initial,
   coin: 0,
   coinPosition: null,
@@ -45,6 +46,11 @@ const gameSlice = createSlice({
     },
     caughtBomb: (state) => {
       state.isExplosionVisible = true
+    },
+    startBoost: (state, action) => {
+      state.boost = action.payload.slug
+      state.boostId = action.payload.id
+      state.gameStatus = GameStatuses.started
     }
   }
 })
@@ -61,5 +67,6 @@ export const {
   setCoinPosition,
   incrementCoin,
   hideExplosion,
-  caughtBomb
+  caughtBomb,
+  startBoost
 } = gameSlice.actions

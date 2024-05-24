@@ -48,4 +48,14 @@ export const {
   useEndGameMutation
 } = publicApi
 
+export function isErrorWithMessage (
+  error: unknown
+): error is { data: { message: string } } {
+  return (
+    typeof error === 'object' &&
+    error != null &&
+    typeof (error as any).data?.message === 'string'
+  )
+}
+
 export * from './endpoints'

@@ -27,6 +27,16 @@
     text-decoration: none;
 }
 
+.menu > li > a > div {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    top: -15px;
+    right: 50%;
+    transform: translateX(50%);
+    position: absolute;
+}
+
 .menu > li:not(:last-of-type) > a::after {
     content: "";
     width: 1px;
@@ -36,13 +46,6 @@
     background: #7E330D;
     position: absolute;
     right: 0;
-}
-
-.menu > li > a img {
-    top: -12px;
-    right: 50%;
-    transform: translateX(50%);
-    position: absolute;
 }
 
 .image {

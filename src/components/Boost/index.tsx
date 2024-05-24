@@ -26,8 +26,6 @@ const stylesMap = {
 }
 
 function Boost ({ boost, loading, color, onClick }: BoostProps) {
-  console.log(boost)
-
   return (
     <li className={stylesMap[color]}>
       <button

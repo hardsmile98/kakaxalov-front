@@ -47,6 +47,10 @@ const useGameplay = () => {
   const hideBombRef = useRef<null | NodeJS.Timeout>(null)
 
   const changePosition = (newPosition: Position) => {
+    if (game.boost !== null) {
+      return
+    }
+
     if (game.gameStatus === GameStatuses.runing) {
       dispatch(setPosition(newPosition))
     }
@@ -63,9 +67,9 @@ const useGameplay = () => {
   // Старт игры
   useEffect(() => {
     if (game.gameStatus === GameStatuses.started) {
-      void startGame(undefined)
+      void startGame({ boostId: game.boostId ?? undefined })
     }
-  }, [startGame, game.gameStatus])
+  }, [startGame, game.gameStatus, game.boostId])
 
   // Запуск таймера
   useEffect(() => {
