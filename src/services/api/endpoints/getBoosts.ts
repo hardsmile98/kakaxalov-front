@@ -15,7 +15,8 @@ interface BoostsResponse {
     improveTitle: string
     id: number
     type: 'default' | 'daily'
-    lastUseTimestamp: null | string
+    useTimestamp: null | string
+    recoveryTimestamp: null | string
     level: number
     levelPrice: number
     maxLevel: number
@@ -48,7 +49,7 @@ const transformBoosts = (response: BoostsResponse) => {
         description: boost.description,
         disabled: boost.availableCount === 0,
         availableCount: boost.availableCount,
-        lastUseTimestamp: boost.lastUseTimestamp
+        useTimestamp: boost.useTimestamp
       }))
   }
 }

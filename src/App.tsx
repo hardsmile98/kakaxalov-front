@@ -22,7 +22,9 @@ function App () {
   const navigate = useNavigate()
   const { pathname } = useLocation()
 
-  const { isLoading } = useGetProfileQuery(undefined)
+  const { isLoading: isGetProfileLoading } = useGetProfileQuery(undefined)
+
+  const isLoading = isGetProfileLoading
 
   useEffect(() => {
     tg.expand()

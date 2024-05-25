@@ -18,8 +18,27 @@ function declOfWords (n: number, forms: string[]) {
       : forms[2]
 }
 
+function formatTimer (seconds: number): string {
+  if (seconds < 0) {
+    return '0 ч 00 м'
+  }
+
+  const hours = Math.floor((seconds / (60 * 60)))
+  const minutes = Math.ceil(seconds / 60) - hours * 60
+
+  const timer = `${hours > 0 ? hours : 0} ч ${minutes > 0 ? minutes.toString().padStart(2, '0') : '00'} м`
+
+  return timer
+}
+
 function isDev (): boolean {
   return process.env.NODE_ENV === 'development'
 }
 
-export { randomInteger, formatNumber, isDev, declOfWords }
+export {
+  randomInteger,
+  formatNumber,
+  isDev,
+  declOfWords,
+  formatTimer
+}

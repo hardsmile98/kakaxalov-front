@@ -29,7 +29,8 @@ export const publicApi = createApi({
     improveBoost: builder.mutation(endpoints.improveBoost),
     applyBoost: builder.mutation(endpoints.applyBoost),
     startGame: builder.mutation(endpoints.startGame),
-    endGame: builder.mutation(endpoints.endGame)
+    endGame: builder.mutation(endpoints.endGame),
+    checkEnergy: builder.query<endpoints.CheckEnergyResponse, undefined>(endpoints.checkEnergy)
   }),
 
   tagTypes: Object.values(tagTypes)
@@ -45,7 +46,8 @@ export const {
   useImproveBoostMutation,
   useApplyBoostMutation,
   useStartGameMutation,
-  useEndGameMutation
+  useEndGameMutation,
+  useCheckEnergyQuery
 } = publicApi
 
 export function isErrorWithMessage (

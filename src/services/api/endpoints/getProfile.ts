@@ -8,7 +8,9 @@ interface ProfileResponse {
     name: string
     username: string
     amountEnergy: number
-    lastGameTimestamp: number
+    useEneryTimestamp: string
+    recoveryEneryTimestamp: string
+    energyRecoveryTimeSeconds: number
     gameTime: number
     allScore: number
     currentScore: number

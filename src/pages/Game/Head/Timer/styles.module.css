@@ -1,0 +1,6 @@
+.root {
+    text-align: center;
+    width: 50px;
+    font-weight: 700;
+    font-size: var(--body2);
+}
