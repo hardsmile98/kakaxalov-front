@@ -13,7 +13,7 @@ import {
 } from './pages'
 import { useTelegram } from 'hooks'
 import { useEffect, useState } from 'react'
-import { isErrorWithMessage, useGetProfileQuery } from './services'
+import { useGetProfileQuery } from './services'
 import { ErrorPage, PageLoader } from 'components'
 import { isDev } from './helpers'
 import { envs } from 'constants/index'
@@ -43,9 +43,7 @@ function App () {
 
   useEffect(() => {
     if (isError) {
-      const errorMessage = isErrorWithMessage(error) && error.data.message
-
-      enqueueSnackbar(errorMessage, { variant: 'error' })
+      enqueueSnackbar(JSON.stringify(error), { variant: 'error' })
     }
   }, [enqueueSnackbar, isError, error])
 
