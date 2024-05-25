@@ -27,8 +27,6 @@ function App () {
   const [isTgLoading, setTgLoading] = useState(true)
   const [isTgReady, setTgReady] = useState(false)
 
-  console.log(setTgLoading, setTgReady)
-
   const { isLoading: isGetProfileLoading, isError } = useGetProfileQuery(undefined, { skip: !isTgReady })
 
   const isLoading = isTgLoading || isGetProfileLoading
