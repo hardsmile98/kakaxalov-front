@@ -17,7 +17,6 @@ import { useGetProfileQuery } from './services'
 import { ErrorPage, PageLoader } from 'components'
 import { isDev } from './helpers'
 import { envs } from 'constants/index'
-import { useSnackbar } from 'notistack'
 
 function App () {
   const tg = useTelegram()
@@ -28,9 +27,7 @@ function App () {
   const [isTgLoading, setTgLoading] = useState(true)
   const [isTgReady, setTgReady] = useState(false)
 
-  const { enqueueSnackbar } = useSnackbar()
-
-  const { isLoading: isGetProfileLoading, isError, error } = useGetProfileQuery(undefined, { skip: !isTgReady })
+  const { isLoading: isGetProfileLoading, isError } = useGetProfileQuery(undefined, { skip: !isTgReady })
 
   const isLoading = isTgLoading || isGetProfileLoading
 
@@ -40,12 +37,6 @@ function App () {
     setTgLoading(false)
     setTgReady(true)
   }, [tg])
-
-  useEffect(() => {
-    if (isError) {
-      enqueueSnackbar(JSON.stringify(error), { variant: 'error' })
-    }
-  }, [enqueueSnackbar, isError, error])
 
   useEffect(() => {
     tg.expand()
