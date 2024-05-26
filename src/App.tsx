@@ -24,12 +24,6 @@ function App () {
   const navigate = useNavigate()
   const { pathname } = useLocation()
 
-  const qqq = useLocation()
-
-  useEffect(() => {
-    alert(qqq.search)
-  }, [qqq])
-
   const [isTgLoading, setTgLoading] = useState(true)
   const [isTgReady, setTgReady] = useState(false)
 
@@ -40,6 +34,7 @@ function App () {
   useEffect(() => {
     const tgInitData = isDev() ? envs.testInitData : tg.initData
     window.localStorage.setItem('tgData', tgInitData)
+    alert(tg.initDataUnsafe)
     setTgLoading(false)
     setTgReady(true)
   }, [tg])
