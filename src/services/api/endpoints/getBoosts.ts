@@ -1,3 +1,4 @@
+import { gameSettings } from 'constants/index'
 import tagTypes from '../tagTypes'
 
 enum BoostSlugs {
@@ -5,26 +6,39 @@ enum BoostSlugs {
   energy = 'energy'
 }
 
+interface Boost {
+  allCount: number
+  availableCount: number
+  boostId: number
+  canImproved: boolean
+  description: string
+  improveTitle: string
+  id: number
+  type: 'default' | 'daily'
+  useTimestamp: null | string
+  recoveryTimestamp: null | string
+  level: number
+  levelPrice: number
+  maxLevel: number
+  slug: string
+  title: string
+  userId: string
+}
+
 interface BoostsResponse {
-  boosts: Array<{
-    allCount: number
-    availableCount: number
-    boostId: number
-    canImproved: boolean
-    description: string
-    improveTitle: string
-    id: number
-    type: 'default' | 'daily'
-    useTimestamp: null | string
-    recoveryTimestamp: null | string
-    level: number
-    levelPrice: number
-    maxLevel: number
-    slug: string
-    title: string
-    userId: string
-  }>
+  boosts: Boost[]
   success: boolean
+}
+
+const formatDescription = (description: string, slug: string) => {
+  switch (slug) {
+    case 'devourer': {
+      return description
+        .replace(/{duration}/g, String(gameSettings.DURATION_BOOST_DEVOURER))
+    }
+    default:
+      return description
+  }
 }
 
 const transformBoosts = (response: BoostsResponse) => {
@@ -46,7 +60,7 @@ const transformBoosts = (response: BoostsResponse) => {
         id: boost.id,
         slug: boost.slug,
         title: boost.title,
-        description: boost.description,
+        description: formatDescription(boost.description, boost.slug),
         disabled: boost.availableCount === 0,
         availableCount: boost.availableCount,
         useTimestamp: boost.useTimestamp

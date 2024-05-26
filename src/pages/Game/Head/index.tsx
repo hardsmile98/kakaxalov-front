@@ -11,13 +11,15 @@ function Head () {
   const { data } = useGetProfileQuery(undefined)
 
   const gameTimer = useSelector((state) => state.game.gameTimer)
+  const gameTime = useSelector((state) => state.game.gameTime)
   const gameStatus = useSelector((state) => state.game.gameStatus)
+
+  const progress = gameTime !== 0 ? (gameTimer / gameTime) * 100 : 0
 
   if (data === undefined) {
     return null
   }
 
-  const gameTime = data.user?.gameTime
   const amountEnergy = data.user.amountEnergy
   const energyRecoveryTimeSeconds = data.user.energyRecoveryTimeSeconds
   const useEneryTimestamp = data.user.useEneryTimestamp
@@ -52,7 +54,7 @@ function Head () {
       <div className={styles.progressbar}>
         <span
           className={styles.line}
-          style={{ width: `${(gameTimer / gameTime) * 100}%` }}
+          style={{ width: `${progress}%` }}
         />
 
         <span className={styles.score}>

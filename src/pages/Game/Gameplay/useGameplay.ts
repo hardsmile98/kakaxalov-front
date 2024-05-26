@@ -26,10 +26,13 @@ const useGameplay = () => {
 
   const { data } = useGetProfileQuery(undefined)
 
-  const isGameAvailable = data?.user.amountEnergy !== 0
-  const gameTime = data?.user.gameTime
-
   const game = useSelector(state => state.game)
+
+  const isGameAvailable = data?.user.amountEnergy !== 0
+
+  const gameTime = game.boost !== null
+    ? gameSettings.DURATION_BOOST_DEVOURER
+    : data?.user.gameTime
 
   const config = useRef({
     ...game,

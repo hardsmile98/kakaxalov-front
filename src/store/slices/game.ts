@@ -3,6 +3,7 @@ import { Position, GameStatuses } from 'constants/index'
 
 const initialState = {
   gameTimer: 0,
+  gameTime: 0,
   gameStatus: GameStatuses.notRuning,
   boost: null,
   boostId: null,
@@ -25,6 +26,7 @@ const gameSlice = createSlice({
       state.position = action.payload
     },
     setTimer: (state, action) => {
+      state.gameTime = action.payload
       state.gameTimer = action.payload
     },
     decrementTimer: (state) => {
