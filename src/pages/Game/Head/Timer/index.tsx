@@ -27,13 +27,25 @@ function Timer ({
 
   const intervalRef = useRef<null | NodeJS.Timeout>(null)
 
-  const { isLoading, data } = useCheckEnergyQuery(undefined)
+  const { isLoading, data, refetch } = useCheckEnergyQuery(undefined)
+
+  const isTimerEnd = seconds <= 0
 
   useEffect(() => {
     if (data?.recovery === true) {
       dispatch(publicApi.util.invalidateTags([tagTypes.profile]))
     }
   }, [dispatch, data?.recovery])
+
+  useEffect(() => {
+    if (isTimerEnd) {
+      if (intervalRef.current !== null) {
+        clearInterval(intervalRef.current)
+      }
+
+      void refetch()
+    }
+  }, [refetch, isTimerEnd])
 
   useEffect(() => {
     if (intervalRef.current === null) {
