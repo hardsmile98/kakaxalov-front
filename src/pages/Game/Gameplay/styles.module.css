@@ -68,9 +68,8 @@
 .kakaxa {
     z-index: 20;
     position: absolute;
-    width: 170px;
+    width: auto;
     height: 245px;
-    height: auto;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%) translateZ(0);
@@ -79,7 +78,7 @@
 .kakaxaLeftBottom {
     z-index: 20;
     position: absolute;
-    width: 170px;
+    width: auto;
     height: 245px;
     bottom: 0;
     left: 280px;
@@ -89,7 +88,7 @@
 .kakaxaRightBottom {
     z-index: 20;
     position: absolute;
-    width: 170px;
+    width: auto;
     height: 245px;
     bottom: 0;
     right: 280px;
@@ -99,7 +98,7 @@
 .kakaxaLeftTop {
     z-index: 20;
     position: absolute;
-    width: 170px;
+    width: auto;
     height: 245px;
     bottom: 0;
     left: 280px;
@@ -109,7 +108,7 @@
 .kakaxaRightTop {
     z-index: 20;
     position: absolute;
-    width: 170px;
+    width: auto;
     height: 245px;
     bottom: 0;
     right: 280px;
