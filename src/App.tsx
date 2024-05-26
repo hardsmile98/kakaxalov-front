@@ -34,7 +34,7 @@ function App () {
   useEffect(() => {
     const tgInitData = isDev() ? envs.testInitData : tg.initData
     window.localStorage.setItem('tgData', tgInitData)
-    alert(tg.initDataUnsafe)
+    alert(JSON.stringify(tg.initDataUnsafe))
     setTgLoading(false)
     setTgReady(true)
   }, [tg])
