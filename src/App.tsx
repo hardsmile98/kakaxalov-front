@@ -33,6 +33,7 @@ function App () {
 
   useEffect(() => {
     const tgInitData = isDev() ? envs.testInitData : tg.initData
+    alert(tgInitData)
     window.localStorage.setItem('tgData', tgInitData)
     setTgLoading(false)
     setTgReady(true)
