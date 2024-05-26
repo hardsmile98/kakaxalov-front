@@ -372,7 +372,7 @@
 }
 
 .explosionLeftTop {
-    bottom: 145px;
+    bottom: 210px;
     left: 240px;
 }
 
@@ -384,7 +384,7 @@
 
 .explosionRightTop {
     transform: scaleX(-1);
-    bottom: 145px;
+    bottom: 210px;
     right: 240px;
 }
 

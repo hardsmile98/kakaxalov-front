@@ -11,8 +11,6 @@ interface UserListProps {
 }
 
 function UserList ({ list, type = 'default' }: UserListProps) {
-  console.log(list)
-
   return (
     <div className={styles.root}>
       {list?.length !== 0 && list !== undefined

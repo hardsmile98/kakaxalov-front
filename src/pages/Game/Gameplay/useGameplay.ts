@@ -133,8 +133,6 @@ const useGameplay = () => {
   const generateCoin = useCallback(() => {
     let isBomb = false
 
-    console.log(config.current)
-
     if (config.current.boost === null) {
       isBomb = randomInteger(0, 10) < gameSettings.BOMB_DROP_CHANCE * 10
     }
