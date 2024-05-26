@@ -9,7 +9,7 @@ const startGame = {
     }
   }),
 
-  invalidatesTags: [tagTypes.profile]
+  invalidatesTags: [tagTypes.profile, tagTypes.boosts]
 }
 
 export {

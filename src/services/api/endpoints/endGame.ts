@@ -13,7 +13,7 @@ const endGame = {
     body: dto
   }),
 
-  invalidatesTags: [tagTypes.profile]
+  invalidatesTags: [tagTypes.profile, tagTypes.leadboard]
 }
 
 export {
