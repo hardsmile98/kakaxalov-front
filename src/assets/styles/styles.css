@@ -89,6 +89,7 @@ button:not(:disabled) {
 .notistack-MuiContent-error {
     border: 1px solid var(--border);
     background-color: var(--bg-secondary);
+    background: var(--bg-secondary);
 }
 
 .notistack-MuiContent-success svg {
