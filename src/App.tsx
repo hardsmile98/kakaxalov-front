@@ -17,12 +17,15 @@ import { useGetProfileQuery } from './services'
 import { ErrorPage, PageLoader } from 'components'
 import { isDev } from './helpers'
 import { envs } from 'constants/index'
+import { useSnackbar } from 'notistack'
 
 function App () {
   const tg = useTelegram()
 
   const navigate = useNavigate()
   const { pathname } = useLocation()
+
+  const { enqueueSnackbar } = useSnackbar()
 
   const [isTgLoading, setTgLoading] = useState(true)
   const [isTgReady, setTgReady] = useState(false)
@@ -43,6 +46,10 @@ function App () {
     tg.backgroundColor = '#150801'
     tg.headerColor = '#150801'
   }, [tg])
+
+  useEffect(() => {
+    enqueueSnackbar('Буст применен', { variant: 'success' })
+  }, [enqueueSnackbar])
 
   useEffect(() => {
     if (pathname !== '/') {
