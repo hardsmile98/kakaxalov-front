@@ -87,15 +87,15 @@ button:not(:disabled) {
 .notistack-MuiContent-default,
 .notistack-MuiContent-success,
 .notistack-MuiContent-error {
-    border: 1px solid var(--border);
-    background-color: var(--bg-secondary);
-    background: var(--bg-secondary);
+    border: 1px solid var(--border) !important;
+    background-color: var(--bg-secondary) !important;
+    background: var(--bg-secondary) !important;
 }
 
 .notistack-MuiContent-success svg {
-    color: var(--success);
+    color: var(--success) !important;
 }
 
 .notistack-MuiContent-error svg {
-    color: var(--error);
+    color: var(--error) !important;
 }
