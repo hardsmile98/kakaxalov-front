@@ -30,7 +30,7 @@ function Referals () {
           <h5>Реферальная ссылка</h5>
 
           <Input
-            value={`${envs.miniAppUrl}?refCode=${inviteCode}`}
+            value={`${envs.miniAppUrl}?startapp=refCode_${inviteCode}`}
             readOnly
             withCopy
           />
