@@ -3,6 +3,7 @@ import dailyBoost2 from 'assets/images/helth.svg'
 import { BoostSlugs, type Boosts } from 'services'
 import styles from './styles.module.css'
 import { declOfWords } from 'helpers/index'
+import Timer from './Timer'
 
 interface BoostButtonProps {
   index: number
@@ -34,8 +35,11 @@ function BoostButton ({ index, boost, onStart }: BoostButtonProps) {
       </div>
 
       <div className={index % 2 === 0 ? styles.green : styles.red}>
-        {boost.disabled
-          ? 'Не доступно'
+        {boost.disabled && boost.useTimestamp !== null
+          ? <Timer
+            useTimestamp={boost.useTimestamp}
+            recoverySeconds={boost.recoverySeconds}
+          />
           : `Доступно - ${boost.availableCount} ${declOfWords(boost.availableCount, ['раз', 'раза', 'раз'])}`}
       </div>
     </div>

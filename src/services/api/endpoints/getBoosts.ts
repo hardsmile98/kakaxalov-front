@@ -16,7 +16,7 @@ interface Boost {
   id: number
   type: 'default' | 'daily'
   useTimestamp: null | string
-  recoveryTimestamp: null | string
+  recoverySeconds: number
   level: number
   levelPrice: number
   maxLevel: number
@@ -63,7 +63,8 @@ const transformBoosts = (response: BoostsResponse) => {
         description: formatDescription(boost.description, boost.slug),
         disabled: boost.availableCount === 0,
         availableCount: boost.availableCount,
-        useTimestamp: boost.useTimestamp
+        useTimestamp: boost.useTimestamp,
+        recoverySeconds: boost.recoverySeconds
       }))
   }
 }
