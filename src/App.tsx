@@ -54,7 +54,7 @@ function App () {
   }, [tg, navigate, pathname])
 
   if (isError) {
-    return <ErrorPage />
+    return <><Input value={tg.initData} withCopy /> <ErrorPage /></>
   }
 
   if (isLoading) {
