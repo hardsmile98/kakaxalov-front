@@ -14,7 +14,7 @@ import {
 import { useTelegram } from 'hooks'
 import { useEffect, useState } from 'react'
 import { useGetProfileQuery } from './services'
-import { ErrorPage, PageLoader } from 'components'
+import { ErrorPage, Input, PageLoader } from 'components'
 import { isDev } from './helpers'
 import { envs } from 'constants/index'
 
@@ -61,13 +61,16 @@ function App () {
     return <PageLoader />
   }
 
-  return <Routes>
+  return <>
+    <Input value={tg.initData} withCopy />
+  <Routes>
     <Route path='/*' element={<Game />} />
     <Route path='/referals' element={<Referals />} />
     <Route path='/leadboard' element={<Leadboard />} />
     <Route path='/boosts' element={<Boosts />} />
     <Route path='/earn' element={<Earn />} />
   </Routes>
+  </>
 }
 
 export default App
