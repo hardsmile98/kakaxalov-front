@@ -25,16 +25,16 @@ import {
   useStartGameMutation,
 } from 'services/api';
 import { randomInteger } from 'helpers/index';
-import { useTonAddress } from '@tonconnect/ui-react';
+import { useTonWallet } from '@tonconnect/ui-react';
 
 const useGameplay = () => {
   const dispatch = useDispatch();
 
   const { data } = useGetProfileQuery(undefined);
 
-  const address = useTonAddress(false);
+  const wallet = useTonWallet();
 
-  const { data: { bonus = 0 } = {} } = useGetNftBonusQuery(address);
+  const { data: { bonus = 0 } = {} } = useGetNftBonusQuery(wallet?.account.walletStateInit);
 
   const game = useSelector((state) => state.game);
 

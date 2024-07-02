@@ -8,7 +8,7 @@ import { useTelegram } from 'hooks';
 import { useEffect, useState } from 'react';
 import { ErrorPage, PageLoader } from 'components';
 import { envs } from 'constants/index';
-import { useTonAddress } from '@tonconnect/ui-react';
+import { useTonWallet } from '@tonconnect/ui-react';
 import { useGetNftBonusQuery, useGetProfileQuery } from './services';
 import { isDev } from './helpers';
 import {
@@ -33,9 +33,9 @@ function App() {
     isError,
   } = useGetProfileQuery(undefined, { skip: !isTgReady });
 
-  const address = useTonAddress(false);
+  const wallet = useTonWallet();
 
-  useGetNftBonusQuery(address);
+  useGetNftBonusQuery(wallet?.account.walletStateInit);
 
   const isLoading = isTgLoading || isGetProfileLoading;
 

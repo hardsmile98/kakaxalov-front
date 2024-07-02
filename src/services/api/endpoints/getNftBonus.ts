@@ -4,10 +4,10 @@ interface GetNftBonusResponse {
 }
 
 const getNftBonus = {
-  query: (address: string | undefined) => ({
+  query: (walletStateInit: string | undefined) => ({
     url: '/api/users/nftBonus',
     params: {
-      address,
+      walletStateInit,
     },
   }),
 };
