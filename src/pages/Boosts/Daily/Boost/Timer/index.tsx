@@ -1,10 +1,12 @@
 import { formatTimer } from 'helpers/index';
-import { useEffect, useRef, useState } from 'react';
+import {
+  useEffect, useRef, useState,
+} from 'react';
 import { useGetBoostsQuery } from 'services/api';
 
 interface TimerProps {
-  recoverySeconds: number
-  useTimestamp: string
+  recoverySeconds: number;
+  useTimestamp: string;
 }
 
 const getSeconds = (useTimestamp: string, recoverySeconds: number) => {
@@ -13,11 +15,10 @@ const getSeconds = (useTimestamp: string, recoverySeconds: number) => {
   return timerSeconds;
 };
 
-function Timer({
-  recoverySeconds,
-  useTimestamp,
-}: TimerProps) {
-  const [seconds, setSeconds] = useState(getSeconds(useTimestamp, recoverySeconds));
+function Timer({ recoverySeconds, useTimestamp }: TimerProps) {
+  const [seconds, setSeconds] = useState(
+    getSeconds(useTimestamp, recoverySeconds),
+  );
 
   const { refetch } = useGetBoostsQuery(undefined);
 
@@ -39,15 +40,18 @@ function Timer({
     }
   }, [useTimestamp, recoverySeconds]);
 
-  useEffect(() => () => {
-    if (intervalRef.current !== null) {
-      clearInterval(intervalRef.current);
-    }
-  }, []);
+  useEffect(
+    () => () => {
+      if (intervalRef.current !== null) {
+        clearInterval(intervalRef.current);
+      }
+    },
+    [],
+  );
 
   const timer = formatTimer(seconds);
 
-  return timer;
+  return <span>{timer}</span>;
 }
 
 export default Timer;
