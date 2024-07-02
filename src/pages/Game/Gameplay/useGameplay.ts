@@ -18,19 +18,27 @@ import {
   incrementCoin,
   caughtBomb,
 } from 'store/slices/game';
-import { useEndGameMutation, useGetProfileQuery, useStartGameMutation } from 'services/api';
+import {
+  useEndGameMutation,
+  useGetNftBonusQuery,
+  useGetProfileQuery,
+  useStartGameMutation,
+} from 'services/api';
 import { randomInteger } from 'helpers/index';
+import { useTonAddress } from '@tonconnect/ui-react';
 
 const useGameplay = () => {
   const dispatch = useDispatch();
 
   const { data } = useGetProfileQuery(undefined);
 
+  const address = useTonAddress(false);
+
+  const { data: { bonus = 0 } = {} } = useGetNftBonusQuery(address);
+
   const game = useSelector((state) => state.game);
 
   const isGameAvailable = data?.user.amountEnergy !== 0;
-
-  const userBonus = 0;
 
   const gameTime = game.boost !== null
     ? gameSettings.DURATION_BOOST_DEVOURER
@@ -178,7 +186,7 @@ const useGameplay = () => {
 
   const check = useCallback(() => {
     if (config.current.boost !== null) {
-      dispatch(incrementCoin({ bonus: userBonus }));
+      dispatch(incrementCoin({ bonus }));
     } else if (config.current.position === config.current.coinPosition) {
       if (config.current.isBomb) {
         dispatch(caughtBomb());
@@ -188,7 +196,7 @@ const useGameplay = () => {
           stopGame();
         }, gameSettings.DURATION_ANIMATION_EXPLOSION);
       } else {
-        dispatch(incrementCoin({ bonus: userBonus }));
+        dispatch(incrementCoin({ bonus }));
       }
     }
 

@@ -31,6 +31,8 @@ export const publicApi = createApi({
     startGame: builder.mutation(endpoints.startGame),
     endGame: builder.mutation(endpoints.endGame),
     checkEnergy: builder.query<endpoints.CheckEnergyResponse, undefined>(endpoints.checkEnergy),
+    getNftBonus: builder
+      .query<endpoints.GetNftBonusResponse, string | undefined>(endpoints.getNftBonus),
   }),
 
   tagTypes: Object.values(tagTypes),
@@ -48,6 +50,7 @@ export const {
   useStartGameMutation,
   useEndGameMutation,
   useCheckEnergyQuery,
+  useGetNftBonusQuery,
 } = publicApi;
 
 export function isErrorWithMessage(

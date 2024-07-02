@@ -9,3 +9,4 @@ export * from './applyBoost';
 export * from './startGame';
 export * from './endGame';
 export * from './checkEnergy';
+export * from './getNftBonus';

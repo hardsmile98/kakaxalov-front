@@ -8,7 +8,8 @@ import { useTelegram } from 'hooks';
 import { useEffect, useState } from 'react';
 import { ErrorPage, PageLoader } from 'components';
 import { envs } from 'constants/index';
-import { useGetProfileQuery } from './services';
+import { useTonAddress } from '@tonconnect/ui-react';
+import { useGetNftBonusQuery, useGetProfileQuery } from './services';
 import { isDev } from './helpers';
 import {
   Game,
@@ -31,6 +32,10 @@ function App() {
     isLoading: isGetProfileLoading,
     isError,
   } = useGetProfileQuery(undefined, { skip: !isTgReady });
+
+  const address = useTonAddress(false);
+
+  useGetNftBonusQuery(address);
 
   const isLoading = isTgLoading || isGetProfileLoading;
 
