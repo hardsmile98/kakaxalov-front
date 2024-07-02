@@ -12,9 +12,9 @@ interface ProfileResponse {
     recoveryEneryTimestamp: string
     energyRecoveryTimeSeconds: number
     gameTime: number
-    allScore: number
-    currentScore: number
-    leadboardScore: number
+    score: number
+    bonusForNft: number
+    maxBonusForNft: number
     skin: string
     amountNft: number
     inviteCode: string

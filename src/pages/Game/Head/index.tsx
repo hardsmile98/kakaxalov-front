@@ -49,7 +49,7 @@ function Head() {
           <img className={styles.coin} src={coinIcon} alt="coin" />
 
           <span>
-            {data?.user.currentScore}
+            {data?.user.score}
             {' '}
             КАКАХ
           </span>

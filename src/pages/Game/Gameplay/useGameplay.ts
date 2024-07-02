@@ -30,6 +30,18 @@ const useGameplay = () => {
 
   const isGameAvailable = data?.user.amountEnergy !== 0;
 
+  const nftBonus = data?.user.amountNft ? data.user.amountNft * data.user.bonusForNft : 0;
+
+  const nftBonusFormatted = nftBonus
+    && data?.user.maxBonusForNft
+    && nftBonus > data?.user.maxBonusForNft
+    ? data.user.maxBonusForNft
+    : nftBonus;
+
+  console.log(nftBonusFormatted);
+
+  const userBonus = nftBonusFormatted;
+
   const gameTime = game.boost !== null
     ? gameSettings.DURATION_BOOST_DEVOURER
     : data?.user.gameTime;
@@ -176,7 +188,7 @@ const useGameplay = () => {
 
   const check = useCallback(() => {
     if (config.current.boost !== null) {
-      dispatch(incrementCoin());
+      dispatch(incrementCoin({ bonus: userBonus }));
     } else if (config.current.position === config.current.coinPosition) {
       if (config.current.isBomb) {
         dispatch(caughtBomb());
@@ -186,7 +198,7 @@ const useGameplay = () => {
           stopGame();
         }, gameSettings.DURATION_ANIMATION_EXPLOSION);
       } else {
-        dispatch(incrementCoin());
+        dispatch(incrementCoin({ bonus: userBonus }));
       }
     }
 

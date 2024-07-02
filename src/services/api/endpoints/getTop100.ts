@@ -4,13 +4,13 @@ import tagTypes from '../tagTypes';
 interface Top100Response {
   top: Array<{
     userId: number
-    leadboardScore: number
+    score: number
     name: string
     username: string
   }>
   position: {
     index: number
-    leadboardScore: number
+    score: number
   }
   success: boolean
 }
@@ -19,14 +19,14 @@ const transformTop100 = (response: Top100Response) => {
   const topFormatted = response.top.map((user) => ({
     id: user.userId,
     name: user.name ?? 'Не указано',
-    value: `${formatNumber(user.leadboardScore)} KAKAX`,
+    value: `${formatNumber(user.score)} KAKAX`,
   }));
 
   return {
     ...response,
     position: {
       ...response.position,
-      leadboardScore: formatNumber(response.position.leadboardScore),
+      leadboardScore: formatNumber(response.position.score),
     },
     top: topFormatted,
   };

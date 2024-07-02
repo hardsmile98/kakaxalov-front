@@ -23,8 +23,8 @@ function Improvements({ boosts }: ImprovementsProps) {
 
   const { data } = useGetProfileQuery(undefined);
 
-  const currentScore = data?.user?.currentScore !== undefined
-    ? data.user.currentScore
+  const currentScore = data?.user?.score !== undefined
+    ? data.user.score
     : 0;
 
   const [improve, { isLoading, isSuccess, isError }] = useImproveBoostMutation();
