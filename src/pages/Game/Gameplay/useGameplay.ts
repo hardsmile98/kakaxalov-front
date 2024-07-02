@@ -30,17 +30,7 @@ const useGameplay = () => {
 
   const isGameAvailable = data?.user.amountEnergy !== 0;
 
-  const nftBonus = data?.user.amountNft ? data.user.amountNft * data.user.bonusForNft : 0;
-
-  const nftBonusFormatted = nftBonus
-    && data?.user.maxBonusForNft
-    && nftBonus > data?.user.maxBonusForNft
-    ? data.user.maxBonusForNft
-    : nftBonus;
-
-  console.log(nftBonusFormatted);
-
-  const userBonus = nftBonusFormatted;
+  const userBonus = 0;
 
   const gameTime = game.boost !== null
     ? gameSettings.DURATION_BOOST_DEVOURER

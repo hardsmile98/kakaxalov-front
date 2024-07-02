@@ -13,10 +13,7 @@ interface ProfileResponse {
     energyRecoveryTimeSeconds: number
     gameTime: number
     score: number
-    bonusForNft: number
-    maxBonusForNft: number
     skin: string
-    amountNft: number
     inviteCode: string
     refCode: string
   }
