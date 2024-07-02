@@ -1,21 +1,21 @@
-import loadingImage from 'assets/images/inviteImage.webp'
-import styles from './styles.module.css'
-import Button from 'components/Button'
+import loadingImage from 'assets/images/inviteImage.webp';
+import Button from 'components/Button';
+import styles from './styles.module.css';
 
-function ErrorPage () {
+function ErrorPage() {
   return (
     <div className={styles.root}>
-        <img className={styles.errorImage} src={loadingImage} alt="loading image" />
+      <img className={styles.errorImage} src={loadingImage} alt="loading" />
 
-        <p className={styles.errorText}>
-          An error has occurred
-        </p>
+      <p className={styles.errorText}>
+        An error has occurred
+      </p>
 
-        <Button onClick={() => window.location.reload()}>
-          Refresh page
-        </Button>
+      <Button onClick={() => window.location.reload()}>
+        Refresh page
+      </Button>
     </div>
-  )
+  );
 }
 
-export default ErrorPage
+export default ErrorPage;

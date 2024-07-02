@@ -1,22 +1,24 @@
-import inviteImage from 'assets/images/inviteImage.webp'
-import inviteIcon from 'assets/images/inviteIcon.svg'
-import { Button, Input, Loader, UserList } from 'components'
-import { useGetProfileQuery, useGetReferalsQuery } from 'services/api'
-import { envs } from 'constants/index'
-import styles from './styles.module.css'
+import inviteImage from 'assets/images/inviteImage.webp';
+import inviteIcon from 'assets/images/inviteIcon.svg';
+import {
+  Button, Input, Loader, UserList,
+} from 'components';
+import { useGetProfileQuery, useGetReferalsQuery } from 'services/api';
+import { envs } from 'constants/index';
+import styles from './styles.module.css';
 
-function Referals () {
-  const { data: profile } = useGetProfileQuery(undefined)
+function Referals() {
+  const { data: profile } = useGetProfileQuery(undefined);
 
-  const inviteCode = profile?.user?.inviteCode
+  const inviteCode = profile?.user?.inviteCode;
 
-  const { isLoading, data } = useGetReferalsQuery(undefined)
+  const { isLoading, data } = useGetReferalsQuery(undefined);
 
   return (
     <div className={styles.root}>
       <div>
         <div className={styles.imageWrapper}>
-          <img className={styles.image} src={inviteImage} alt="invite image" />
+          <img className={styles.image} src={inviteImage} alt="invite" />
         </div>
 
         <div className={styles.head}>
@@ -41,19 +43,17 @@ function Referals () {
 
           {isLoading
             ? (
-            <div className={styles.loader}>
-              <Loader />
-            </div>
-              )
-            : (
-            <UserList list={data} />
-              )}
+              <div className={styles.loader}>
+                <Loader />
+              </div>
+            )
+            : <UserList list={data} />}
         </div>
       </div>
 
       <Button className={styles.button}>Пригласить</Button>
     </div>
-  )
+  );
 }
 
-export default Referals
+export default Referals;

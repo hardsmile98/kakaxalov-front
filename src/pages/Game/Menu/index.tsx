@@ -1,12 +1,12 @@
-import { Link } from 'react-router-dom'
-import inviteIcon from 'assets/images/inviteIcon.svg'
-import boostIcon from 'assets/images/boostsIcon.svg'
-import topIcon from 'assets/images/topIcon.svg'
-import earnIcon from 'assets/images/earnIcon.svg'
-import styles from './styles.module.css'
-import menu from 'assets/images/menu.webp'
+import { Link } from 'react-router-dom';
+import inviteIcon from 'assets/images/inviteIcon.svg';
+import boostIcon from 'assets/images/boostsIcon.svg';
+import topIcon from 'assets/images/topIcon.svg';
+import earnIcon from 'assets/images/earnIcon.svg';
+import menu from 'assets/images/menu.webp';
+import styles from './styles.module.css';
 
-function Menu () {
+function Menu() {
   return (
     <div className={styles.root}>
       <ul className={styles.menu}>
@@ -53,7 +53,7 @@ function Menu () {
         <img className={styles.image} src={menu} alt="menu" />
       </ul>
     </div>
-  )
+  );
 }
 
-export default Menu
+export default Menu;

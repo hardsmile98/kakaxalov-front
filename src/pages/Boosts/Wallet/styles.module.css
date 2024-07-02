@@ -1,0 +1,39 @@
+.root {
+    color: var(--white);
+    width: 100%;
+    outline: none;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--unit);
+    padding: calc(var(--unit) * 1.5);
+    font-weight: 700;
+    font-size: var(--body1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: calc(var(--unit) * 1);
+}
+
+.root > div {
+   display: flex;
+   align-items: center;
+   gap: calc(var(--unit) * 1);
+}
+
+.root > div > span {
+    width: 36px;
+    height: 36px;
+    background-color: var(--bg-main);
+    border-radius: var(--unit);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon {
+    color: var(--bg-secondary-light);
+}
+
+.checked {
+    color: var(--success);
+}

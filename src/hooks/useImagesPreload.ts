@@ -1,14 +1,14 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react';
 
 const useImagesPreload = (paths: string[]) => {
-  const imagesRef = useRef<string[]>(paths)
+  const imagesRef = useRef<string[]>(paths);
 
   useEffect(() => {
-    imagesRef.current.forEach(path => {
-      const img = new Image()
-      img.src = path
-    })
-  }, [])
-}
+    imagesRef.current.forEach((path) => {
+      const img = new Image();
+      img.src = path;
+    });
+  }, []);
+};
 
-export default useImagesPreload
+export default useImagesPreload;

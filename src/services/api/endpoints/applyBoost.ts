@@ -1,17 +1,17 @@
-import tagTypes from '../tagTypes'
+import tagTypes from '../tagTypes';
 
 const applyBoost = {
   query: (boostId: number) => ({
     url: '/api/boosts/apply',
     method: 'POST',
     body: {
-      boostId
-    }
+      boostId,
+    },
   }),
 
-  invalidatesTags: [tagTypes.profile, tagTypes.boosts]
-}
+  invalidatesTags: [tagTypes.profile, tagTypes.boosts],
+};
 
 export {
-  applyBoost
-}
+  applyBoost,
+};

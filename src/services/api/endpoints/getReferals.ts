@@ -1,4 +1,4 @@
-import { formatNumber } from 'helpers/index'
+import { formatNumber } from 'helpers/index';
 
 interface ReferalsResponse {
   referals: Array<{
@@ -9,22 +9,20 @@ interface ReferalsResponse {
   success: boolean
 }
 
-const transformReferals = (response: ReferalsResponse) => {
-  return response.referals.map(user => ({
-    id: user.userId,
-    name: user.name ?? user.username ?? 'Не указано',
-    value: `+${formatNumber(100, { minimumFractionDigits: 0 })} KAKAX`
-  }))
-}
+const transformReferals = (response: ReferalsResponse) => response.referals.map((user) => ({
+  id: user.userId,
+  name: user.name ?? user.username ?? 'Не указано',
+  value: `+${formatNumber(100, { minimumFractionDigits: 0 })} KAKAX`,
+}));
 
 const getReferals = {
   query: () => '/api/users/referals',
-  transformResponse: transformReferals
-}
+  transformResponse: transformReferals,
+};
 
-type Referals = ReturnType<typeof transformReferals>
+type Referals = ReturnType<typeof transformReferals>;
 
 export {
   getReferals,
-  type Referals
-}
+  type Referals,
+};

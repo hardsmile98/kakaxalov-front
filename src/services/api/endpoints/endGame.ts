@@ -1,4 +1,4 @@
-import tagTypes from '../tagTypes'
+import tagTypes from '../tagTypes';
 
 interface EndGameDto {
   id: number
@@ -10,12 +10,12 @@ const endGame = {
   query: (dto: EndGameDto) => ({
     url: '/api/game/end',
     method: 'POST',
-    body: dto
+    body: dto,
   }),
 
-  invalidatesTags: [tagTypes.profile, tagTypes.leadboard]
-}
+  invalidatesTags: [tagTypes.profile, tagTypes.leadboard],
+};
 
 export {
-  endGame
-}
+  endGame,
+};

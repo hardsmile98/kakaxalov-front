@@ -1,5 +1,5 @@
-import UserElement from './UserElement'
-import styles from './styles.module.css'
+import UserElement from './UserElement';
+import styles from './styles.module.css';
 
 interface UserListProps {
   type?: 'default' | 'numeric'
@@ -10,20 +10,22 @@ interface UserListProps {
   }> | undefined
 }
 
-function UserList ({ list, type = 'default' }: UserListProps) {
+function UserList({ list, type = 'default' }: UserListProps) {
   return (
     <div className={styles.root}>
       {list?.length !== 0 && list !== undefined
-        ? list.map((user, index) => <UserElement
-        key={user.id}
-        user={{
-          ...user,
-          index: type === 'numeric' ? index + 1 : undefined
-        }}
-       />)
+        ? list.map((user, index) => (
+          <UserElement
+            key={user.id}
+            user={{
+              ...user,
+              index: type === 'numeric' ? index + 1 : undefined,
+            }}
+          />
+        ))
         : 'Список пуст'}
     </div>
-  )
+  );
 }
 
-export default UserList
+export default UserList;

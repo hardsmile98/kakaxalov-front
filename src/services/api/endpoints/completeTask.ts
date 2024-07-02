@@ -1,17 +1,17 @@
-import tagTypes from '../tagTypes'
+import tagTypes from '../tagTypes';
 
 const completeTask = {
   query: (taskId: number) => ({
     url: '/api/tasks',
     method: 'POST',
     body: {
-      taskId
-    }
+      taskId,
+    },
   }),
 
-  invalidatesTags: [tagTypes.tasks, tagTypes.leadboard, tagTypes.profile]
-}
+  invalidatesTags: [tagTypes.tasks, tagTypes.leadboard, tagTypes.profile],
+};
 
 export {
-  completeTask
-}
+  completeTask,
+};

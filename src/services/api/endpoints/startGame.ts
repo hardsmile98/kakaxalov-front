@@ -1,17 +1,17 @@
-import tagTypes from '../tagTypes'
+import tagTypes from '../tagTypes';
 
 const startGame = {
   query: ({ boostId }: { boostId?: number }) => ({
     url: '/api/game/start',
     method: 'POST',
     body: {
-      boostId
-    }
+      boostId,
+    },
   }),
 
-  invalidatesTags: [tagTypes.profile, tagTypes.boosts]
-}
+  invalidatesTags: [tagTypes.profile, tagTypes.boosts],
+};
 
 export {
-  startGame
-}
+  startGame,
+};

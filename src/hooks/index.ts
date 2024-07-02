@@ -1,7 +1,7 @@
-import useTelegram from './useTelegram'
-import useImagesPreload from './useImagesPreload'
+import useTelegram from './useTelegram';
+import useImagesPreload from './useImagesPreload';
 
 export {
   useImagesPreload,
-  useTelegram
-}
+  useTelegram,
+};

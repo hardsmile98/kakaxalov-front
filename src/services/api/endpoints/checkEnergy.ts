@@ -4,10 +4,10 @@ interface CheckEnergyResponse {
 }
 
 const checkEnergy = {
-  query: () => '/api/users/checkEnergy'
-}
+  query: () => '/api/users/checkEnergy',
+};
 
 export {
   type CheckEnergyResponse,
-  checkEnergy
-}
+  checkEnergy,
+};

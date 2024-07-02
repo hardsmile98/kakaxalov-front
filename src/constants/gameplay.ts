@@ -11,8 +11,8 @@ const gameSettings = {
   DELAY_NEW_COIN_WITH_BOOST_MAX: 400,
   DURATION_ANIMATION_COIN_WITH_BOOST_MIN: 300,
   DURATION_ANIMATION_COIN_WITH_BOOST_MAX: 500,
-  BOMB_DROP_CHANCE: 0.15
-}
+  BOMB_DROP_CHANCE: 0.15,
+};
 
 enum Position {
   initial = 'initial',
@@ -26,19 +26,19 @@ enum GameStatuses {
   notRuning = 'NOT_RUNNING',
   started = 'STARTED',
   runing = 'RUNING',
-  finishing = 'FINISHING'
+  finishing = 'FINISHING',
 }
 
 const positionArray = [
   Position.leftBottom,
   Position.leftTop,
   Position.rightBottom,
-  Position.rightTop
-]
+  Position.rightTop,
+];
 
 export {
   gameSettings,
   Position,
   GameStatuses,
-  positionArray
-}
+  positionArray,
+};

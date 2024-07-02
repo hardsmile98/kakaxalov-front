@@ -1,20 +1,20 @@
-import earnImage from 'assets/images/earnImage.webp'
-import earnText from 'assets/images/earnText.svg'
-import earnIcon from 'assets/images/earnIcon.svg'
-import Tasks from './Tasks'
-import styles from './styles.module.css'
-import { useGetTasksQuery } from 'services/api'
-import { ErrorPage, PageLoader } from 'components'
+import earnImage from 'assets/images/earnImage.webp';
+import earnText from 'assets/images/earnText.svg';
+import earnIcon from 'assets/images/earnIcon.svg';
+import { useGetTasksQuery } from 'services/api';
+import { ErrorPage, PageLoader } from 'components';
+import Tasks from './Tasks';
+import styles from './styles.module.css';
 
-function Earn () {
-  const { data, isLoading, isError } = useGetTasksQuery(undefined)
+function Earn() {
+  const { data, isLoading, isError } = useGetTasksQuery(undefined);
 
   if (isError) {
-    return <ErrorPage />
+    return <ErrorPage />;
   }
 
   if (isLoading) {
-    return <PageLoader />
+    return <PageLoader />;
   }
 
   return (
@@ -29,7 +29,7 @@ function Earn () {
         <img
           className={styles.image}
           src={earnImage}
-          alt="earn image"
+          alt="earn"
         />
       </div>
 
@@ -55,7 +55,7 @@ function Earn () {
         <Tasks tasks={data?.tasks} />
       </div>
     </div>
-  )
+  );
 }
 
-export default Earn
+export default Earn;

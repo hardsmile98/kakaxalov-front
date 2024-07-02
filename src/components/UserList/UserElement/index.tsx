@@ -1,5 +1,5 @@
-import kakaxaIcon from 'assets/images/kakaxaIcon.webp'
-import styles from './styles.module.css'
+import kakaxaIcon from 'assets/images/kakaxaIcon.webp';
+import styles from './styles.module.css';
 
 interface User {
   index?: number
@@ -12,16 +12,18 @@ interface UserElementProps {
   user: User
 }
 
-function UserElement ({ user }: UserElementProps) {
+function UserElement({ user }: UserElementProps) {
   return (
     <div className={styles.root}>
       <div className={styles.wrapper}>
-        {user.index !== undefined && user.index > 0 && <div>
-          {user.index}
-        </div>}
+        {user.index !== undefined && user.index > 0 && (
+          <div>
+            {user.index}
+          </div>
+        )}
 
         <div className={styles.icon}>
-          <img src={kakaxaIcon} alt='kakaxa' />
+          <img src={kakaxaIcon} alt="kakaxa" />
         </div>
 
         <div>
@@ -33,7 +35,7 @@ function UserElement ({ user }: UserElementProps) {
         {user.value}
       </div>
     </div>
-  )
+  );
 }
 
-export default UserElement
+export default UserElement;

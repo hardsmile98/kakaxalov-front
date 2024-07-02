@@ -1,5 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit'
-import { Position, GameStatuses } from 'constants/index'
+import { createSlice } from '@reduxjs/toolkit';
+import { Position, GameStatuses } from 'constants/index';
 
 const initialState = {
   gameTimer: 0,
@@ -11,8 +11,8 @@ const initialState = {
   coin: 0,
   coinPosition: null,
   isBomb: false,
-  isExplosionVisible: false
-}
+  isExplosionVisible: false,
+};
 
 const gameSlice = createSlice({
   name: 'game',
@@ -20,44 +20,44 @@ const gameSlice = createSlice({
   reducers: {
     setInitial: () => initialState,
     setGameStatus: (state, action) => {
-      state.gameStatus = action.payload
+      state.gameStatus = action.payload;
     },
     setPosition: (state, action) => {
-      state.position = action.payload
+      state.position = action.payload;
     },
     setTimer: (state, action) => {
-      state.gameTime = action.payload
-      state.gameTimer = action.payload
+      state.gameTime = action.payload;
+      state.gameTimer = action.payload;
     },
     decrementTimer: (state) => {
       state.gameTimer = state.gameTimer > 0
         ? state.gameTimer - 1
-        : 0
+        : 0;
     },
     setIsBomb: (state, action) => {
-      state.isBomb = action.payload
+      state.isBomb = action.payload;
     },
     setCoinPosition: (state, action) => {
-      state.coinPosition = action.payload
+      state.coinPosition = action.payload;
     },
     incrementCoin: (state) => {
-      state.coin = state.coin + 1
+      state.coin += 1;
     },
     hideExplosion: (state) => {
-      state.isExplosionVisible = false
+      state.isExplosionVisible = false;
     },
     caughtBomb: (state) => {
-      state.isExplosionVisible = true
+      state.isExplosionVisible = true;
     },
     startBoost: (state, action) => {
-      state.boost = action.payload.slug
-      state.boostId = action.payload.id
-      state.gameStatus = GameStatuses.started
-    }
-  }
-})
+      state.boost = action.payload.slug;
+      state.boostId = action.payload.id;
+      state.gameStatus = GameStatuses.started;
+    },
+  },
+});
 
-export default gameSlice.reducer
+export default gameSlice.reducer;
 
 export const {
   setInitial,
@@ -70,5 +70,5 @@ export const {
   incrementCoin,
   hideExplosion,
   caughtBomb,
-  startBoost
-} = gameSlice.actions
+  startBoost,
+} = gameSlice.actions;

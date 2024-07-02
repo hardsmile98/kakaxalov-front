@@ -1,9 +1,9 @@
-import Gameplay from './Gameplay'
-import Head from './Head'
-import Menu from './Menu'
-import styles from './styles.module.css'
+import Gameplay from './Gameplay';
+import Head from './Head';
+import Menu from './Menu';
+import styles from './styles.module.css';
 
-function Game2 () {
+function Game() {
   return (
     <div className={styles.root}>
       <div className={styles.wrapper}>
@@ -14,7 +14,7 @@ function Game2 () {
         <Menu />
       </div>
     </div>
-  )
+  );
 }
 
-export default Game2
+export default Game;

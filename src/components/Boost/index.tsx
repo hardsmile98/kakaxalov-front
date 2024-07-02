@@ -1,5 +1,5 @@
-import Loader from 'components/Loader'
-import styles from './styles.module.css'
+import Loader from 'components/Loader';
+import styles from './styles.module.css';
 
 interface BoostType {
   slug: string
@@ -22,25 +22,31 @@ interface BoostProps {
 const stylesMap = {
   primary: styles.primary,
   green: styles.green,
-  red: styles.red
-}
+  red: styles.red,
+};
 
-function Boost ({ boost, loading, color, onClick }: BoostProps) {
+function Boost({
+  boost, loading, color, onClick,
+}: BoostProps) {
   return (
     <li className={stylesMap[color]}>
       <button
         onClick={onClick}
+        type="button"
         disabled={boost.disabled || loading}
-        className={styles.button}>
+        className={styles.button}
+      >
         <div className={styles.content}>
           <div className={styles.imageWrapper}>
             {loading === true
               ? <Loader />
-              : <img
-                className={boost.iconStyle}
-                src={boost.icon}
-                alt={boost.title}
-              />}
+              : (
+                <img
+                  className={boost.iconStyle}
+                  src={boost.icon}
+                  alt={boost.title}
+                />
+              )}
           </div>
 
           <div>
@@ -52,7 +58,7 @@ function Boost ({ boost, loading, color, onClick }: BoostProps) {
         <div className={styles.extra}>{boost.extra}</div>
       </button>
     </li>
-  )
+  );
 }
 
-export default Boost
+export default Boost;

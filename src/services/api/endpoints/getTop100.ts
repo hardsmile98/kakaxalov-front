@@ -1,5 +1,5 @@
-import { formatNumber } from 'helpers'
-import tagTypes from '../tagTypes'
+import { formatNumber } from 'helpers';
+import tagTypes from '../tagTypes';
 
 interface Top100Response {
   top: Array<{
@@ -16,33 +16,33 @@ interface Top100Response {
 }
 
 const transformTop100 = (response: Top100Response) => {
-  const topFormatted = response.top.map(user => ({
+  const topFormatted = response.top.map((user) => ({
     id: user.userId,
     name: user.name ?? 'Не указано',
-    value: `${formatNumber(user.leadboardScore)} KAKAX`
-  }))
+    value: `${formatNumber(user.leadboardScore)} KAKAX`,
+  }));
 
   return {
     ...response,
     position: {
       ...response.position,
-      leadboardScore: formatNumber(response.position.leadboardScore)
+      leadboardScore: formatNumber(response.position.leadboardScore),
     },
-    top: topFormatted
-  }
-}
+    top: topFormatted,
+  };
+};
 
 const getTop100 = {
   query: () => '/api/users/top',
 
   transformResponse: transformTop100,
 
-  providesTags: [tagTypes.leadboard]
-}
+  providesTags: [tagTypes.leadboard],
+};
 
-type Top100 = ReturnType<typeof transformTop100>
+type Top100 = ReturnType<typeof transformTop100>;
 
 export {
   getTop100,
-  type Top100
-}
+  type Top100,
+};

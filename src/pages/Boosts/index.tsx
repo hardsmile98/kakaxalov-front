@@ -1,21 +1,22 @@
-import boostsImage from 'assets/images/boostsImage.webp'
-import boostsText from 'assets/images/boostsText.svg'
-import boostsIcon from 'assets/images/boostsIcon.svg'
-import DailyBoosts from './Daily'
-import Improvements from './Improvements'
-import styles from './styles.module.css'
-import { useGetBoostsQuery } from 'services/api'
-import { ErrorPage, PageLoader } from 'components'
+import boostsImage from 'assets/images/boostsImage.webp';
+import boostsText from 'assets/images/boostsText.svg';
+import boostsIcon from 'assets/images/boostsIcon.svg';
+import { useGetBoostsQuery } from 'services/api';
+import { ErrorPage, PageLoader } from 'components';
+import DailyBoosts from './Daily';
+import Improvements from './Improvements';
+import styles from './styles.module.css';
+import Wallet from './Wallet';
 
-function Boosts () {
-  const { data, isLoading, isError } = useGetBoostsQuery(undefined)
+function Boosts() {
+  const { data, isLoading, isError } = useGetBoostsQuery(undefined);
 
   if (isError) {
-    return <ErrorPage />
+    return <ErrorPage />;
   }
 
   if (isLoading) {
-    return <PageLoader />
+    return <PageLoader />;
   }
 
   return (
@@ -30,7 +31,7 @@ function Boosts () {
         <img
           className={styles.image}
           src={boostsImage}
-          alt="boosts image"
+          alt="boosts"
         />
       </div>
 
@@ -63,8 +64,16 @@ function Boosts () {
 
         <Improvements boosts={data?.improveList} />
       </div>
+
+      <div className={styles.blockWrapper}>
+        <h5>
+          Подключение кошелька
+        </h5>
+
+        <Wallet />
+      </div>
     </div>
-  )
+  );
 }
 
-export default Boosts
+export default Boosts;

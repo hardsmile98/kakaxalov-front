@@ -1,21 +1,21 @@
-import topImage from 'assets/images/topImage.webp'
-import topText from 'assets/images/topText.svg'
-import topIcon from 'assets/images/topIcon.svg'
-import { ErrorPage, PageLoader, UserList } from 'components'
-import styles from './styles.module.css'
-import { useGetTop100Query } from 'services/api'
+import topImage from 'assets/images/topImage.webp';
+import topText from 'assets/images/topText.svg';
+import topIcon from 'assets/images/topIcon.svg';
+import { ErrorPage, PageLoader, UserList } from 'components';
+import { useGetTop100Query } from 'services/api';
+import styles from './styles.module.css';
 
-function Leadboard () {
-  const { isLoading, isError, data } = useGetTop100Query(undefined)
+function Leadboard() {
+  const { isLoading, isError, data } = useGetTop100Query(undefined);
 
-  const topList = data?.top
+  const topList = data?.top;
 
   if (isError) {
-    return <ErrorPage />
+    return <ErrorPage />;
   }
 
   if (isLoading) {
-    return <PageLoader />
+    return <PageLoader />;
   }
 
   return (
@@ -30,7 +30,7 @@ function Leadboard () {
         <img
           className={styles.image}
           src={topImage}
-          alt="top image"
+          alt="leadboard"
         />
       </div>
 
@@ -68,11 +68,13 @@ function Leadboard () {
         </div>
 
         <div className={styles.score}>
-          {data?.position.leadboardScore} KAKAX
+          {data?.position.leadboardScore}
+          {' '}
+          KAKAX
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Leadboard
+export default Leadboard;

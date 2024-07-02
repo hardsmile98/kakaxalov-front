@@ -1,4 +1,4 @@
-import tagTypes from '../tagTypes'
+import tagTypes from '../tagTypes';
 
 interface TasksResponse {
   tasks: Array<{
@@ -14,10 +14,10 @@ interface TasksResponse {
 const getTasks = {
   query: () => '/api/tasks',
 
-  providesTags: [tagTypes.tasks]
-}
+  providesTags: [tagTypes.tasks],
+};
 
 export {
   type TasksResponse,
-  getTasks
-}
+  getTasks,
+};

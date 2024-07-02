@@ -1,10 +1,10 @@
-import { formatTimer } from 'helpers/index'
-import { useEffect, useRef, useState } from 'react'
-import styles from './styles.module.css'
-import { publicApi, useCheckEnergyQuery } from 'services/api'
-import { Loader } from 'components'
-import { useDispatch } from 'react-redux'
-import tagTypes from 'services/api/tagTypes'
+import { formatTimer } from 'helpers/index';
+import { useEffect, useRef, useState } from 'react';
+import { publicApi, useCheckEnergyQuery } from 'services/api';
+import { Loader } from 'components';
+import { useDispatch } from 'react-redux';
+import tagTypes from 'services/api/tagTypes';
+import styles from './styles.module.css';
 
 interface TimerProps {
   energyRecoveryTimeSeconds: number
@@ -12,62 +12,62 @@ interface TimerProps {
 }
 
 const getSeconds = (useEneryTimestamp: string, energyRecoveryTimeSeconds: number) => {
-  const recoveryTimestamp = +useEneryTimestamp + energyRecoveryTimeSeconds * 1000
-  const timerSeconds = Math.round((recoveryTimestamp - Date.now()) / 1_000)
-  return timerSeconds
-}
+  const recoveryTimestamp = +useEneryTimestamp + energyRecoveryTimeSeconds * 1000;
+  const timerSeconds = Math.round((recoveryTimestamp - Date.now()) / 1_000);
+  return timerSeconds;
+};
 
-function Timer ({
+function Timer({
   energyRecoveryTimeSeconds,
-  useEneryTimestamp
+  useEneryTimestamp,
 }: TimerProps) {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const [seconds, setSeconds] = useState(getSeconds(useEneryTimestamp, energyRecoveryTimeSeconds))
+  const [seconds, setSeconds] = useState(getSeconds(useEneryTimestamp, energyRecoveryTimeSeconds));
 
-  const intervalRef = useRef<null | NodeJS.Timeout>(null)
+  const intervalRef = useRef<null | NodeJS.Timeout>(null);
 
-  const { isLoading, data, refetch } = useCheckEnergyQuery(undefined)
+  const { isLoading, data, refetch } = useCheckEnergyQuery(undefined);
 
-  const isTimerEnd = seconds <= 0
+  const isTimerEnd = seconds <= 0;
 
   useEffect(() => {
     if (data?.recovery === true) {
-      dispatch(publicApi.util.invalidateTags([tagTypes.profile]))
+      dispatch(publicApi.util.invalidateTags([tagTypes.profile]));
     }
-  }, [dispatch, data?.recovery])
+  }, [dispatch, data?.recovery]);
 
   useEffect(() => {
     if (isTimerEnd) {
       if (intervalRef.current !== null) {
-        clearInterval(intervalRef.current)
+        clearInterval(intervalRef.current);
       }
 
-      void refetch()
+      refetch();
     }
-  }, [refetch, isTimerEnd])
+  }, [refetch, isTimerEnd]);
 
   useEffect(() => {
     if (intervalRef.current === null) {
       intervalRef.current = setInterval(() => {
-        setSeconds(getSeconds(useEneryTimestamp, energyRecoveryTimeSeconds))
-      }, 10_000)
+        setSeconds(getSeconds(useEneryTimestamp, energyRecoveryTimeSeconds));
+      }, 10_000);
     }
-  }, [energyRecoveryTimeSeconds, useEneryTimestamp])
+  }, [energyRecoveryTimeSeconds, useEneryTimestamp]);
 
   useEffect(() => () => {
     if (intervalRef.current !== null) {
-      clearInterval(intervalRef.current)
+      clearInterval(intervalRef.current);
     }
-  }, [])
+  }, []);
 
-  const timer = formatTimer(seconds)
+  const timer = formatTimer(seconds);
 
   return (
     <div className={styles.root}>
       {isLoading ? <Loader size={12} width={3} /> : timer }
     </div>
-  )
+  );
 }
 
-export default Timer
+export default Timer;

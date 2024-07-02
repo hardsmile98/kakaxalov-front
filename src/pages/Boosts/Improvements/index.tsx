@@ -1,46 +1,48 @@
-import improvement2 from 'assets/images/improvement2.svg'
-import styles from './styles.module.css'
-import { Boost } from 'components'
-import { BoostSlugs, useGetProfileQuery, useImproveBoostMutation, type Boosts } from 'services'
-import { useSnackbar } from 'notistack'
-import { useEffect } from 'react'
+import improvement2 from 'assets/images/improvement2.svg';
+import { Boost } from 'components';
+import {
+  BoostSlugs, useGetProfileQuery, useImproveBoostMutation, type Boosts,
+} from 'services';
+import { useSnackbar } from 'notistack';
+import { useEffect } from 'react';
+import styles from './styles.module.css';
 
 const settingsMap: Record<string, { icon: string, iconStyle: string }> = {
   [BoostSlugs.energy]: {
     icon: improvement2,
-    iconStyle: styles.improvement2Image
-  }
-}
+    iconStyle: styles.improvement2Image,
+  },
+};
 
 interface ImprovementsProps {
   boosts?: Boosts['improveList']
 }
 
-function Improvements ({ boosts }: ImprovementsProps) {
-  const { enqueueSnackbar } = useSnackbar()
+function Improvements({ boosts }: ImprovementsProps) {
+  const { enqueueSnackbar } = useSnackbar();
 
-  const { data } = useGetProfileQuery(undefined)
+  const { data } = useGetProfileQuery(undefined);
 
   const currentScore = data?.user?.currentScore !== undefined
     ? data.user.currentScore
-    : 0
+    : 0;
 
-  const [improve, { isLoading, isSuccess, isError }] = useImproveBoostMutation()
+  const [improve, { isLoading, isSuccess, isError }] = useImproveBoostMutation();
 
   useEffect(() => {
     if (isSuccess) {
-      enqueueSnackbar('Ваш буст улучшен', { variant: 'success' })
+      enqueueSnackbar('Ваш буст улучшен', { variant: 'success' });
     }
-  }, [enqueueSnackbar, isSuccess])
+  }, [enqueueSnackbar, isSuccess]);
 
   useEffect(() => {
     if (isError) {
-      enqueueSnackbar('Ошибка прокачки буста', { variant: 'error' })
+      enqueueSnackbar('Ошибка прокачки буста', { variant: 'error' });
     }
-  }, [enqueueSnackbar, isError])
+  }, [enqueueSnackbar, isError]);
 
   if (boosts?.length === 0 || boosts === undefined) {
-    return null
+    return null;
   }
 
   return (
@@ -51,18 +53,18 @@ function Improvements ({ boosts }: ImprovementsProps) {
           key={boost.slug}
           loading={isLoading}
           onClick={() => {
-            void improve(boost.id)
+            improve(boost.id);
           }}
           boost={{
             ...boost,
             disabled: boost.disabled || currentScore < boost.levelPrice,
             icon: settingsMap[boost.slug].icon,
-            iconStyle: settingsMap[boost.slug].iconStyle
+            iconStyle: settingsMap[boost.slug].iconStyle,
           }}
         />
       ))}
     </ul>
-  )
+  );
 }
 
-export default Improvements
+export default Improvements;

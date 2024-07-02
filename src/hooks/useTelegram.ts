@@ -1,7 +1,5 @@
-const tg = window.Telegram.WebApp
+const tg = window.Telegram.WebApp;
 
-const useTelegram = () => {
-  return tg
-}
+const useTelegram = () => tg;
 
-export default useTelegram
+export default useTelegram;

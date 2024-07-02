@@ -1,14 +1,16 @@
-import dailyBoost2 from 'assets/images/helth.svg'
-import dailyBoostModal1 from 'assets/images/dailyBoostModal1.webp'
-import { Button, Modal } from 'components'
-import styles from './styles.module.css'
-import { BoostSlugs, isErrorWithMessage, useApplyBoostMutation, type Boosts } from 'services'
-import { useEffect, useState } from 'react'
-import BoostButton from './Boost'
-import { useSnackbar } from 'notistack'
-import { useNavigate } from 'react-router'
-import { useDispatch } from 'store/index'
-import { startBoost } from 'store/slices/game'
+import dailyBoost2 from 'assets/images/helth.svg';
+import dailyBoostModal1 from 'assets/images/dailyBoostModal1.webp';
+import { Button, Modal } from 'components';
+import {
+  BoostSlugs, isErrorWithMessage, useApplyBoostMutation, type Boosts,
+} from 'services';
+import { useEffect, useState } from 'react';
+import { useSnackbar } from 'notistack';
+import { useNavigate } from 'react-router';
+import { useDispatch } from 'store/index';
+import { startBoost } from 'store/slices/game';
+import BoostButton from './Boost';
+import styles from './styles.module.css';
 
 const settingsMap: Record<
 string,
@@ -16,73 +18,75 @@ string,
 > = {
   [BoostSlugs.devourer]: {
     modalImage: dailyBoostModal1,
-    modalImageStyle: styles.modalImage1Style
+    modalImageStyle: styles.modalImage1Style,
   },
   [BoostSlugs.energy]: {
     modalImage: dailyBoost2,
-    modalImageStyle: styles.modalImage2Style
-  }
-}
+    modalImageStyle: styles.modalImage2Style,
+  },
+};
 
 interface DailyBoostsProps {
   boosts?: Boosts['dailyList']
 }
 
-function DailyBoosts ({ boosts }: DailyBoostsProps) {
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
+function DailyBoosts({ boosts }: DailyBoostsProps) {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const { enqueueSnackbar } = useSnackbar()
+  const { enqueueSnackbar } = useSnackbar();
 
-  const [selectBoost, setSelectBoost] = useState<null | { id: number, slug: string }>(null)
-  const [isModalOpen, setModalOpen] = useState(false)
+  const [selectBoost, setSelectBoost] = useState<null | { id: number, slug: string }>(null);
+  const [isModalOpen, setModalOpen] = useState(false);
 
-  const [apply, { isLoading, isSuccess, isError, error }] = useApplyBoostMutation()
+  const [apply, {
+    isLoading, isSuccess, isError, error,
+  }] = useApplyBoostMutation();
 
   useEffect(() => {
     if (isSuccess) {
-      enqueueSnackbar('Буст применен', { variant: 'success' })
+      enqueueSnackbar('Буст применен', { variant: 'success' });
 
-      setModalOpen(false)
+      setModalOpen(false);
     }
-  }, [enqueueSnackbar, isSuccess])
+  }, [enqueueSnackbar, isSuccess]);
 
   useEffect(() => {
     if (isError) {
-      const errorMessage = isErrorWithMessage(error) && error.data.message
+      const errorMessage = isErrorWithMessage(error) && error.data.message;
 
-      enqueueSnackbar(errorMessage ?? 'Буст не применен', { variant: 'error' })
+      enqueueSnackbar(errorMessage ?? 'Буст не применен', { variant: 'error' });
 
-      setModalOpen(false)
+      setModalOpen(false);
     }
-  }, [enqueueSnackbar, error, isError])
+  }, [enqueueSnackbar, error, isError]);
 
   if (boosts === undefined) {
-    return null
+    return null;
   }
 
-  const setting = boosts.find((boost) => boost.id === selectBoost?.id)
+  const setting = boosts.find((boost) => boost.id === selectBoost?.id);
 
   const applyBoost = () => {
     if (selectBoost === null) {
-      return
+      return;
     }
 
     switch (selectBoost?.slug) {
       case BoostSlugs.devourer: {
-        navigate('/')
-        dispatch(startBoost(selectBoost))
-        break
+        navigate('/');
+        dispatch(startBoost(selectBoost));
+        break;
       }
 
       default: {
         if (selectBoost?.id !== null) {
-          void apply(selectBoost.id)
+          apply(selectBoost.id);
         }
-        break
+        break;
       }
     }
-  }
+  };
 
   return (
     <>
@@ -93,8 +97,8 @@ function DailyBoosts ({ boosts }: DailyBoostsProps) {
             boost={boost}
             index={index}
             onStart={() => {
-              setSelectBoost({ id: boost.id, slug: boost.slug })
-              setModalOpen(true)
+              setSelectBoost({ id: boost.id, slug: boost.slug });
+              setModalOpen(true);
             }}
           />
         ))}
@@ -125,7 +129,7 @@ function DailyBoosts ({ boosts }: DailyBoostsProps) {
         )}
       </Modal>
     </>
-  )
+  );
 }
 
-export default DailyBoosts
+export default DailyBoosts;

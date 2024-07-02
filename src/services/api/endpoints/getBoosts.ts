@@ -1,9 +1,9 @@
-import { gameSettings } from 'constants/index'
-import tagTypes from '../tagTypes'
+import { gameSettings } from 'constants/index';
+import tagTypes from '../tagTypes';
 
 enum BoostSlugs {
   devourer = 'devourer',
-  energy = 'energy'
+  energy = 'energy',
 }
 
 interface Boost {
@@ -34,53 +34,51 @@ const formatDescription = (description: string, slug: string) => {
   switch (slug) {
     case 'devourer': {
       return description
-        .replace(/{duration}/g, String(gameSettings.DURATION_BOOST_DEVOURER))
+        .replace(/{duration}/g, String(gameSettings.DURATION_BOOST_DEVOURER));
     }
     default:
-      return description
+      return description;
   }
-}
+};
 
-const transformBoosts = (response: BoostsResponse) => {
-  return {
-    improveList: response.boosts
-      .filter(boost => boost.canImproved)
-      .map(boost => ({
-        id: boost.id,
-        slug: boost.slug,
-        title: boost.improveTitle,
-        description: `${boost.levelPrice} KAKAX`,
-        extra: `${boost.level !== boost.maxLevel ? boost.level + 1 : boost.level} LVL`,
-        disabled: boost.maxLevel === boost.level,
-        levelPrice: boost.levelPrice
-      })),
-    dailyList: response.boosts
-      .filter(boost => boost.type === 'daily')
-      .map(boost => ({
-        id: boost.id,
-        slug: boost.slug,
-        title: boost.title,
-        description: formatDescription(boost.description, boost.slug),
-        disabled: boost.availableCount === 0,
-        availableCount: boost.availableCount,
-        useTimestamp: boost.useTimestamp,
-        recoverySeconds: boost.recoverySeconds
-      }))
-  }
-}
+const transformBoosts = (response: BoostsResponse) => ({
+  improveList: response.boosts
+    .filter((boost) => boost.canImproved)
+    .map((boost) => ({
+      id: boost.id,
+      slug: boost.slug,
+      title: boost.improveTitle,
+      description: `${boost.levelPrice} KAKAX`,
+      extra: `${boost.level !== boost.maxLevel ? boost.level + 1 : boost.level} LVL`,
+      disabled: boost.maxLevel === boost.level,
+      levelPrice: boost.levelPrice,
+    })),
+  dailyList: response.boosts
+    .filter((boost) => boost.type === 'daily')
+    .map((boost) => ({
+      id: boost.id,
+      slug: boost.slug,
+      title: boost.title,
+      description: formatDescription(boost.description, boost.slug),
+      disabled: boost.availableCount === 0,
+      availableCount: boost.availableCount,
+      useTimestamp: boost.useTimestamp,
+      recoverySeconds: boost.recoverySeconds,
+    })),
+});
 
 const getBoosts = {
   query: () => '/api/boosts',
 
   transformResponse: transformBoosts,
 
-  providesTags: [tagTypes.boosts]
-}
+  providesTags: [tagTypes.boosts],
+};
 
-type Boosts = ReturnType<typeof transformBoosts>
+type Boosts = ReturnType<typeof transformBoosts>;
 
 export {
   BoostSlugs,
   type Boosts,
-  getBoosts
-}
+  getBoosts,
+};

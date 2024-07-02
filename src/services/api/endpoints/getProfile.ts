@@ -1,4 +1,4 @@
-import tagTypes from '../tagTypes'
+import tagTypes from '../tagTypes';
 
 interface ProfileResponse {
   success: boolean
@@ -25,10 +25,10 @@ interface ProfileResponse {
 const getProfile = {
   query: () => '/api/users/profile',
 
-  providesTags: [tagTypes.profile]
-}
+  providesTags: [tagTypes.profile],
+};
 
 export {
   type ProfileResponse,
-  getProfile
-}
+  getProfile,
+};

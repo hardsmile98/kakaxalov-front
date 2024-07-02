@@ -1,22 +1,22 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { envs } from 'constants/index'
-import tagTypes from './tagTypes'
-import * as endpoints from './endpoints'
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { envs } from 'constants/index';
+import tagTypes from './tagTypes';
+import * as endpoints from './endpoints';
 
 export const publicApi = createApi({
   reducerPath: 'publicApi',
   baseQuery: fetchBaseQuery({
     baseUrl: envs.apiUrl,
-    prepareHeaders (headers) {
-      const tgData = localStorage.getItem('tgData')
+    prepareHeaders(headers) {
+      const tgData = localStorage.getItem('tgData');
 
       if (tgData !== null) {
-        headers.set('X-Telegram-Data', tgData)
+        headers.set('X-Telegram-Data', tgData);
       }
 
-      return headers
+      return headers;
     },
-    credentials: 'include'
+    credentials: 'include',
   }),
 
   endpoints: (builder) => ({
@@ -30,11 +30,11 @@ export const publicApi = createApi({
     applyBoost: builder.mutation(endpoints.applyBoost),
     startGame: builder.mutation(endpoints.startGame),
     endGame: builder.mutation(endpoints.endGame),
-    checkEnergy: builder.query<endpoints.CheckEnergyResponse, undefined>(endpoints.checkEnergy)
+    checkEnergy: builder.query<endpoints.CheckEnergyResponse, undefined>(endpoints.checkEnergy),
   }),
 
-  tagTypes: Object.values(tagTypes)
-})
+  tagTypes: Object.values(tagTypes),
+});
 
 export const {
   useGetProfileQuery,
@@ -47,17 +47,17 @@ export const {
   useApplyBoostMutation,
   useStartGameMutation,
   useEndGameMutation,
-  useCheckEnergyQuery
-} = publicApi
+  useCheckEnergyQuery,
+} = publicApi;
 
-export function isErrorWithMessage (
-  error: unknown
+export function isErrorWithMessage(
+  error: unknown,
 ): error is { data: { message: string } } {
   return (
-    typeof error === 'object' &&
-    error != null &&
-    typeof (error as any).data?.message === 'string'
-  )
+    typeof error === 'object'
+    && error != null
+    && typeof (error as any).data?.message === 'string'
+  );
 }
 
-export * from './endpoints'
+export * from './endpoints';
