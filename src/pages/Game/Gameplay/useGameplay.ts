@@ -102,11 +102,13 @@ const useGameplay = () => {
   const stopGame = useCallback(() => {
     if (timeoutRef.current !== null) {
       clearTimeout(timeoutRef.current);
+
       timeoutRef.current = null;
     }
 
     if (timerRef.current !== null) {
       clearInterval(timerRef.current);
+
       timerRef.current = null;
     }
 
@@ -218,9 +220,11 @@ const useGameplay = () => {
       if (timeoutRef.current !== null) {
         clearTimeout(timeoutRef.current);
       }
+
       if (hideBombRef.current !== null) {
         clearTimeout(hideBombRef.current);
       }
+
       if (timerRef.current !== null) {
         clearInterval(timerRef.current);
       }

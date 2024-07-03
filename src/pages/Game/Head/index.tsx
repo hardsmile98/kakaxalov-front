@@ -1,10 +1,11 @@
 /* eslint-disable react/no-array-index-key */
+
 import coinIcon from 'assets/images/kakaxaCoin.webp';
 import helth from 'assets/images/helth.svg';
 import { useSelector } from 'store';
 import { useGetProfileQuery } from 'services/api';
 import { GameStatuses } from 'constants/index';
-import { declOfWords } from 'helpers';
+import { declOfWords, formatNumber } from 'helpers';
 import styles from './styles.module.css';
 import Timer from './Timer';
 
@@ -49,7 +50,7 @@ function Head() {
           <img className={styles.coin} src={coinIcon} alt="coin" />
 
           <span>
-            {data?.user.score}
+            {formatNumber(data?.user.score)}
             {' '}
             КАКАХ
           </span>
