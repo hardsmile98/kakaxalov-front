@@ -47,7 +47,36 @@ body {
     background-color: var(--bg-main);
     background: var(--bg-main);;
     color: var(--paper);
+}
+
+html {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    height: 100%;
     overflow-x: hidden;
+    overflow-y: auto;
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #452E20 #150801;
+}
+
+*::-webkit-scrollbar {
+    width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #150801;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #150801;
+    border-radius: 20px;
+    border: 4px solid #452E20;
 }
 
 h1 {
