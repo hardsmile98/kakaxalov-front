@@ -61,7 +61,7 @@
     right: 0;
     border-top: 1px solid var(--border);
     background-color: var(--bg-main);
-    padding: calc(var(--unit) * 1.5);
+    padding: calc(var(--unit) * 2) calc(var(--unit) * 1.5);
     display: flex;
     align-items: center;
     justify-content: space-between;
