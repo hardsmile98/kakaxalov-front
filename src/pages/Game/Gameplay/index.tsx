@@ -107,34 +107,22 @@ function Gameplay() {
       <div className={styles.wrapper}>
         <span
           className={styles.clickableAreaLeftBottom}
-          onClick={() => {
-            tg.HapticFeedback.impactOccurred('light');
-            changePosition(Position.leftBottom);
-          }}
+          onClick={() => changePosition(Position.leftBottom)}
           aria-hidden="true"
         />
         <span
           className={styles.clickableAreaLeftTop}
-          onClick={() => {
-            tg.HapticFeedback.impactOccurred('light');
-            changePosition(Position.leftTop);
-          }}
+          onClick={() => changePosition(Position.leftTop)}
           aria-hidden="true"
         />
         <span
           className={styles.clickableAreaRightBottom}
-          onClick={() => {
-            tg.HapticFeedback.impactOccurred('light');
-            changePosition(Position.rightBottom);
-          }}
+          onClick={() => changePosition(Position.rightBottom)}
           aria-hidden="true"
         />
         <span
           className={styles.clickableAreaRightTop}
-          onClick={() => {
-            tg.HapticFeedback.impactOccurred('light');
-            changePosition(Position.rightTop);
-          }}
+          onClick={() => changePosition(Position.rightTop)}
           aria-hidden="true"
         />
 

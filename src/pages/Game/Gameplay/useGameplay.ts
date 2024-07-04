@@ -68,6 +68,8 @@ const useGameplay = () => {
     }
 
     if (game.gameStatus === GameStatuses.runing) {
+      tg.HapticFeedback.impactOccurred('light');
+
       dispatch(setPosition(newPosition));
     }
   };
