@@ -26,6 +26,7 @@ import {
 } from 'services/api';
 import { randomInteger } from 'helpers/index';
 import { useTonWallet } from '@tonconnect/ui-react';
+import { useTelegram } from 'hooks';
 
 const useGameplay = () => {
   const dispatch = useDispatch();
@@ -33,6 +34,8 @@ const useGameplay = () => {
   const { data } = useGetProfileQuery(undefined);
 
   const wallet = useTonWallet();
+
+  const tg = useTelegram();
 
   const { data: { bonus = 0 } = {} } = useGetNftBonusQuery(wallet?.account.walletStateInit);
 
@@ -189,16 +192,23 @@ const useGameplay = () => {
   const check = useCallback(() => {
     if (config.current.boost !== null) {
       dispatch(incrementCoin({ bonus }));
+
+      tg.HapticFeedback.notificationOccurred('success');
     } else if (config.current.position === config.current.coinPosition) {
       if (config.current.isBomb) {
         dispatch(caughtBomb());
 
+        tg.HapticFeedback.notificationOccurred('error');
+
         hideBombRef.current = setTimeout(() => {
           dispatch(hideExplosion());
+
           stopGame();
         }, gameSettings.DURATION_ANIMATION_EXPLOSION);
       } else {
         dispatch(incrementCoin({ bonus }));
+
+        tg.HapticFeedback.notificationOccurred('success');
       }
     }
 

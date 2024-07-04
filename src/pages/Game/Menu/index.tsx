@@ -4,14 +4,20 @@ import boostIcon from 'assets/images/boostsIcon.svg';
 import topIcon from 'assets/images/topIcon.svg';
 import earnIcon from 'assets/images/earnIcon.svg';
 import menu from 'assets/images/menu.webp';
+import { useTelegram } from 'hooks';
 import styles from './styles.module.css';
 
 function Menu() {
+  const tg = useTelegram();
+
   return (
     <div className={styles.root}>
       <ul className={styles.menu}>
         <li>
-          <Link to="/referals">
+          <Link
+            onClick={() => tg.HapticFeedback.impactOccurred('light')}
+            to="/referals"
+          >
             <div>
               <img src={inviteIcon} alt="Invite" />
             </div>
@@ -21,7 +27,10 @@ function Menu() {
         </li>
 
         <li>
-          <Link to="/boosts">
+          <Link
+            onClick={() => tg.HapticFeedback.impactOccurred('light')}
+            to="/boosts"
+          >
             <div>
               <img src={boostIcon} alt="Boosts" />
             </div>
@@ -31,7 +40,10 @@ function Menu() {
         </li>
 
         <li>
-          <Link to="/leadboard">
+          <Link
+            onClick={() => tg.HapticFeedback.impactOccurred('light')}
+            to="/leadboard"
+          >
             <div>
               <img src={topIcon} alt="Top100" />
             </div>
@@ -41,7 +53,10 @@ function Menu() {
         </li>
 
         <li>
-          <Link to="/earn">
+          <Link
+            onClick={() => tg.HapticFeedback.impactOccurred('light')}
+            to="/earn"
+          >
             <div>
               <img src={earnIcon} alt="Earn" />
             </div>

@@ -10,7 +10,7 @@ import bomb from 'assets/images/bomb.gif';
 import explosion from 'assets/images/explosion.gif';
 import devourer from 'assets/images/devourer.gif';
 import miner from 'assets/images/miner.gif';
-import { useImagesPreload } from 'hooks';
+import { useImagesPreload, useTelegram } from 'hooks';
 import { GameStatuses, Position } from 'constants/index';
 import styles from './styles.module.css';
 import useGameplay from './useGameplay';
@@ -76,6 +76,14 @@ function Gameplay() {
 
   const personImage = game.boost !== null ? devourer : setting.image;
 
+  const tg = useTelegram();
+
+  const startGame = () => {
+    tg.HapticFeedback.impactOccurred('medium');
+
+    runGame();
+  };
+
   return (
     <div className={styles.root}>
       {game.gameStatus !== GameStatuses.notRuning
@@ -88,7 +96,7 @@ function Gameplay() {
         : (
           <div className={styles.playWrapper}>
             <button
-              onClick={runGame}
+              onClick={startGame}
               disabled={!isGameAvailable || isButtonLoading}
               type="button"
               aria-label="Start"
@@ -99,22 +107,34 @@ function Gameplay() {
       <div className={styles.wrapper}>
         <span
           className={styles.clickableAreaLeftBottom}
-          onClick={() => changePosition(Position.leftBottom)}
+          onClick={() => {
+            tg.HapticFeedback.impactOccurred('light');
+            changePosition(Position.leftBottom);
+          }}
           aria-hidden="true"
         />
         <span
           className={styles.clickableAreaLeftTop}
-          onClick={() => changePosition(Position.leftTop)}
+          onClick={() => {
+            tg.HapticFeedback.impactOccurred('light');
+            changePosition(Position.leftTop);
+          }}
           aria-hidden="true"
         />
         <span
           className={styles.clickableAreaRightBottom}
-          onClick={() => changePosition(Position.rightBottom)}
+          onClick={() => {
+            tg.HapticFeedback.impactOccurred('light');
+            changePosition(Position.rightBottom);
+          }}
           aria-hidden="true"
         />
         <span
           className={styles.clickableAreaRightTop}
-          onClick={() => changePosition(Position.rightTop)}
+          onClick={() => {
+            tg.HapticFeedback.impactOccurred('light');
+            changePosition(Position.rightTop);
+          }}
           aria-hidden="true"
         />
 
