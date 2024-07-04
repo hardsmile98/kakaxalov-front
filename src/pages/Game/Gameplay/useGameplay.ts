@@ -44,7 +44,7 @@ const useGameplay = () => {
   const isGameAvailable = data?.user.amountEnergy !== 0;
 
   const gameTime = game.boost !== null
-    ? gameSettings.DURATION_BOOST_DEVOURER
+    ? gameSettings.DURATION_BOOST_MAGNIT
     : data?.user.gameTime;
 
   const config = useRef({

@@ -8,7 +8,7 @@ import islandBlack from 'assets/images/island-black.svg';
 import kakaxaCoin from 'assets/images/kakaxa-money.gif';
 import bomb from 'assets/images/bomb.gif';
 import explosion from 'assets/images/explosion.gif';
-import devourer from 'assets/images/devourer.gif';
+import magnit from 'assets/images/magnit.gif';
 import miner from 'assets/images/miner.gif';
 import { useImagesPreload, useTelegram } from 'hooks';
 import { GameStatuses, Position } from 'constants/index';
@@ -70,11 +70,11 @@ function Gameplay() {
     runGame,
   } = useGameplay();
 
-  useImagesPreload([bomb, kakaxaTop, kakaxaBotoom, explosion, devourer, miner]);
+  useImagesPreload([bomb, kakaxaTop, kakaxaBotoom, explosion, magnit, miner]);
 
   const setting = settings[game.position];
 
-  const personImage = game.boost !== null ? devourer : setting.image;
+  const personImage = game.boost !== null ? magnit : setting.image;
 
   const tg = useTelegram();
 

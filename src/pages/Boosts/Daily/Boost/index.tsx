@@ -12,7 +12,7 @@ interface BoostButtonProps {
 }
 
 const settingsMap: Record<string, { icon: string, iconStyle: string }> = {
-  [BoostSlugs.devourer]: {
+  [BoostSlugs.magnit]: {
     icon: dailyBoost1,
     iconStyle: styles.iconDaily,
   },

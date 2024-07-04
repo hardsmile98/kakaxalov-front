@@ -2,7 +2,7 @@ import { gameSettings } from 'constants/index';
 import tagTypes from '../tagTypes';
 
 enum BoostSlugs {
-  devourer = 'devourer',
+  magnit = 'magnit',
   energy = 'energy',
 }
 
@@ -32,9 +32,9 @@ interface BoostsResponse {
 
 const formatDescription = (description: string, slug: string) => {
   switch (slug) {
-    case 'devourer': {
+    case 'magnit': {
       return description
-        .replace(/{duration}/g, String(gameSettings.DURATION_BOOST_DEVOURER));
+        .replace(/{duration}/g, String(gameSettings.DURATION_BOOST_MAGNIT));
     }
     default:
       return description;

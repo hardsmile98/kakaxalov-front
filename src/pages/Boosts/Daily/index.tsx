@@ -17,7 +17,7 @@ const settingsMap: Record<
 string,
 { modalImage: string, modalImageStyle: string }
 > = {
-  [BoostSlugs.devourer]: {
+  [BoostSlugs.magnit]: {
     modalImage: dailyBoostModal1,
     modalImageStyle: styles.modalImage1Style,
   },
@@ -79,7 +79,7 @@ function DailyBoosts({ boosts }: DailyBoostsProps) {
     tg.HapticFeedback.impactOccurred('light');
 
     switch (selectBoost?.slug) {
-      case BoostSlugs.devourer: {
+      case BoostSlugs.magnit: {
         navigate('/');
         dispatch(startBoost(selectBoost));
         break;
