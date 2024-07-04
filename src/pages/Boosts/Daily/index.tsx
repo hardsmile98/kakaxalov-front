@@ -9,6 +9,7 @@ import { useSnackbar } from 'notistack';
 import { useNavigate } from 'react-router';
 import { useDispatch } from 'store/index';
 import { startBoost } from 'store/slices/game';
+import { useTelegram } from 'hooks';
 import BoostButton from './Boost';
 import styles from './styles.module.css';
 
@@ -31,7 +32,10 @@ interface DailyBoostsProps {
 }
 
 function DailyBoosts({ boosts }: DailyBoostsProps) {
+  const tg = useTelegram();
+
   const navigate = useNavigate();
+
   const dispatch = useDispatch();
 
   const { enqueueSnackbar } = useSnackbar();
@@ -72,6 +76,8 @@ function DailyBoosts({ boosts }: DailyBoostsProps) {
       return;
     }
 
+    tg.HapticFeedback.impactOccurred('light');
+
     switch (selectBoost?.slug) {
       case BoostSlugs.devourer: {
         navigate('/');
@@ -97,7 +103,10 @@ function DailyBoosts({ boosts }: DailyBoostsProps) {
             boost={boost}
             index={index}
             onStart={() => {
+              tg.HapticFeedback.impactOccurred('light');
+
               setSelectBoost({ id: boost.id, slug: boost.slug });
+
               setModalOpen(true);
             }}
           />

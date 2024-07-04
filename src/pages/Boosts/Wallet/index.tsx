@@ -8,9 +8,12 @@ import {
 } from '@tonconnect/ui-react';
 import { ReactComponent as CheckIcon } from 'assets/images/checkIcon.svg';
 import { Button, Input, Modal } from 'components';
+import { useTelegram } from 'hooks';
 import styles from './styles.module.css';
 
 function Wallet() {
+  const tg = useTelegram();
+
   const [isWalletModalOpen, setWalletModalOpen] = useState(false);
   const [isDeleteLoading, setDeleteLoading] = useState(false);
 
@@ -32,9 +35,23 @@ function Wallet() {
     setWalletModalOpen(false);
   };
 
+  const connectWallet = () => {
+    tg.HapticFeedback.impactOccurred('light');
+
+    if (wallet) {
+      setWalletModalOpen(true);
+    } else {
+      open();
+    }
+  };
+
   return (
     <>
-      <button className={styles.root} type="button" onClick={() => (wallet ? setWalletModalOpen(true) : open())}>
+      <button
+        className={styles.root}
+        type="button"
+        onClick={connectWallet}
+      >
         <div>
           <span>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -48,7 +65,10 @@ function Wallet() {
         <CheckIcon className={wallet ? styles.checked : styles.icon} />
       </button>
 
-      <Modal onClose={() => setWalletModalOpen(false)} isOpen={isWalletModalOpen}>
+      <Modal
+        onClose={() => setWalletModalOpen(false)}
+        isOpen={isWalletModalOpen}
+      >
         <div className={styles.wallet}>
           <h4>
             Ваш кошелек TON подключен

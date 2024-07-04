@@ -5,6 +5,7 @@ import {
 } from 'services';
 import { useSnackbar } from 'notistack';
 import { useEffect } from 'react';
+import { useTelegram } from 'hooks';
 import styles from './styles.module.css';
 
 const settingsMap: Record<string, { icon: string, iconStyle: string }> = {
@@ -19,6 +20,8 @@ interface ImprovementsProps {
 }
 
 function Improvements({ boosts }: ImprovementsProps) {
+  const tg = useTelegram();
+
   const { enqueueSnackbar } = useSnackbar();
 
   const { data } = useGetProfileQuery(undefined);
@@ -53,6 +56,8 @@ function Improvements({ boosts }: ImprovementsProps) {
           key={boost.slug}
           loading={isLoading}
           onClick={() => {
+            tg.HapticFeedback.impactOccurred('light');
+
             improve(boost.id);
           }}
           boost={{

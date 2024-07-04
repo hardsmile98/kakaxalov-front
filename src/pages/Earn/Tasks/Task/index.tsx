@@ -21,7 +21,10 @@ function Task({ task }: TaskProps) {
   const [completeTask, { isSuccess }] = useCompleteTaskMutation();
 
   const onClickLink = (link: string) => {
+    tg.HapticFeedback.impactOccurred('light');
+
     tg.openLink(link);
+
     setLinkClick(true);
   };
 
