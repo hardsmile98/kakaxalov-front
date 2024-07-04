@@ -197,6 +197,10 @@ const useGameplay = () => {
 
       tg.HapticFeedback.notificationOccurred('success');
     } else if (config.current.position === config.current.coinPosition) {
+      if (config.current.isExplosionVisible) {
+        return;
+      }
+
       if (config.current.isBomb) {
         dispatch(caughtBomb());
 
@@ -218,6 +222,7 @@ const useGameplay = () => {
 
     if (timeoutRef.current !== null) {
       clearTimeout(timeoutRef.current);
+
       timeoutRef.current = null;
     }
   }, [dispatch, stopGame]);
