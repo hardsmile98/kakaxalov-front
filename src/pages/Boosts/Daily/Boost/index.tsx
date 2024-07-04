@@ -1,4 +1,4 @@
-import dailyBoost1 from 'assets/images/dailyBoost1.webp';
+import dailyBoost1 from 'assets/images/dailyBoost1.svg';
 import dailyBoost2 from 'assets/images/helth.svg';
 import { BoostSlugs, type Boosts } from 'services';
 import { declOfWords } from 'helpers/index';
@@ -14,11 +14,11 @@ interface BoostButtonProps {
 const settingsMap: Record<string, { icon: string, iconStyle: string }> = {
   [BoostSlugs.devourer]: {
     icon: dailyBoost1,
-    iconStyle: styles.iconDaily1,
+    iconStyle: styles.iconDaily,
   },
   [BoostSlugs.energy]: {
     icon: dailyBoost2,
-    iconStyle: styles.iconDaily2,
+    iconStyle: styles.iconDaily,
   },
 };
 

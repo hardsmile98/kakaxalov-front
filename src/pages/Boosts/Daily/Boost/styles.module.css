@@ -38,16 +38,7 @@
     font-weight: 600;
 }
 
-.iconDaily1 {
-    position: absolute;
-    z-index: 0;
-    bottom: 0;
-    right: 0;
-    width: 72px;
-    height: auto;
-}
-
-.iconDaily2 {
+.iconDaily {
     position: absolute;
     z-index: 0;
     bottom: 50%;

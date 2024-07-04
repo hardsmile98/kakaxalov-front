@@ -81,7 +81,7 @@
     width: auto;
     height: 245px;
     bottom: 0;
-    left: 280px;
+    left: 250px;
     transform: scaleX(-1) translateZ(0);
 }
 
@@ -91,7 +91,7 @@
     width: auto;
     height: 245px;
     bottom: 0;
-    right: 280px;
+    right: 250px;
     transform: translateZ(0);
 }
 
@@ -409,14 +409,20 @@
         right: -180px;
     }
 
-    .kakaxaRightBottom,
     .kakaxaRightTop {
         right: 95px;
     }
 
-    .kakaxaLeftBottom,
+    .kakaxaRightBottom {
+        right: 65px;
+    }
+
     .kakaxaLeftTop {
         left: 95px;
+    }
+
+    .kakaxaLeftBottom {
+        left: 65px;
     }
 
     .clickableAreaLeftTop {
@@ -649,14 +655,20 @@
         right: -210px;
     }
 
-    .kakaxaRightBottom,
     .kakaxaRightTop {
         right: 70px;
     }
 
-    .kakaxaLeftBottom,
+    .kakaxaRightBottom {
+        right: 40px;
+    }
+
     .kakaxaLeftTop {
         left: 70px;
+    }
+
+    .kakaxaLeftBottom {
+        left: 40px;
     }
 
     .clickableAreaLeftTop {
