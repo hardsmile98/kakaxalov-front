@@ -142,10 +142,10 @@ const useGameplay = () => {
       endGame({
         id: gameData.game.id,
         hash: gameData.game.hash,
-        score: game.coin,
+        score: config.current.coin,
       });
     }
-  }, [endGame, gameData, game.coin, game.gameStatus]);
+  }, [endGame, gameData, game.gameStatus]);
 
   const generateCoin = useCallback(() => {
     let isBomb = false;
@@ -226,6 +226,7 @@ const useGameplay = () => {
     if (coinRef.current !== null) {
       coinRef.current.addEventListener('animationend', check, false);
     }
+
     return () => {
       dispatch(setInitial());
 
