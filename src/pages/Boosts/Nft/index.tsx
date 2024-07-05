@@ -21,7 +21,7 @@ function Nft() {
         boost={{
           slug: 'nft',
           title: 'У вас в арсенале',
-          notice: `1 NFT = ${data.bonusForNft} к добыче (max ${data.maxNftBonus + 1} добычи при ${data.maxNftCount} NFT)`,
+          notice: `1 NFT = ${data.bonusForNft} $KKX к добыче (max ${data.maxNftBonus + 1} $KKX добычи при ${data.maxNftCount} NFT)`,
           disabled: true,
           icon: nftBoost,
           description: `${data.nftCount} NFT`,
