@@ -120,8 +120,7 @@
     height: auto;
     z-index: 3;
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%) translateZ(0);
+    left: -300px;
     bottom: -900px;
 }
 
