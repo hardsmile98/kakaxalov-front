@@ -1,3 +1,4 @@
+import { gameSettings } from 'constants/index';
 import { formatNumber } from 'helpers/index';
 
 interface ReferalsResponse {
@@ -12,7 +13,7 @@ interface ReferalsResponse {
 const transformReferals = (response: ReferalsResponse) => response.referals.map((user) => ({
   id: user.userId,
   name: user.name ?? user.username ?? 'Не указано',
-  value: `+${formatNumber(100)} $KKX`,
+  value: `+${formatNumber(gameSettings.BONUS_FOR_INVITE)} $KKX`,
 }));
 
 const getReferals = {

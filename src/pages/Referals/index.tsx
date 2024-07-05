@@ -4,7 +4,8 @@ import {
   Button, Input, Loader, UserList,
 } from 'components';
 import { useGetProfileQuery, useGetReferalsQuery } from 'services/api';
-import { envs } from 'constants/index';
+import { envs, gameSettings } from 'constants/index';
+import { formatNumber } from 'helpers/index';
 import styles from './styles.module.css';
 
 function Referals() {
@@ -25,7 +26,13 @@ function Referals() {
           <img src={inviteIcon} alt="ivite icon" />
 
           <h2>Пригласи друзей и собирай $KKX POINTS вместе</h2>
-          <p>За каждого приведенного друга, ты получаешь по 100 $KKX POINTS</p>
+          <p>
+            За каждого приведенного друга, ты получаешь по
+            {' '}
+            {formatNumber(gameSettings.BONUS_FOR_INVITE)}
+            {' '}
+            $KKX POINTS
+          </p>
         </div>
 
         <div className={styles.blockWrapper}>
