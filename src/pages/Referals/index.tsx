@@ -6,12 +6,17 @@ import {
 import { useGetProfileQuery, useGetReferalsQuery } from 'services/api';
 import { envs, gameSettings } from 'constants/index';
 import { formatNumber } from 'helpers/index';
+import { useTelegram } from 'hooks';
 import styles from './styles.module.css';
 
 function Referals() {
+  const tg = useTelegram();
+
   const { data: profile } = useGetProfileQuery(undefined);
 
   const inviteCode = profile?.user?.inviteCode;
+
+  const inviteUrl = `${envs.miniAppUrl}?startapp=refCode_${inviteCode}`;
 
   const { isLoading, data } = useGetReferalsQuery(undefined);
 
@@ -39,7 +44,7 @@ function Referals() {
           <h5>Реферальная ссылка</h5>
 
           <Input
-            value={`${envs.miniAppUrl}?startapp=refCode_${inviteCode}`}
+            value={inviteUrl}
             readOnly
             withCopy
           />
@@ -58,7 +63,12 @@ function Referals() {
         </div>
       </div>
 
-      <Button className={styles.button}>Пригласить</Button>
+      <Button
+        onClick={() => tg.openTelegramLink(`https://t.me/share/url?${inviteUrl}`)}
+        className={styles.button}
+      >
+        Пригласить
+      </Button>
     </div>
   );
 }
