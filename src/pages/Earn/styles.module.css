@@ -1,5 +1,5 @@
 .root {
-    padding: calc(var(--unit) * 1.5);
+    padding: calc(var(--unit) * 2);
     padding-bottom: calc(var(--unit) * 8);
 }
 
