@@ -64,10 +64,6 @@ function App() {
     }
   }, [tg, navigate, pathname]);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
   if (isError) {
     return <ErrorPage />;
   }
