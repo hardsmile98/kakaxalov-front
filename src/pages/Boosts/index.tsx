@@ -7,6 +7,7 @@ import DailyBoosts from './Daily';
 import Improvements from './Improvements';
 import styles from './styles.module.css';
 import Wallet from './Wallet';
+import Copyright from './Copyright';
 
 function Boosts() {
   const { data, isLoading, isError } = useGetBoostsQuery(undefined);
@@ -21,56 +22,62 @@ function Boosts() {
 
   return (
     <div className={styles.root}>
-      <div className={styles.imageWrapper}>
-        <img
-          className={styles.textImage}
-          src={boostsText}
-          alt="boosts text"
-        />
+      <div>
+        <div className={styles.imageWrapper}>
+          <img
+            className={styles.textImage}
+            src={boostsText}
+            alt="boosts text"
+          />
 
-        <img
-          className={styles.image}
-          src={boostsImage}
-          alt="boosts"
-        />
+          <img
+            className={styles.image}
+            src={boostsImage}
+            alt="boosts"
+          />
+        </div>
+
+        <div className={styles.head}>
+          <img
+            src={boostsIcon}
+            alt="boosts icon"
+          />
+
+          <h2>
+            Boosts
+          </h2>
+          <p>
+            Прокачивай уровни буста и собирай больше КАКАХ
+          </p>
+        </div>
+
+        <div className={styles.blockWrapper}>
+          <h5>
+            Eжеденевно
+          </h5>
+
+          <DailyBoosts boosts={data?.dailyList} />
+        </div>
+
+        <div className={styles.blockWrapper}>
+          <h5>
+            Бусты с прокачкой
+          </h5>
+
+          <Improvements boosts={data?.improveList} />
+        </div>
+
+        <div className={styles.blockWrapper}>
+          <h5>
+            Подключение кошелька
+          </h5>
+
+          <Wallet />
+        </div>
       </div>
 
-      <div className={styles.head}>
-        <img
-          src={boostsIcon}
-          alt="boosts icon"
-        />
-
-        <h2>
-          Boosts
-        </h2>
-        <p>
-          Прокачивай уровни буста и собирай больше КАКАХ
-        </p>
-      </div>
-
-      <div className={styles.blockWrapper}>
-        <h5>
-          Eжеденевно
-        </h5>
-
-        <DailyBoosts boosts={data?.dailyList} />
-      </div>
-
-      <div className={styles.blockWrapper}>
-        <h5>
-          Бусты с прокачкой
-        </h5>
-
-        <Improvements boosts={data?.improveList} />
-      </div>
-
-      <div className={styles.blockWrapper}>
-        <h5>
-          Подключение кошелька
-        </h5>
-
-        <Wallet />
+      <div>
+        <Copyright />
       </div>
     </div>
   );
