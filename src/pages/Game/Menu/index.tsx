@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Link } from 'react-router-dom';
 import inviteIcon from 'assets/images/inviteIcon.svg';
 import boostIcon from 'assets/images/boostsIcon.svg';
@@ -19,7 +20,7 @@ function Menu() {
             to="/referals"
           >
             <div>
-              <img src={inviteIcon} alt="Invite" />
+              <img src={boostIcon} alt="Invite" />
             </div>
 
             Invite
@@ -58,7 +59,7 @@ function Menu() {
             to="/earn"
           >
             <div>
-              <img src={earnIcon} alt="Earn" />
+              <img src={boostIcon} alt="Earn" />
             </div>
 
             Earn
