@@ -28,6 +28,10 @@
 }
 
 .menu > li > a > div {
+    display: none;
+}
+
+/* .menu > li > a > div {
     height: 40px;
     display: flex;
     align-items: center;
@@ -46,7 +50,7 @@
     background: #7E330D;
     position: absolute;
     right: 0;
-}
+} */
 
 .image {
     bottom: -28px;
