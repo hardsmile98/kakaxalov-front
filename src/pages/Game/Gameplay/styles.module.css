@@ -116,6 +116,7 @@
 }
 
 .islandBig {
+    display: none;
     width: 1400px;
     height: auto;
     z-index: 3;
