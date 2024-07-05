@@ -10,7 +10,7 @@ function Copyright() {
   const onLinkClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault();
 
-    tg.openLink(link);
+    tg.openTelegramLink(link);
   };
 
   return (
