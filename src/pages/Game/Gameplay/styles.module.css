@@ -116,12 +116,11 @@
 }
 
 .islandBig {
-    width: 1400px;
-    height: auto;
     z-index: 3;
     position: absolute;
-    left: -300px;
-    bottom: -900px;
+    left: 50%;
+    transform: translateX(-50%) translateZ(0);
+    bottom: -440px;
 }
 
 .islandLeftTop {
