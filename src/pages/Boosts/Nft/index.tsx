@@ -61,7 +61,6 @@ function Nft() {
 
         <div className={styles.notice}>
           <div>
-
             {`1 NFT = ${data.bonusForNft} KKX POINTS к добыче (max `}
             {`${data.maxNftBonus + 1} KKX POINTS добычи при ${data.maxNftCount} NFT`}
           </div>
