@@ -49,7 +49,7 @@ const transformBoosts = (response: BoostsResponse) => ({
       id: boost.id,
       slug: boost.slug,
       title: boost.improveTitle,
-      description: `${formatNumber(boost.levelPrice)} KKX POITNS`,
+      description: `${formatNumber(boost.levelPrice)} $KKX`,
       extra: `${boost.level !== boost.maxLevel ? boost.level + 1 : boost.level} LVL`,
       disabled: boost.maxLevel === boost.level,
       levelPrice: boost.levelPrice,
