@@ -2,11 +2,13 @@
     padding-bottom: calc(var(--unit) * 2);
     display: flex;
     justify-content: center;
+    position: relative;
+    z-index: 300;
 }
 
 .menu {
     font-size: var(--body2);
-    z-index: 40;
+    z-index: 300;
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -28,10 +30,6 @@
 }
 
 .menu > li > a > div {
-    display: none;
-}
-
-/* .menu > li > a > div {
     height: 40px;
     display: flex;
     align-items: center;
@@ -50,7 +48,7 @@
     background: #7E330D;
     position: absolute;
     right: 0;
-} */
+}
 
 .image {
     bottom: -28px;
