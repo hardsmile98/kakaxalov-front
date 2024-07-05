@@ -19,7 +19,7 @@ const transformTop100 = (response: Top100Response) => {
   const topFormatted = response.top.map((user) => ({
     id: user.userId,
     name: user.name ?? 'Не указано',
-    value: `${formatNumber(user.score)} KAKAX`,
+    value: `${formatNumber(user.score)} KKX POITNS`,
   }));
 
   return {

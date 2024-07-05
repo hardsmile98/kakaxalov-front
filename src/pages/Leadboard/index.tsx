@@ -41,16 +41,17 @@ function Leadboard() {
         />
 
         <h2>
-          Топ 100 говнарей
+          Таблица лидеров
         </h2>
         <p>
-          Собирай больше КАКАХ, чтобы попасть в топ комьюнити, где каждый день идет раздача
+          Собирай больше KKX POINTS, чтобы выбиться в топ 100 лидеров,
+          среди которых происходит розыгрыш призов
         </p>
       </div>
 
       <div className={styles.blockWrapper}>
         <h5>
-          Топ 100
+          Лидеры
         </h5>
 
         <UserList type="numeric" list={topList} />
@@ -70,7 +71,7 @@ function Leadboard() {
         <div className={styles.score}>
           {data?.position.leadboardScore}
           {' '}
-          KAKAX
+          KKX POITNS
         </div>
       </div>
     </div>

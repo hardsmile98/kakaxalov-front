@@ -24,8 +24,8 @@ function Referals() {
         <div className={styles.head}>
           <img src={inviteIcon} alt="ivite icon" />
 
-          <h2>Пригласи друзей и собирай КАКАХИ вместе</h2>
-          <p>За каждого приведенного друга, ты получаешь по 5 тысяч КАКАХ</p>
+          <h2>Пригласи друзей и собирай KKX POINTS вместе</h2>
+          <p>За каждого приведенного друга, ты получаешь по 5 тысяч KKX POINTS</p>
         </div>
 
         <div className={styles.blockWrapper}>

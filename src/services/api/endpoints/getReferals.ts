@@ -12,7 +12,7 @@ interface ReferalsResponse {
 const transformReferals = (response: ReferalsResponse) => response.referals.map((user) => ({
   id: user.userId,
   name: user.name ?? user.username ?? 'Не указано',
-  value: `+${formatNumber(100, { minimumFractionDigits: 0 })} KAKAX`,
+  value: `+${formatNumber(100)} KKX POITNS`,
 }));
 
 const getReferals = {

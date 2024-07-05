@@ -6,7 +6,7 @@ function randomInteger(min: number, max: number): number {
 
 function formatNumber(num: number, options?: Intl.NumberFormatOptions): string {
   return num.toLocaleString(undefined, {
-    minimumFractionDigits: 1,
+    minimumFractionDigits: 3,
     ...options,
   });
 }

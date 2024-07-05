@@ -45,10 +45,10 @@ function Menu() {
             to="/leadboard"
           >
             <div>
-              <img src={topIcon} alt="Top100" />
+              <img src={topIcon} alt="Leadboard" />
             </div>
 
-            Top100
+            Leader
           </Link>
         </li>
 

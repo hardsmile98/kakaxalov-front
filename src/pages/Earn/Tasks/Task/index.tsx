@@ -1,5 +1,4 @@
-import { useCompleteTaskMutation, type TasksResponse } from 'services';
-import { formatNumber } from 'helpers';
+import { useCompleteTaskMutation, type Tasks } from 'services';
 import { ReactComponent as CheckIcon } from 'assets/images/checkIcon.svg';
 import { useEffect, useRef, useState } from 'react';
 import { Loader } from 'components';
@@ -7,7 +6,7 @@ import { useTelegram } from 'hooks';
 import styles from './styles.module.css';
 
 interface TaskProps {
-  task: TasksResponse['tasks'][0]
+  task: Tasks['tasks'][0]
 }
 
 function Task({ task }: TaskProps) {
@@ -71,9 +70,9 @@ function Task({ task }: TaskProps) {
 
       <div className={styles.bonus}>
         +
-        {formatNumber(task.bonus, { minimumFractionDigits: 0 })}
+        {task.bonus}
         {' '}
-        KAKAX
+        KKX POITNS
       </div>
     </li>
   );

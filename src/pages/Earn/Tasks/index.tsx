@@ -1,9 +1,9 @@
-import { type TasksResponse } from 'services';
+import { type Tasks as TaskType } from 'services';
 import styles from './styles.module.css';
 import Task from './Task';
 
 interface TasksProps {
-  tasks: TasksResponse['tasks'] | undefined
+  tasks: TaskType['tasks'] | undefined
 }
 
 function Tasks({ tasks }: TasksProps) {

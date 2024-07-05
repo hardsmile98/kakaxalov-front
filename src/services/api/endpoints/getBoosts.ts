@@ -1,4 +1,5 @@
 import { gameSettings } from 'constants/index';
+import { formatNumber } from 'helpers/index';
 import tagTypes from '../tagTypes';
 
 enum BoostSlugs {
@@ -48,7 +49,7 @@ const transformBoosts = (response: BoostsResponse) => ({
       id: boost.id,
       slug: boost.slug,
       title: boost.improveTitle,
-      description: `${boost.levelPrice} KAKAX`,
+      description: `${formatNumber(boost.levelPrice)} KKX POITNS`,
       extra: `${boost.level !== boost.maxLevel ? boost.level + 1 : boost.level} LVL`,
       disabled: boost.maxLevel === boost.level,
       levelPrice: boost.levelPrice,
