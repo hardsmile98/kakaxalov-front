@@ -1,5 +1,5 @@
 .root {
-    min-height: 100vh;
+    min-height: var(--tg-viewport-stable-height);
     background-image: url('assets/images/bg.webp');
     background-repeat: no-repeat;
     background-size: cover;
@@ -11,7 +11,7 @@
     padding: calc(var(--unit) * 1.5);
     position: relative;
     max-width: 900px;
-    height: 100vh;
+    height: var(--tg-viewport-stable-height);
     margin: 0 auto;
     display: flex;
     flex-direction: column;
