@@ -19,8 +19,6 @@ function Menu() {
             Menu
           </Link>
         </li>
-
-        <img className={styles.image} src={menu} alt="menu" />
       </ul>
     </div>
   );
