@@ -4,7 +4,7 @@
     flex-direction: column;
     justify-content: space-between;
     flex-grow: 1;
-    min-height: var(--tg-viewport-height);
+    min-height: 100vh;
 }
 
 .imageWrapper {

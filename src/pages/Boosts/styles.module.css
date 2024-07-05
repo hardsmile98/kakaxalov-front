@@ -1,6 +1,6 @@
 .root {
     padding: calc(var(--unit) * 2);
-    min-height: var(--tg-viewport-height);
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
