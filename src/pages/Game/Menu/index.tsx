@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Link } from 'react-router-dom';
 import inviteIcon from 'assets/images/inviteIcon.svg';
 import boostIcon from 'assets/images/boostsIcon.svg';
@@ -15,10 +14,58 @@ function Menu() {
     <div className={styles.root}>
       <ul className={styles.menu}>
         <li>
-          <Link to="/">
-            Menu
+          <Link
+            onClick={() => tg.HapticFeedback.impactOccurred('light')}
+            to="/referals"
+          >
+            <div>
+              <img src={inviteIcon} alt="Invite" />
+            </div>
+
+            Invite
           </Link>
         </li>
+
+        <li>
+          <Link
+            onClick={() => tg.HapticFeedback.impactOccurred('light')}
+            to="/boosts"
+          >
+            <div>
+              <img src={boostIcon} alt="Boosts" />
+            </div>
+
+            Boosts
+          </Link>
+        </li>
+
+        <li>
+          <Link
+            onClick={() => tg.HapticFeedback.impactOccurred('light')}
+            to="/leadboard"
+          >
+            <div>
+              <img src={topIcon} alt="Top100" />
+            </div>
+
+            Top100
+          </Link>
+        </li>
+
+        <li>
+          <Link
+            onClick={() => tg.HapticFeedback.impactOccurred('light')}
+            to="/earn"
+          >
+            <div>
+              <img src={earnIcon} alt="Earn" />
+            </div>
+
+            Earn
+          </Link>
+        </li>
+
+        <img className={styles.image} src={menu} alt="menu" />
       </ul>
     </div>
   );
