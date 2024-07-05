@@ -117,7 +117,8 @@
 
 .islandBig {
     width: 1400px;
-    z-index: 1;
+    height: auto;
+    z-index: 10;
     position: absolute;
     left: 50%;
     transform: translateX(-50%) translateZ(0);

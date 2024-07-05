@@ -2,7 +2,6 @@ import coinIcon from 'assets/images/kakaxaCoin.webp';
 import kakaxaInit from 'assets/images/kakaxa-init.gif';
 import kakaxaTop from 'assets/images/kakaxa-top.webp';
 import kakaxaBotoom from 'assets/images/kakaxa-bottom.webp';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import islandBig from 'assets/images/island-big.svg';
 import islandOriginal from 'assets/images/island-original.svg';
 import islandBlack from 'assets/images/island-black.svg';
@@ -162,7 +161,7 @@ function Gameplay() {
 
         <img className={setting.style} src={personImage} alt="kakaxa" />
 
-        {/* <img className={styles.islandBig} src={islandBig} alt="island" /> */}
+        <img className={styles.islandBig} src={islandBig} alt="island" />
       </div>
     </div>
   );
