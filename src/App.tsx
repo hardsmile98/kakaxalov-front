@@ -53,13 +53,20 @@ function App() {
   }, [tg]);
 
   useEffect(() => {
+    const onBack = () => navigate(-1);
+
     if (pathname !== '/') {
       tg.BackButton.show();
-      tg.BackButton.onClick(() => navigate(-1));
+      tg.BackButton.onClick(onBack);
     } else {
+      tg.BackButton.offClick(onBack);
       tg.BackButton.hide();
     }
   }, [tg, navigate, pathname]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   if (isError) {
     return <ErrorPage />;
