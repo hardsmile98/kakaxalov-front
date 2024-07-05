@@ -60,16 +60,15 @@ function Nft() {
         </div>
 
         <div className={styles.notice}>
-          1 NFT = $
-          {data.bonusForNft}
-          {' '}
-          KKX POINTS к добыче (max $
-          {data.maxNftBonus + 1}
-          {' '}
-          KKX POINTS добычи при $
-          {data.maxNftCount}
-          {' '}
-          NFT)
+          <div>
+
+            {`1 NFT = ${data.bonusForNft} KKX POINTS к добыче (max `}
+            {`${data.maxNftBonus + 1} KKX POINTS добычи при ${data.maxNftCount} NFT`}
+          </div>
+
+          <div>
+            Отображение NFT происходит, когда подключен ваш кошелек
+          </div>
         </div>
       </li>
     </ul>
