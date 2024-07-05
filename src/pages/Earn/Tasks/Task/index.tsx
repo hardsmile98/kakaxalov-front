@@ -72,7 +72,7 @@ function Task({ task }: TaskProps) {
         +
         {task.bonus}
         {' '}
-        $KKX
+        KKXP
       </div>
     </li>
   );

@@ -75,6 +75,7 @@
 }
 
 .score {
+    flex-shrink: 0;
     font-weight: 500;
     color: var(--primary);
 }

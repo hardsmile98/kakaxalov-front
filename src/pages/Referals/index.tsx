@@ -25,13 +25,13 @@ function Referals() {
         <div className={styles.head}>
           <img src={inviteIcon} alt="ivite icon" />
 
-          <h2>Пригласи друзей и собирай $KKX POINTS вместе</h2>
+          <h2>Пригласи друзей и собирай KKX POINTS вместе</h2>
           <p>
             За каждого приведенного друга, ты получаешь по
             {' '}
             {formatNumber(gameSettings.BONUS_FOR_INVITE)}
             {' '}
-            $KKX POINTS
+            KKX POINTS
           </p>
         </div>
 

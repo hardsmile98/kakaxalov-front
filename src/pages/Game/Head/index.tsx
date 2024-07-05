@@ -52,7 +52,7 @@ function Head() {
           <span>
             {formatNumber(data?.user.score)}
             {' '}
-            $KKX
+            KKXP
           </span>
         </div>
       </div>

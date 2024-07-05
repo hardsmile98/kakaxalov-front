@@ -44,7 +44,7 @@ function Leadboard() {
           Таблица лидеров
         </h2>
         <p>
-          Собирай больше $KKX POINTS, чтобы выбиться в топ 100 лидеров,
+          Собирай больше KKX POINTS, чтобы выбиться в топ 100 лидеров,
           среди которых происходит розыгрыш призов
         </p>
       </div>
@@ -71,7 +71,7 @@ function Leadboard() {
         <div className={styles.score}>
           {data?.position.leadboardScore}
           {' '}
-          $KKX POITNS
+          KKX POITNS
         </div>
       </div>
     </div>
