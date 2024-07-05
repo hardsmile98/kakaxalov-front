@@ -6,7 +6,7 @@ import styles from './styles.module.css';
 
 function Game() {
   useEffect(() => {
-    window.scrollTo(0, 0);
+    setTimeout(() => window.scrollTo(0, 0), 1_000);
   }, []);
 
   return (
