@@ -64,7 +64,7 @@ function Referals() {
       </div>
 
       <Button
-        onClick={() => tg.openTelegramLink(`https://t.me/share/url?${inviteUrl}`)}
+        onClick={() => tg.openTelegramLink(`https://t.me/share/url?url=${inviteUrl}`)}
         className={styles.button}
       >
         Пригласить
