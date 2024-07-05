@@ -13,3 +13,67 @@
     width: 55px;
     height: auto;
 }
+
+.button {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--unit);
+    text-align: left;
+    font-weight: 600;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--unit) * 1.5);
+}
+
+.imageWrapper {
+    overflow: hidden;
+    width: 70px;
+    height: 70px;
+    border-radius: var(--unit);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notice {
+    color:  var(--text-secondary);
+    margin-top: calc(var(--unit) * 1);
+    font-size: var(--body2);
+}
+
+.red .extra {
+    background-color: var(--red-dark);
+    color: var(--red);
+}
+
+
+.red .description {
+    color: var(--red);
+}
+
+.extra {
+    outline: none;
+    border: none;
+    flex-shrink: 0;
+    background-color: var(--border);
+    color: var(--primary);
+    padding: calc(var(--unit) * 1) calc(var(--unit) * 1.5);
+    border-radius: calc(var(--unit) * 2);
+}
+
+.red .imageWrapper {
+    background-color: var(--red-dark);
+}
+
+.description {
+    margin-top: calc(var(--unit) * 0.5);
+}

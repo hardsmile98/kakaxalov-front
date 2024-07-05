@@ -82,9 +82,3 @@
     background-color: var(--red-dark);
     color: var(--red);
 }
-
-.notice {
-    color:  var(--text-secondary);
-    margin-top: calc(var(--unit) * 1);
-    font-size: var(--body2);
-}
