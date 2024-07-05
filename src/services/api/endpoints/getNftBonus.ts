@@ -1,6 +1,10 @@
 interface GetNftBonusResponse {
   success: boolean
   bonus: number
+  nftCount: number
+  bonusForNft: number
+  maxNftBonus: number
+  maxNftCount: number
 }
 
 const getNftBonus = {

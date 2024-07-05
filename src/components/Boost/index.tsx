@@ -7,6 +7,7 @@ interface BoostType {
   description: string
   extra: string
   disabled: boolean
+  notice?: string
 }
 
 interface BoostProps {
@@ -57,6 +58,8 @@ function Boost({
 
         <div className={styles.extra}>{boost.extra}</div>
       </button>
+
+      {boost.notice && <div className={styles.notice}>{boost.notice}</div>}
     </li>
   );
 }

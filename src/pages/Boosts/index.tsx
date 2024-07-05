@@ -7,6 +7,7 @@ import DailyBoosts from './Daily';
 import Improvements from './Improvements';
 import styles from './styles.module.css';
 import Wallet from './Wallet';
+import Nft from './Nft';
 import Copyright from './Copyright';
 
 function Boosts() {
@@ -73,6 +74,14 @@ function Boosts() {
           </h5>
 
           <Wallet />
+        </div>
+
+        <div className={styles.blockWrapper}>
+          <h5>
+            Проверка NFT
+          </h5>
+
+          <Nft />
         </div>
       </div>
 

@@ -1,0 +1,15 @@
+.root {
+    padding: calc(var(--unit) * 1.5);
+    border: 1px solid var(--red);
+    background-color: var(--red-bg);
+    border-radius: var(--unit);
+}
+
+.root > li:not(:last-of-type) {
+    margin-bottom: var(--unit);
+}
+
+.boostImage {
+    width: 55px;
+    height: auto;
+}
