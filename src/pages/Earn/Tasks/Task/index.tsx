@@ -5,8 +5,9 @@ import { Loader } from 'components';
 import { useTelegram } from 'hooks';
 import styles from './styles.module.css';
 
+type TaskType = Tasks['tasks'][0];
 interface TaskProps {
-  task: Tasks['tasks'][0]
+  task: TaskType
 }
 
 function Task({ task }: TaskProps) {
@@ -19,10 +20,14 @@ function Task({ task }: TaskProps) {
 
   const [completeTask, { isSuccess }] = useCompleteTaskMutation();
 
-  const onClickLink = (link: string) => {
+  const onClickLink = () => {
     tg.HapticFeedback.impactOccurred('light');
 
-    tg.openLink(link);
+    if (task.linkType === 'telegram') {
+      tg.openTelegramLink(task.link);
+    } else {
+      tg.openLink(task.link);
+    }
 
     setLinkClick(true);
   };
@@ -57,7 +62,7 @@ function Task({ task }: TaskProps) {
       className={`${styles.link} ${
         task.completed || isLoading ? styles.disabled : ''
       }`}
-      onClick={() => onClickLink(task.link)}
+      onClick={() => onClickLink()}
       aria-hidden="true"
     >
       <div className={styles.wrapper}>

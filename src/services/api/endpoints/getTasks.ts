@@ -8,6 +8,7 @@ interface TasksResponse {
     bonus: number
     completed: boolean
     link: string
+    linkType: 'telegram' | 'other'
   }>
   success: boolean
 }
