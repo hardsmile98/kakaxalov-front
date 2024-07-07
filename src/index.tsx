@@ -17,7 +17,7 @@ if (rootElement !== null) {
 
   root.render(
     <TonConnectUIProvider
-      manifestUrl={isDev() ? envs.testManifest : undefined}
+      manifestUrl={isDev() ? envs.testManifest : `${window.location.origin}/tonconnect-manifest.json`}
       language="ru"
       uiPreferences={{ theme: 'SYSTEM', borderRadius: 's' }}
     >
