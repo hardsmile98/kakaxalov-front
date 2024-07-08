@@ -33,5 +33,6 @@
 }
 
 .bonus {
+    flex-shrink: 0;
     color: var(--primary);
 }
