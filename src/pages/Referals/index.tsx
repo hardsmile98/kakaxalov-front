@@ -51,7 +51,7 @@ function Referals() {
         </div>
 
         <div className={styles.blockWrapper}>
-          <h5>Твои говнари</h5>
+          <h5>Твои друзья</h5>
 
           {isLoading
             ? (
