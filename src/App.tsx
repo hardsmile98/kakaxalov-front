@@ -47,6 +47,7 @@ function App() {
   }, [tg]);
 
   useEffect(() => {
+    tg.ready();
     tg.expand();
     tg.backgroundColor = '#150801';
     tg.headerColor = '#150801';
