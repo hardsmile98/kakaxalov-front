@@ -132,7 +132,7 @@ function DailyBoosts({ boosts }: DailyBoostsProps) {
               onClick={applyBoost}
               loading={isLoading}
             >
-              Прменить
+              Применить
             </Button>
           </div>
         )}
