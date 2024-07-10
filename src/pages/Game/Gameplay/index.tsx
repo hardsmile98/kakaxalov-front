@@ -9,7 +9,6 @@ import kakaxaCoin from 'assets/images/kakaxa-money.gif';
 import bomb from 'assets/images/bomb.gif';
 import explosion from 'assets/images/explosion.gif';
 import magnit from 'assets/images/magnit.gif';
-import miner from 'assets/images/miner.gif';
 import { useImagesPreload, useTelegram } from 'hooks';
 import { GameStatuses, Position } from 'constants/index';
 import styles from './styles.module.css';
@@ -70,7 +69,7 @@ function Gameplay() {
     runGame,
   } = useGameplay();
 
-  useImagesPreload([bomb, kakaxaTop, kakaxaBotoom, explosion, magnit, miner]);
+  useImagesPreload([bomb, kakaxaTop, kakaxaBotoom, explosion, magnit]);
 
   const setting = settings[game.position];
 
