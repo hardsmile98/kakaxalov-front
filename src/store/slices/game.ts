@@ -41,7 +41,7 @@ const gameSlice = createSlice({
       state.coinPosition = action.payload;
     },
     incrementCoin: (state, action) => {
-      state.coin = state.coin + 1 + action.payload.bonus;
+      state.coin = Number((state.coin + 1 + action.payload.bonus).toFixed(3));
     },
     hideExplosion: (state) => {
       state.isExplosionVisible = false;
