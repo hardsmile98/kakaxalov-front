@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import coinIcon from 'assets/images/kakaxaCoin.webp';
 import kakaxaInit from 'assets/images/kakaxa-init.gif';
 import kakaxaTop from 'assets/images/kakaxa-top.webp';
@@ -12,6 +13,7 @@ import magnit from 'assets/images/magnit.gif';
 import miner from 'assets/images/miner.gif';
 import { useImagesPreload, useTelegram } from 'hooks';
 import { GameStatuses, Position } from 'constants/index';
+import { formatNumber } from 'helpers/index';
 import styles from './styles.module.css';
 import useGameplay from './useGameplay';
 
@@ -90,7 +92,7 @@ function Gameplay() {
         ? (
           <div className={styles.score}>
             <img src={coinIcon} alt="coin" />
-            <span>{game.coin}</span>
+            <span>{formatNumber(game.coin)}</span>
           </div>
         )
         : (
@@ -167,4 +169,4 @@ function Gameplay() {
   );
 }
 
-export default Gameplay;
+export default memo(Gameplay);
