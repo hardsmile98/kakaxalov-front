@@ -50,11 +50,13 @@ const useGameplay = () => {
   const config = useRef({
     ...game,
     duration: gameSettings.DURATION_ANIMATION_COIN_INITIAL,
+    bonus,
   });
 
   config.current = {
     ...config.current,
     ...game,
+    bonus,
   };
 
   const coinRef = useRef<null | HTMLImageElement>(null);
@@ -193,7 +195,7 @@ const useGameplay = () => {
 
   const check = useCallback(() => {
     if (config.current.boost !== null) {
-      dispatch(incrementCoin({ bonus }));
+      dispatch(incrementCoin({ bonus: config.current.bonus }));
 
       tg.HapticFeedback.notificationOccurred('success');
     } else if (config.current.position === config.current.coinPosition) {
@@ -212,7 +214,7 @@ const useGameplay = () => {
           stopGame();
         }, gameSettings.DURATION_ANIMATION_EXPLOSION);
       } else {
-        dispatch(incrementCoin({ bonus }));
+        dispatch(incrementCoin({ bonus: config.current.bonus }));
 
         tg.HapticFeedback.notificationOccurred('success');
       }
