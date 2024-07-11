@@ -6,11 +6,13 @@ import {
 import { configureStore } from '@reduxjs/toolkit';
 import { publicApi } from 'services/api';
 import gameReducer from './slices/game';
+import settingsReducer from './slices/settings';
 
 const store = configureStore({
   reducer: {
     [publicApi.reducerPath]: publicApi.reducer,
     game: gameReducer,
+    settings: settingsReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(publicApi.middleware),
 });

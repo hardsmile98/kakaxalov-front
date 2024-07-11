@@ -1,0 +1,51 @@
+.settingButton {
+    position: relative;
+    z-index: 2000;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    border-radius: var(--unit);
+    height: 40px;
+    width: 40px;
+    color: var(--white);
+    background: rgba(130, 65, 18, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .settingButton > img {
+    width: 30px;
+    height: auto;
+  }
+  
+  .languages {
+    right: 0;
+    top: calc(100% + 4px);
+    padding: calc(var(--unit) * 0.5) 0;
+    position: absolute;
+    z-index: 2000;
+    border: 1px solid var(--border);
+    border-radius: var(--unit);
+    color: var(--white);
+    background: rgba(130, 65, 18, 0.5);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .languages > li > button {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    width: 40px;
+    padding: calc(var(--unit) * 0.5) 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .languages > li > button > img {
+    width: 24px;
+    height: auto;
+  }

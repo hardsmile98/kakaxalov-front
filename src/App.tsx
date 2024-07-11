@@ -4,7 +4,7 @@ import {
   useLocation,
   useNavigate,
 } from 'react-router-dom';
-import { useTelegram } from 'hooks';
+import { useLocale, useTelegram } from 'hooks';
 import { useEffect, useState } from 'react';
 import { ErrorPage, PageLoader } from 'components';
 import { envs } from 'constants/index';
@@ -28,6 +28,8 @@ function App() {
   const [isTgLoading, setTgLoading] = useState(true);
   const [isTgReady, setTgReady] = useState(false);
 
+  const { init } = useLocale();
+
   const {
     isLoading: isGetProfileLoading,
     isError,
@@ -38,6 +40,10 @@ function App() {
   useGetNftBonusQuery(wallet?.account.walletStateInit);
 
   const isLoading = isTgLoading || isGetProfileLoading;
+
+  useEffect(() => {
+    init();
+  }, []);
 
   useEffect(() => {
     const tgInitData = isDev() ? envs.testInitData : tg.initData;

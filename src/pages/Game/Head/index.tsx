@@ -1,5 +1,5 @@
 /* eslint-disable react/no-array-index-key */
-
+import { memo } from 'react';
 import coinIcon from 'assets/images/kakaxaCoin.webp';
 import helth from 'assets/images/helth.svg';
 import { useSelector } from 'store';
@@ -8,6 +8,7 @@ import { GameStatuses } from 'constants/index';
 import { declOfWords, formatNumber } from 'helpers';
 import styles from './styles.module.css';
 import Timer from './Timer';
+import Setting from './Setting';
 
 function Head() {
   const { data } = useGetProfileQuery(undefined);
@@ -57,24 +58,30 @@ function Head() {
         </div>
       </div>
 
-      <div className={styles.progressbar}>
-        <span
-          className={styles.line}
-          style={{ width: `${progress}%` }}
-        />
+      <div className={styles.progressWrap}>
+        <div className={styles.progressbar}>
+          <span
+            className={styles.line}
+            style={{ width: `${progress}%` }}
+          />
 
-        <span className={styles.score}>
-          {gameStatus !== GameStatuses.notRuning
-            ? `${gameTimer} ${declOfWords(gameTimer, [
-              'секунда',
-              'секунды',
-              'секунд',
-            ])}`
-            : null}
-        </span>
+          <span className={styles.score}>
+            {gameStatus !== GameStatuses.notRuning
+              ? `${gameTimer} ${declOfWords(gameTimer, [
+                'секунда',
+                'секунды',
+                'секунд',
+              ])}`
+              : null}
+          </span>
+        </div>
+
+        <div className={styles.settings}>
+          <Setting />
+        </div>
       </div>
     </div>
   );
 }
 
-export default Head;
+export default memo(Head);
