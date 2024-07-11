@@ -10,10 +10,10 @@ import './assets/styles/fonts.css';
 import './assets/styles/styles.css';
 import { isDev } from './helpers';
 
-const rootElement = document?.getElementById?.('root');
-
 window.Telegram.WebApp.ready();
 window.Telegram.WebApp.expand();
+
+const rootElement = document?.getElementById?.('root');
 
 if (rootElement !== null) {
   const root = ReactDOM.createRoot(rootElement);
