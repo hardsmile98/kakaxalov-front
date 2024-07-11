@@ -12,6 +12,9 @@ import { isDev } from './helpers';
 
 const rootElement = document?.getElementById?.('root');
 
+window.Telegram.WebApp.ready();
+window.Telegram.WebApp.expand();
+
 if (rootElement !== null) {
   const root = ReactDOM.createRoot(rootElement);
 
