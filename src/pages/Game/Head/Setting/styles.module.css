@@ -1,6 +1,6 @@
 .settingButton {
     position: relative;
-    z-index: 2000;
+    z-index: 200;
     border: none;
     outline: none;
     cursor: pointer;
@@ -25,7 +25,7 @@
     top: calc(100% + 4px);
     padding: calc(var(--unit) * 0.5) 0;
     position: absolute;
-    z-index: 2000;
+    z-index: 200;
     border: 1px solid var(--border);
     border-radius: var(--unit);
     color: var(--white);

@@ -2,8 +2,8 @@ import boostsImage from 'assets/images/boostsImage.webp';
 import boostsText from 'assets/images/boostsText.svg';
 import boostsIcon from 'assets/images/boostsIcon.svg';
 import { useGetBoostsQuery } from 'services/api';
-import { ErrorPage, Input, PageLoader } from 'components';
-import { useLocale, useTelegram } from 'hooks';
+import { ErrorPage, PageLoader } from 'components';
+import { useLocale } from 'hooks';
 import DailyBoosts from './Daily';
 import Improvements from './Improvements';
 import styles from './styles.module.css';
@@ -16,8 +16,6 @@ function Boosts() {
 
   const { locale } = useLocale();
 
-  const tg = useTelegram();
-
   if (isError) {
     return <ErrorPage />;
   }
@@ -28,8 +26,6 @@ function Boosts() {
 
   return (
     <div className={styles.root}>
-      <Input value={tg.initData} withCopy />
-
       <div>
         <div className={styles.imageWrapper}>
           <img

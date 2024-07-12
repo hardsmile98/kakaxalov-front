@@ -320,7 +320,7 @@
     clip-path: polygon(0 0%, 100% 0%, 100% 100%, 0 30%);
     bottom: 105px;
     display: block;
-    z-index: 1000;
+    z-index: 100;
     left: 0;
     position: absolute;
     width: 300px;
@@ -332,7 +332,7 @@
     bottom: 20px;
     left: 0;
     display: block;
-    z-index: 1000;
+    z-index: 100;
     position: absolute;
     width: 300px;
     height: 290px;
@@ -343,7 +343,7 @@
     bottom: 20px;
     right: 0;
     display: block;
-    z-index: 1000;
+    z-index: 100;
     position: absolute;
     width: 300px;
     height: 290px;
@@ -354,7 +354,7 @@
     bottom: 105px;
     right: 0;
     display: block;
-    z-index: 1000;
+    z-index: 100;
     position: absolute;
     width: 300px;
     height: 290px;
