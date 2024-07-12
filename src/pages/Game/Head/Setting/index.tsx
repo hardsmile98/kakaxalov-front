@@ -4,6 +4,8 @@ import ruFlag from 'assets/images/ru.webp';
 import enFlag from 'assets/images/en.webp';
 import { useDispatch } from 'store/index';
 import { setLaguage } from 'store/slices/settings';
+import { useSnackbar } from 'notistack';
+import { useLocale } from 'hooks';
 import styles from './styles.module.css';
 
 function Setting() {
@@ -11,8 +13,14 @@ function Setting() {
 
   const [isSettingOpened, setSettingOpened] = useState(false);
 
+  const { enqueueSnackbar } = useSnackbar();
+
+  const { locale } = useLocale();
+
   const onChangeLaguage = (newLanguage: 'ru' | 'en') => {
     dispatch(setLaguage(newLanguage));
+
+    enqueueSnackbar(locale('Language changed successfully'), { variant: 'success' });
 
     setSettingOpened(false);
   };
