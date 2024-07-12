@@ -15,18 +15,25 @@ window.Telegram.WebApp.expand();
 
 const rootElement = document?.getElementById?.('root');
 
+const languageLs = window.localStorage.getItem('lang') || 'ru';
+
+const laguage = languageLs === 'ru' ? 'ru' : 'en';
+
 if (rootElement !== null) {
   const root = ReactDOM.createRoot(rootElement);
 
   root.render(
     <TonConnectUIProvider
       manifestUrl={isDev() ? envs.testManifest : `${window.location.origin}/tonconnect-manifest.json`}
-      language="ru"
+      language={laguage}
       uiPreferences={{ theme: 'SYSTEM', borderRadius: 's' }}
     >
       <Provider store={store}>
         <BrowserRouter>
-          <SnackbarProvider anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
+          <SnackbarProvider
+            anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+            autoHideDuration={3000}
+          >
             <App />
           </SnackbarProvider>
         </BrowserRouter>

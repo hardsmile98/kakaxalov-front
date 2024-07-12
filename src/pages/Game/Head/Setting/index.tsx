@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import settingIcon from 'assets/images/settingIcon.svg';
 import ruFlag from 'assets/images/ru.webp';
 import enFlag from 'assets/images/en.webp';
@@ -14,6 +14,7 @@ function Setting() {
   const language = useSelector((state) => state.settings.laguage);
 
   const [isSettingOpened, setSettingOpened] = useState(false);
+  const [isLanguageCahnged, setLaguageChanged] = useState(false);
 
   const { enqueueSnackbar } = useSnackbar();
 
@@ -22,10 +23,18 @@ function Setting() {
   const onChangeLaguage = (newLanguage: 'ru' | 'en') => {
     dispatch(setLaguage(newLanguage));
 
-    enqueueSnackbar(locale('Language changed successfully'), { variant: 'success' });
+    setLaguageChanged(true);
 
     setSettingOpened(false);
   };
+
+  useEffect(() => {
+    if (isLanguageCahnged) {
+      enqueueSnackbar(locale('Language changed successfully'), { variant: 'success' });
+
+      setLaguageChanged(false);
+    }
+  }, [language]);
 
   return (
     <>
