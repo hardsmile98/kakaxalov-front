@@ -19,7 +19,8 @@ interface Boost {
   useTimestamp: null | string
   recoverySeconds: number
   level: number
-  levelPrice: number
+  basePrice: number
+  upgradePrice: number
   maxLevel: number
   slug: string
   title: string
@@ -49,10 +50,10 @@ const transformBoosts = (response: BoostsResponse) => ({
       id: boost.id,
       slug: boost.slug,
       title: boost.improveTitle,
-      description: `${formatNumber(boost.levelPrice)} KKXP`,
-      extra: `${boost.level !== boost.maxLevel ? boost.level + 1 : boost.level} LVL`,
+      description: `${formatNumber(boost.upgradePrice)} KKXP`,
+      extra: `${boost.level !== boost.maxLevel ? boost.level + 1 : 'MAX'} LVL`,
       disabled: boost.maxLevel === boost.level,
-      levelPrice: boost.levelPrice,
+      upgradePrice: boost.upgradePrice,
     })),
   dailyList: response.boosts
     .filter((boost) => boost.type === 'daily')

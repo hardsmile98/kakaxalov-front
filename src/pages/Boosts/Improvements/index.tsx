@@ -65,7 +65,7 @@ function Improvements({ boosts }: ImprovementsProps) {
           boost={{
             ...boost,
             title: locale(boost.title),
-            disabled: boost.disabled || currentScore < boost.levelPrice,
+            disabled: boost.disabled || currentScore < boost.upgradePrice,
             icon: settingsMap[boost.slug].icon,
             iconStyle: settingsMap[boost.slug].iconStyle,
           }}
