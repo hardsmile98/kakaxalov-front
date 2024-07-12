@@ -1,3 +1,5 @@
+import { useLocale } from 'hooks';
+
 /* eslint-disable no-nested-ternary */
 function randomInteger(min: number, max: number): number {
   const rand = min + Math.random() * (max + 1 - min);
@@ -19,15 +21,15 @@ function declOfWords(n: number, forms: string[]) {
       : forms[2];
 }
 
-function formatTimer(seconds: number): string {
+function formatTimer(seconds: number, locale: ReturnType<typeof useLocale>['locale']): string {
   if (seconds < 0) {
-    return '0 ч 00 м';
+    return `0 ${locale('h')} 00 ${locale('m')}`;
   }
 
   const hours = Math.floor((seconds / (60 * 60)));
   const minutes = Math.ceil(seconds / 60) - hours * 60;
 
-  const timer = `${hours > 0 ? hours : 0} ч ${minutes > 0 ? minutes.toString().padStart(2, '0') : '00'} м`;
+  const timer = `${hours > 0 ? hours : 0} ${locale('h')} ${minutes > 0 ? minutes.toString().padStart(2, '0') : '00'} ${locale('m')}`;
 
   return timer;
 }

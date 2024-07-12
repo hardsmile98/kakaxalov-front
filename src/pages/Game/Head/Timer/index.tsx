@@ -4,6 +4,7 @@ import { publicApi, useCheckEnergyQuery } from 'services/api';
 import { Loader } from 'components';
 import { useDispatch } from 'react-redux';
 import tagTypes from 'services/api/tagTypes';
+import { useLocale } from 'hooks';
 import styles from './styles.module.css';
 
 interface TimerProps {
@@ -22,6 +23,8 @@ function Timer({
   useEneryTimestamp,
 }: TimerProps) {
   const dispatch = useDispatch();
+
+  const { locale } = useLocale();
 
   const [seconds, setSeconds] = useState(getSeconds(useEneryTimestamp, energyRecoveryTimeSeconds));
 
@@ -61,7 +64,7 @@ function Timer({
     }
   }, []);
 
-  const timer = formatTimer(seconds);
+  const timer = formatTimer(seconds, locale);
 
   return (
     <div className={styles.root}>

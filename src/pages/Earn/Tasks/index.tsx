@@ -1,4 +1,5 @@
 import { type Tasks as TaskType } from 'services';
+import { useLocale } from 'hooks';
 import styles from './styles.module.css';
 import Task from './Task';
 
@@ -7,13 +8,15 @@ interface TasksProps {
 }
 
 function Tasks({ tasks }: TasksProps) {
+  const { locale } = useLocale();
+
   return (
     <ul className={styles.root}>
       {tasks?.length !== 0 && tasks !== undefined
         ? tasks.map((task) => (
           <Task key={task.id} task={task} />
         ))
-        : 'Нет заданий'}
+        : locale('No tasks')}
     </ul>
   );
 }

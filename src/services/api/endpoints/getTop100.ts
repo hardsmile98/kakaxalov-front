@@ -18,7 +18,7 @@ interface Top100Response {
 const transformTop100 = (response: Top100Response) => {
   const topFormatted = response.top.map((user) => ({
     id: user.userId,
-    name: user.name ?? 'Не указано',
+    name: user.name ?? 'Not indicated',
     value: `${formatNumber(user.score)} KKXP`,
   }));
 

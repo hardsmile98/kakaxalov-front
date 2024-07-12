@@ -1,4 +1,5 @@
 import { formatTimer } from 'helpers/index';
+import { useLocale } from 'hooks';
 import {
   useEffect, useRef, useState,
 } from 'react';
@@ -19,6 +20,8 @@ function Timer({ recoverySeconds, useTimestamp }: TimerProps) {
   const [seconds, setSeconds] = useState(
     getSeconds(useTimestamp, recoverySeconds),
   );
+
+  const { locale } = useLocale();
 
   const { refetch } = useGetBoostsQuery(undefined);
 
@@ -49,7 +52,7 @@ function Timer({ recoverySeconds, useTimestamp }: TimerProps) {
     [],
   );
 
-  const timer = formatTimer(seconds);
+  const timer = formatTimer(seconds, locale);
 
   return <span>{timer}</span>;
 }

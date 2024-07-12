@@ -43,6 +43,8 @@
       "1Time": "раз",
       "ManyTimes": "раза",
       "LotTimes": "раз",
+      "m": "м",
+      "h": "ч",
 
       "Leaderboard": "Таблица лидеров",
       "Collect more KKX points to break into the top 100 leaders, among which there will be a prize draw": "Собирай больше KKX POINTS, чтобы выбиться в топ 100 лидеров, среди которых происходит розыгрыш призов",
@@ -51,9 +53,12 @@
 
       "Complete tasks and get KKX POINTS, which you can spend on boosts": "Выполняй задания и получай KKX POINTS, которые можешь потратить на бусты",
       "Tasks": "Задания",
+      "No tasks": "Нет заданий",
       "Subscribe to main channel": "Подписка на основной канал",
       "Subscribe to X (Twitter)": "Подписка на Х (Twitter)",
-      "Subscribe to EN Chat": "Подписка на EN CHAT"
+      "Subscribe to EN Chat": "Подписка на EN CHAT",
+
+      "Not indicated": "Не указано"
     },
     "en": {
        "1second": "second",
