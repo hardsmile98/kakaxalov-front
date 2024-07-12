@@ -24,6 +24,25 @@
       "Connect wallet": "Подключить кошелек",
       "Your TON wallet is connected": "Ваш кошелек TON подключен",
       "Delete": "Удалить",
+      "You are in the arsenal": "У вас в арсенале",
+      "NFT will be displayed when your wallet is connected": "Отображение NFT происходит, когда подключен ваш кошелек",
+      "Buy": "Купить",
+      "to mining": "к добыче",
+      "to mining at": "добычи при",
+      "Game time +5 seconds": "Время игры +5 сек.",
+      "Your boost has been improved": "Ваш буст улучшен",
+      "Boost enhancement error": "Ошибка улучшения буста",
+      "Boost applied": "Буст применен",
+      "You have no boosts available": "У вас нет доступных бустов",
+      "You already have a full supply of energy": "У вас уже полный запас энергии",
+      "Magnet": "Магнит",
+      "Energy": "Энергия",
+      "Restores 1 unit of energy": "Восстанавливает 1 единицу энергии",
+      "Pulls in all KKX points for 20 seconds, press the \"apply\" button, return to the game and collect KKX points": "Притягивает все KKX POINTS в течение 20 секунд, нажми кнопку \"Применить\", возвращайся в игру и собирай KKX POINTS",
+      "Available": "Доступно",
+      "1Time": "раз",
+      "ManyTimes": "раза",
+      "LotTimes": "раз",
 
       "Leaderboard": "Таблица лидеров",
       "Collect more KKX points to break into the top 100 leaders, among which there will be a prize draw": "Собирай больше KKX POINTS, чтобы выбиться в топ 100 лидеров, среди которых происходит розыгрыш призов",
@@ -37,37 +56,12 @@
       "Subscribe to EN Chat": "Подписка на EN CHAT"
     },
     "en": {
-      "An error has occurred": "An error has occurred",
-      "Refresh app": "Refresh app",
-      "Loading": "Loading",
-      "The list is empty": "The list is empty",
-      "Invite your friends and get KKX POINTS together": "Invite your friends and get KKX POINTS together",
-       "You get {bonus} KKX POINTS for each friend you bring in": "You get {bonus} KKX POINTS for each friend you bring in",
-       "Referral link": "Referral link",
-       "Your friends": "Your friends",
-       "Invite": "Invite",
-
        "1second": "second",
        "ManySeconds": "seconds",
        "LotSeconds": "seconds",
 
-      "Boost levels and and collect more KKX points": "Boost levels and and collect more KKX points",
-      "Daily": "Daily",
-      "Boosts with upgrading": "Boosts with upgrading",
-      "Wallet connecting": "Wallet connecting",
-      "NFT check": "NFT check",
-      "Game development CatDev": "Game development CatDev",
-      "Apply": "Apply",
-      "Connect wallet": "Connect wallet",
-      "Your TON wallet is connected": "Your TON wallet is connected",
-      "Delete": "Delete",
-
-      "Leaderboard": "Leaderboard",
-      "Collect more KKX points to break into the top 100 leaders, among which there will be a prize draw": "Collect more KKX points to break into the top 100 leaders, among which there will be a prize draw",
-      "Leaders": "Leaders",
-      "Your ranking": "Your ranking",
-
-      "Complete tasks and get KKX POINTS, which you can spend on boosts": "Complete tasks and get KKX POINTS, which you can spend on boosts",
-      "Tasks": "Tasks"
+       "1Time": "time",
+       "ManyTimes": "times",
+       "LotTimes": "times"
     }
 }

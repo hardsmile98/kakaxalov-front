@@ -51,7 +51,7 @@ function DailyBoosts({ boosts }: DailyBoostsProps) {
 
   useEffect(() => {
     if (isSuccess) {
-      enqueueSnackbar('Boost applied', { variant: 'success' });
+      enqueueSnackbar(locale('Boost applied'), { variant: 'success' });
 
       setModalOpen(false);
     }
@@ -61,7 +61,7 @@ function DailyBoosts({ boosts }: DailyBoostsProps) {
     if (isError) {
       const errorMessage = isErrorWithMessage(error) && error.data.message;
 
-      enqueueSnackbar(errorMessage ?? 'Boost not applied', { variant: 'error' });
+      enqueueSnackbar(locale(errorMessage || '') ?? locale('Boost not applied'), { variant: 'error' });
 
       setModalOpen(false);
     }
@@ -126,9 +126,9 @@ function DailyBoosts({ boosts }: DailyBoostsProps) {
                 alt={setting.title}
               />
 
-              <h4>{setting.title}</h4>
+              <h4>{locale(setting.title)}</h4>
 
-              <p>{setting.description}</p>
+              <p>{locale(setting.description)}</p>
             </div>
 
             <Button

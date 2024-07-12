@@ -2,11 +2,13 @@ import nftBoost from 'assets/images/nftBoost.webp';
 import { useGetNftBonusQuery } from 'services/api';
 import { useTonWallet } from '@tonconnect/ui-react';
 import { Loader } from 'components';
-import { useTelegram } from 'hooks';
+import { useLocale, useTelegram } from 'hooks';
 import { nftLinks } from 'constants/index';
 import styles from './styles.module.css';
 
 function Nft() {
+  const { locale } = useLocale();
+
   const wallet = useTonWallet();
 
   const tg = useTelegram();
@@ -41,7 +43,9 @@ function Nft() {
             </div>
 
             <div>
-              <div>У вас в арсенале</div>
+              <div>
+                {locale('You are in the arsenal')}
+              </div>
 
               <div className={styles.description}>
                 {`${data.nftCount} NFT`}
@@ -55,18 +59,18 @@ function Nft() {
             type="button"
             className={styles.extra}
           >
-            {data.nftCount === 0 ? 'Купить' : `X${data.bonus + 1}`}
+            {data.nftCount === 0 ? locale('Buy') : `X${data.bonus + 1}`}
           </button>
         </div>
 
         <div className={styles.notice}>
           <div>
-            {`1 NFT = ${data.bonusForNft} KKX POINTS к добыче (max `}
-            {`${data.maxNftBonus + 1} KKX POINTS добычи при ${data.maxNftCount} NFT`}
+            {`1 NFT = ${data.bonusForNft} KKX POINTS ${locale('to mining')} (max `}
+            {`${data.maxNftBonus + 1} KKX POINTS ${locale('to mining at')} ${data.maxNftCount} NFT`}
           </div>
 
           <div>
-            Отображение NFT происходит, когда подключен ваш кошелек
+            {locale('NFT will be displayed when your wallet is connected')}
           </div>
         </div>
       </li>

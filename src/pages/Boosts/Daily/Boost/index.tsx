@@ -2,6 +2,7 @@ import dailyBoost1 from 'assets/images/dailyBoost1.svg';
 import dailyBoost2 from 'assets/images/helth.svg';
 import { BoostSlugs, type Boosts } from 'services';
 import { declOfWords } from 'helpers/index';
+import { useLocale } from 'hooks';
 import styles from './styles.module.css';
 import Timer from './Timer';
 
@@ -23,6 +24,8 @@ const settingsMap: Record<string, { icon: string, iconStyle: string }> = {
 };
 
 function BoostButton({ index, boost, onStart }: BoostButtonProps) {
+  const { locale } = useLocale();
+
   return (
     <button
       key={boost.slug}
@@ -33,7 +36,7 @@ function BoostButton({ index, boost, onStart }: BoostButtonProps) {
     >
       <div className={styles.content}>
         <div className={styles.title}>
-          {boost.title}
+          {locale(boost.title)}
         </div>
 
         <div className={index % 2 === 0 ? styles.green : styles.red}>
@@ -44,7 +47,10 @@ function BoostButton({ index, boost, onStart }: BoostButtonProps) {
                 recoverySeconds={boost.recoverySeconds}
               />
             )
-            : `Доступно - ${boost.availableCount} ${declOfWords(boost.availableCount, ['раз', 'раза', 'раз'])}`}
+            : `${locale('Available')} - ${boost.availableCount} ${declOfWords(
+              boost.availableCount,
+              [locale('1Time'), locale('ManyTimes'), locale('LotTimes')],
+            )}`}
         </div>
       </div>
 

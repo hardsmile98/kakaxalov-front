@@ -5,7 +5,7 @@ import {
 } from 'services';
 import { useSnackbar } from 'notistack';
 import { useEffect } from 'react';
-import { useTelegram } from 'hooks';
+import { useLocale, useTelegram } from 'hooks';
 import styles from './styles.module.css';
 
 const settingsMap: Record<string, { icon: string, iconStyle: string }> = {
@@ -20,6 +20,8 @@ interface ImprovementsProps {
 }
 
 function Improvements({ boosts }: ImprovementsProps) {
+  const { locale } = useLocale();
+
   const tg = useTelegram();
 
   const { enqueueSnackbar } = useSnackbar();
@@ -34,13 +36,13 @@ function Improvements({ boosts }: ImprovementsProps) {
 
   useEffect(() => {
     if (isSuccess) {
-      enqueueSnackbar('Your boost has been improved', { variant: 'success' });
+      enqueueSnackbar(locale('Your boost has been improved'), { variant: 'success' });
     }
   }, [enqueueSnackbar, isSuccess]);
 
   useEffect(() => {
     if (isError) {
-      enqueueSnackbar('Boost enhancement error', { variant: 'error' });
+      enqueueSnackbar(locale('Boost enhancement error'), { variant: 'error' });
     }
   }, [enqueueSnackbar, isError]);
 
@@ -62,6 +64,7 @@ function Improvements({ boosts }: ImprovementsProps) {
           }}
           boost={{
             ...boost,
+            title: locale(boost.title),
             disabled: boost.disabled || currentScore < boost.levelPrice,
             icon: settingsMap[boost.slug].icon,
             iconStyle: settingsMap[boost.slug].iconStyle,
