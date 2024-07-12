@@ -1,3 +1,4 @@
+import { useLocale } from 'hooks';
 import UserElement from './UserElement';
 import styles from './styles.module.css';
 
@@ -11,6 +12,8 @@ interface UserListProps {
 }
 
 function UserList({ list, type = 'default' }: UserListProps) {
+  const { locale } = useLocale();
+
   return (
     <div className={styles.root}>
       {list?.length !== 0 && list !== undefined
@@ -23,7 +26,7 @@ function UserList({ list, type = 'default' }: UserListProps) {
             }}
           />
         ))
-        : 'Список пуст'}
+        : locale('The list is empty')}
     </div>
   );
 }

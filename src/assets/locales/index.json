@@ -1,8 +1,14 @@
 {
     "ru": {
-      "test": "Тест"  
+      "An error has occurred": "Произошла ошибка",
+      "Refresh app": "Перезагрузить приложение",
+      "Loading": "Загрузка",
+      "The list is empty": "Список пустой"
     },
     "en": {
-      "test": "Test"  
+      "An error has occurred": "An error has occurred",
+      "Refresh app": "Refresh app",
+      "Loading": "Loading",
+      "The list is empty": "The list is empty"
     }
 }
