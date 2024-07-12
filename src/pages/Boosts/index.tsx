@@ -3,6 +3,7 @@ import boostsText from 'assets/images/boostsText.svg';
 import boostsIcon from 'assets/images/boostsIcon.svg';
 import { useGetBoostsQuery } from 'services/api';
 import { ErrorPage, PageLoader } from 'components';
+import { useLocale } from 'hooks';
 import DailyBoosts from './Daily';
 import Improvements from './Improvements';
 import styles from './styles.module.css';
@@ -12,6 +13,8 @@ import Copyright from './Copyright';
 
 function Boosts() {
   const { data, isLoading, isError } = useGetBoostsQuery(undefined);
+
+  const { locale } = useLocale();
 
   if (isError) {
     return <ErrorPage />;
@@ -45,16 +48,16 @@ function Boosts() {
           />
 
           <h2>
-            Boosts
+            {locale('Boosts')}
           </h2>
           <p>
-            Прокачивай уровни буста и собирай больше KKX POINTS
+            {locale('Boost levels and and collect more KKX points')}
           </p>
         </div>
 
         <div className={styles.blockWrapper}>
           <h5>
-            Eжеденевно
+            {locale('Daily')}
           </h5>
 
           <DailyBoosts boosts={data?.dailyList} />
@@ -62,7 +65,7 @@ function Boosts() {
 
         <div className={styles.blockWrapper}>
           <h5>
-            Бусты с прокачкой
+            {locale('Boosts with upgrading')}
           </h5>
 
           <Improvements boosts={data?.improveList} />
@@ -70,7 +73,7 @@ function Boosts() {
 
         <div className={styles.blockWrapper}>
           <h5>
-            Подключение кошелька
+            {locale('Wallet connecting')}
           </h5>
 
           <Wallet />
@@ -78,7 +81,7 @@ function Boosts() {
 
         <div className={styles.blockWrapper}>
           <h5>
-            Проверка NFT
+            {locale('NFT check')}
           </h5>
 
           <Nft />

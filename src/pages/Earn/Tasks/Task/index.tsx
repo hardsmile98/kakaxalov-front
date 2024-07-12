@@ -2,7 +2,7 @@ import { useCompleteTaskMutation, type Tasks } from 'services';
 import { ReactComponent as CheckIcon } from 'assets/images/checkIcon.svg';
 import { useEffect, useRef, useState } from 'react';
 import { Loader } from 'components';
-import { useTelegram } from 'hooks';
+import { useLocale, useTelegram } from 'hooks';
 import styles from './styles.module.css';
 
 type TaskType = Tasks['tasks'][0];
@@ -15,6 +15,8 @@ function Task({ task }: TaskProps) {
 
   const [isLinkClick, setLinkClick] = useState(false);
   const [isLoading, setLoading] = useState(false);
+
+  const { locale } = useLocale();
 
   const refTimeout = useRef<NodeJS.Timeout | null>(null);
 
@@ -70,7 +72,7 @@ function Task({ task }: TaskProps) {
           ? <Loader />
           : <CheckIcon className={task.completed ? styles.checked : styles.icon} />}
 
-        <div>{task.title}</div>
+        <div>{locale(task.title)}</div>
       </div>
 
       <div className={styles.bonus}>

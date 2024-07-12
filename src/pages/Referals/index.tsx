@@ -6,7 +6,7 @@ import {
 import { useGetProfileQuery, useGetReferalsQuery } from 'services/api';
 import { envs, gameSettings } from 'constants/index';
 import { formatNumber } from 'helpers/index';
-import { useTelegram } from 'hooks';
+import { useLocale, useTelegram } from 'hooks';
 import styles from './styles.module.css';
 
 function Referals() {
@@ -20,6 +20,8 @@ function Referals() {
 
   const { isLoading, data } = useGetReferalsQuery(undefined);
 
+  const { locale } = useLocale();
+
   return (
     <div className={styles.root}>
       <div>
@@ -30,18 +32,22 @@ function Referals() {
         <div className={styles.head}>
           <img src={inviteIcon} alt="ivite icon" />
 
-          <h2>Пригласи друзей и собирай KKX POINTS вместе</h2>
+          <h2>
+            {locale('Invite your friends and get KKX POINTS together')}
+          </h2>
+
           <p>
-            За каждого приведенного друга, ты получаешь по
-            {' '}
-            {formatNumber(gameSettings.BONUS_FOR_INVITE)}
-            {' '}
-            KKX POINTS
+            {locale('You get {bonus} KKX POINTS for each friend you bring in').replace(
+              /{bonus}/g,
+              formatNumber(gameSettings.BONUS_FOR_INVITE),
+            )}
           </p>
         </div>
 
         <div className={styles.blockWrapper}>
-          <h5>Реферальная ссылка</h5>
+          <h5>
+            {locale('Referral link')}
+          </h5>
 
           <Input
             value={inviteUrl}
@@ -51,7 +57,9 @@ function Referals() {
         </div>
 
         <div className={styles.blockWrapper}>
-          <h5>Твои друзья</h5>
+          <h5>
+            {locale('Your friends')}
+          </h5>
 
           {isLoading
             ? (
@@ -67,7 +75,7 @@ function Referals() {
         onClick={() => tg.openTelegramLink(`https://t.me/share/url?url=${inviteUrl}`)}
         className={styles.button}
       >
-        Пригласить
+        {locale('Invite')}
       </Button>
     </div>
   );

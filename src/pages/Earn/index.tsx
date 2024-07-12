@@ -3,11 +3,14 @@ import earnText from 'assets/images/earnText.svg';
 import earnIcon from 'assets/images/earnIcon.svg';
 import { useGetTasksQuery } from 'services/api';
 import { ErrorPage, PageLoader } from 'components';
+import { useLocale } from 'hooks';
 import Tasks from './Tasks';
 import styles from './styles.module.css';
 
 function Earn() {
   const { data, isLoading, isError } = useGetTasksQuery(undefined);
+
+  const { locale } = useLocale();
 
   if (isError) {
     return <ErrorPage />;
@@ -43,13 +46,13 @@ function Earn() {
           Earn
         </h2>
         <p>
-          Выполняй задания и получай KKX POINTS, которые можешь потратить на бусты
+          {locale('Complete tasks and get KKX POINTS, which you can spend on boosts')}
         </p>
       </div>
 
       <div className={styles.blockWrapper}>
         <h5>
-          Задания
+          {locale('Tasks')}
         </h5>
 
         <Tasks tasks={data?.tasks} />

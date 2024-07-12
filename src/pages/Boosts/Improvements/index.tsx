@@ -34,13 +34,13 @@ function Improvements({ boosts }: ImprovementsProps) {
 
   useEffect(() => {
     if (isSuccess) {
-      enqueueSnackbar('Ваш буст улучшен', { variant: 'success' });
+      enqueueSnackbar('Your boost has been improved', { variant: 'success' });
     }
   }, [enqueueSnackbar, isSuccess]);
 
   useEffect(() => {
     if (isError) {
-      enqueueSnackbar('Ошибка прокачки буста', { variant: 'error' });
+      enqueueSnackbar('Boost enhancement error', { variant: 'error' });
     }
   }, [enqueueSnackbar, isError]);
 

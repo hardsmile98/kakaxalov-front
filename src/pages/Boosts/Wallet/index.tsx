@@ -8,7 +8,7 @@ import {
 } from '@tonconnect/ui-react';
 import { ReactComponent as CheckIcon } from 'assets/images/checkIcon.svg';
 import { Button, Input, Modal } from 'components';
-import { useTelegram } from 'hooks';
+import { useLocale, useTelegram } from 'hooks';
 import styles from './styles.module.css';
 
 function Wallet() {
@@ -16,6 +16,8 @@ function Wallet() {
 
   const [isWalletModalOpen, setWalletModalOpen] = useState(false);
   const [isDeleteLoading, setDeleteLoading] = useState(false);
+
+  const { locale } = useLocale();
 
   const wallet = useTonWallet();
 
@@ -59,7 +61,7 @@ function Wallet() {
             </svg>
           </span>
 
-          Подключить кошелек
+          {locale('Connect wallet')}
         </div>
 
         <CheckIcon className={wallet ? styles.checked : styles.icon} />
@@ -71,7 +73,7 @@ function Wallet() {
       >
         <div className={styles.wallet}>
           <h4>
-            Ваш кошелек TON подключен
+            {locale('Your TON wallet is connected')}
           </h4>
 
           <div className={styles.field}>
@@ -86,7 +88,7 @@ function Wallet() {
               loading={isDeleteLoading}
               onClick={deleteWallet}
             >
-              Удалить
+              {locale('Delete')}
             </Button>
           </div>
         </div>

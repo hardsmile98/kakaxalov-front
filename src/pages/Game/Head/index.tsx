@@ -6,6 +6,7 @@ import { useSelector } from 'store';
 import { useGetProfileQuery } from 'services/api';
 import { GameStatuses } from 'constants/index';
 import { declOfWords, formatNumber } from 'helpers';
+import { useLocale } from 'hooks';
 import styles from './styles.module.css';
 import Timer from './Timer';
 import Setting from './Setting';
@@ -22,6 +23,8 @@ function Head() {
   if (data === undefined) {
     return null;
   }
+
+  const { locale } = useLocale();
 
   const { amountEnergy } = data.user;
   const { energyRecoveryTimeSeconds } = data.user;
@@ -68,9 +71,9 @@ function Head() {
           <span className={styles.score}>
             {gameStatus !== GameStatuses.notRuning
               ? `${gameTimer} ${declOfWords(gameTimer, [
-                'секунда',
-                'секунды',
-                'секунд',
+                locale('1second'),
+                locale('ManySeconds'),
+                locale('LotSeconds'),
               ])}`
               : null}
           </span>

@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
-import { useTelegram } from 'hooks';
+import { useLocale, useTelegram } from 'hooks';
 import styles from './styles.module.css';
 
 function Copyright() {
   const tg = useTelegram();
 
   const link = 'https://t.me/catdevelop';
+
+  const { locale } = useLocale();
 
   const onLinkClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault();
@@ -16,7 +18,7 @@ function Copyright() {
   return (
     <div className={styles.root}>
       <Link to={link} onClick={onLinkClick}>
-        Разработка игры CatDev
+        {locale('Game development CatDev')}
       </Link>
     </div>
   );

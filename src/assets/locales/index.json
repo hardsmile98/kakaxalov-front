@@ -3,12 +3,71 @@
       "An error has occurred": "Произошла ошибка",
       "Refresh app": "Перезагрузить приложение",
       "Loading": "Загрузка",
-      "The list is empty": "Список пустой"
+      "The list is empty": "Список пустой",
+      "Invite your friends and get KKX POINTS together": "Пригласи друзей и собирай KKX POINTS вместе",
+      "You get {bonus} KKX POINTS for each friend you bring in": "За каждого приведенного друга, ты получаешь по {bonus} KKX POINTS",
+      "Referral link": "Реферальная ссылка",
+      "Your friends": "Твои друзья",
+      "Invite": "Пригласить",
+
+      "1second": "секунда",
+      "ManySeconds": "секунды",
+      "LotSeconds": "секунд",
+
+      "Boost levels and and collect more KKX points": "Прокачивай уровни буста и собирай больше KKX POINTS",
+      "Daily": "Eжеденевно",
+      "Boosts with upgrading": "Бусты с прокачкой",
+      "Wallet connecting": "Подключение кошелька",
+      "NFT check": "Проверка NFT",
+      "Game development CatDev": "Разработка игры CatDev",
+      "Apply": "Применить",
+      "Connect wallet": "Подключить кошелек",
+      "Your TON wallet is connected": "Ваш кошелек TON подключен",
+      "Delete": "Удалить",
+
+      "Leaderboard": "Таблица лидеров",
+      "Collect more KKX points to break into the top 100 leaders, among which there will be a prize draw": "Собирай больше KKX POINTS, чтобы выбиться в топ 100 лидеров, среди которых происходит розыгрыш призов",
+      "Leaders": "Лидеры",
+      "Your ranking": "Ваш рейтинг",
+
+      "Complete tasks and get KKX POINTS, which you can spend on boosts": "Выполняй задания и получай KKX POINTS, которые можешь потратить на бусты",
+      "Tasks": "Задания",
+      "Subscribe to main channel": "Подписка на основной канал",
+      "Subscribe to X (Twitter)": "Подписка на Х (Twitter)",
+      "Subscribe to EN Chat": "Подписка на EN CHAT"
     },
     "en": {
       "An error has occurred": "An error has occurred",
       "Refresh app": "Refresh app",
       "Loading": "Loading",
-      "The list is empty": "The list is empty"
+      "The list is empty": "The list is empty",
+      "Invite your friends and get KKX POINTS together": "Invite your friends and get KKX POINTS together",
+       "You get {bonus} KKX POINTS for each friend you bring in": "You get {bonus} KKX POINTS for each friend you bring in",
+       "Referral link": "Referral link",
+       "Your friends": "Your friends",
+       "Invite": "Invite",
+
+       "1second": "second",
+       "ManySeconds": "seconds",
+       "LotSeconds": "seconds",
+
+      "Boost levels and and collect more KKX points": "Boost levels and and collect more KKX points",
+      "Daily": "Daily",
+      "Boosts with upgrading": "Boosts with upgrading",
+      "Wallet connecting": "Wallet connecting",
+      "NFT check": "NFT check",
+      "Game development CatDev": "Game development CatDev",
+      "Apply": "Apply",
+      "Connect wallet": "Connect wallet",
+      "Your TON wallet is connected": "Your TON wallet is connected",
+      "Delete": "Delete",
+
+      "Leaderboard": "Leaderboard",
+      "Collect more KKX points to break into the top 100 leaders, among which there will be a prize draw": "Collect more KKX points to break into the top 100 leaders, among which there will be a prize draw",
+      "Leaders": "Leaders",
+      "Your ranking": "Your ranking",
+
+      "Complete tasks and get KKX POINTS, which you can spend on boosts": "Complete tasks and get KKX POINTS, which you can spend on boosts",
+      "Tasks": "Tasks"
     }
 }

@@ -3,10 +3,13 @@ import topText from 'assets/images/topText.svg';
 import topIcon from 'assets/images/topIcon.svg';
 import { ErrorPage, PageLoader, UserList } from 'components';
 import { useGetTop100Query } from 'services/api';
+import { useLocale } from 'hooks';
 import styles from './styles.module.css';
 
 function Leadboard() {
   const { isLoading, isError, data } = useGetTop100Query(undefined);
+
+  const { locale } = useLocale();
 
   const topList = data?.top;
 
@@ -41,17 +44,17 @@ function Leadboard() {
         />
 
         <h2>
-          Таблица лидеров
+          {locale('Leaderboard')}
         </h2>
+
         <p>
-          Собирай больше KKX POINTS, чтобы выбиться в топ 100 лидеров,
-          среди которых происходит розыгрыш призов
+          {locale('Collect more KKX points to break into the top 100 leaders, among which there will be a prize draw')}
         </p>
       </div>
 
       <div className={styles.blockWrapper}>
         <h5>
-          Лидеры
+          {locale('Leaders')}
         </h5>
 
         <UserList type="numeric" list={topList} />
@@ -64,7 +67,7 @@ function Leadboard() {
           </div>
 
           <div>
-            Ваш рейтинг
+            {locale('Your ranking')}
           </div>
         </div>
 

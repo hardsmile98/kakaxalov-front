@@ -9,7 +9,7 @@ import { useSnackbar } from 'notistack';
 import { useNavigate } from 'react-router';
 import { useDispatch } from 'store/index';
 import { startBoost } from 'store/slices/game';
-import { useTelegram } from 'hooks';
+import { useLocale, useTelegram } from 'hooks';
 import BoostButton from './Boost';
 import styles from './styles.module.css';
 
@@ -38,6 +38,8 @@ function DailyBoosts({ boosts }: DailyBoostsProps) {
 
   const dispatch = useDispatch();
 
+  const { locale } = useLocale();
+
   const { enqueueSnackbar } = useSnackbar();
 
   const [selectBoost, setSelectBoost] = useState<null | { id: number, slug: string }>(null);
@@ -49,7 +51,7 @@ function DailyBoosts({ boosts }: DailyBoostsProps) {
 
   useEffect(() => {
     if (isSuccess) {
-      enqueueSnackbar('Буст применен', { variant: 'success' });
+      enqueueSnackbar('Boost applied', { variant: 'success' });
 
       setModalOpen(false);
     }
@@ -59,7 +61,7 @@ function DailyBoosts({ boosts }: DailyBoostsProps) {
     if (isError) {
       const errorMessage = isErrorWithMessage(error) && error.data.message;
 
-      enqueueSnackbar(errorMessage ?? 'Буст не применен', { variant: 'error' });
+      enqueueSnackbar(errorMessage ?? 'Boost not applied', { variant: 'error' });
 
       setModalOpen(false);
     }
@@ -81,6 +83,7 @@ function DailyBoosts({ boosts }: DailyBoostsProps) {
     switch (selectBoost?.slug) {
       case BoostSlugs.magnit: {
         navigate('/');
+
         dispatch(startBoost(selectBoost));
         break;
       }
@@ -132,7 +135,7 @@ function DailyBoosts({ boosts }: DailyBoostsProps) {
               onClick={applyBoost}
               loading={isLoading}
             >
-              Применить
+              {locale('Apply')}
             </Button>
           </div>
         )}

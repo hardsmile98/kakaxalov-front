@@ -37,7 +37,7 @@ const useLocale = () => {
       return '';
     }
 
-    return (locales[laguage] as Record<string, string>)?.[key] || '';
+    return (locales[laguage] as Record<string, string>)?.[key] || key;
   };
 
   return {
