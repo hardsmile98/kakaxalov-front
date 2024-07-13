@@ -53,7 +53,7 @@ function Leadboard() {
         </h2>
 
         <p>
-          {locale('Collect more KKX points to break into the top 100 leaders, among which there will be a prize draw')}
+          {locale('Collect more KKX POINTS to get to the top of the leaders and get more rewards')}
         </p>
       </div>
 
