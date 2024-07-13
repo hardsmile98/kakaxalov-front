@@ -64,7 +64,7 @@ function Leadboard() {
           type="button"
         >
           <img src={farmIcon} alt="farm" />
-          По добыче
+          {locale('By extraction')}
         </button>
 
         <button
@@ -73,7 +73,7 @@ function Leadboard() {
           type="button"
         >
           <img src={inviteIcon} alt="invite" />
-          По друзьям
+          {locale('By friends')}
         </button>
       </div>
 
