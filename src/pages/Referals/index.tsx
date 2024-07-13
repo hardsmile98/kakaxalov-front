@@ -1,10 +1,10 @@
 import inviteImage from 'assets/images/inviteImage.webp';
 import inviteIcon from 'assets/images/inviteIcon.svg';
 import {
-  Button, Input, Loader, UserList,
+  Button, ErrorPage, Input, Loader, UserList,
 } from 'components';
 import { useGetProfileQuery, useGetReferalsQuery } from 'services/api';
-import { envs, gameSettings } from 'constants/index';
+import { envs } from 'constants/index';
 import { formatNumber } from 'helpers/index';
 import { useLocale, useTelegram } from 'hooks';
 import styles from './styles.module.css';
@@ -18,9 +18,13 @@ function Referals() {
 
   const inviteUrl = `${envs.miniAppUrl}?startapp=refCode_${inviteCode}`;
 
-  const { isLoading, data } = useGetReferalsQuery(undefined);
+  const { isLoading, isError, data: referrals } = useGetReferalsQuery(undefined);
 
   const { locale } = useLocale();
+
+  if (isError) {
+    return <ErrorPage />;
+  }
 
   return (
     <div className={styles.root}>
@@ -37,9 +41,9 @@ function Referals() {
           </h2>
 
           <p>
-            {locale('You get {bonus} KKX POINTS for each friend you bring in').replace(
+            {locale('You get up to {bonus} KKX POINTS for each friend you bring in').replace(
               /{bonus}/g,
-              formatNumber(gameSettings.BONUS_FOR_INVITE),
+              formatNumber(referrals?.maxBonus || 0),
             )}
           </p>
         </div>
@@ -67,7 +71,7 @@ function Referals() {
                 <Loader />
               </div>
             )
-            : <UserList list={data} />}
+            : <UserList list={referrals?.referals} />}
         </div>
       </div>
 

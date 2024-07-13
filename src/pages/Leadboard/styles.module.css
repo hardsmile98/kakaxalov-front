@@ -79,3 +79,36 @@
     font-weight: 500;
     color: var(--primary);
 }
+
+.tabs {
+    margin-top: calc(var(--unit) * 2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: calc(var(--unit) * 1);
+}
+
+.tabs > button {
+    outline: none;
+    border: none;
+    width: 100%;
+    border: 1px solid var(--border);
+    padding: calc(var(--unit)* 2) calc(var(--unit)* 3);
+    border-radius: var(--unit);
+    background-color: var(--bg-secondary);
+    color: var(--white);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: calc(var(--unit)* 0.5);
+}
+
+.tabs > .buttonActive {
+    background-color: var(--primary);
+}
+
+.tabs > button > img {
+    height: 20px;
+    width: auto;
+}

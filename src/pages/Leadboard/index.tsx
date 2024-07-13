@@ -1,17 +1,22 @@
+import { useState } from 'react';
 import topImage from 'assets/images/topImage.webp';
 import topText from 'assets/images/topText.svg';
 import topIcon from 'assets/images/topIcon.svg';
+import farmIcon from 'assets/images/earnIcon.svg';
+import inviteIcon from 'assets/images/medalIcon.svg';
 import { ErrorPage, PageLoader, UserList } from 'components';
-import { useGetTop100Query } from 'services/api';
+import { useGetLeadboardQuery } from 'services/api';
 import { useLocale } from 'hooks';
 import styles from './styles.module.css';
 
 function Leadboard() {
-  const { isLoading, isError, data } = useGetTop100Query(undefined);
+  const [tab, setTab] = useState<'farm' | 'invite'>('farm');
+
+  const { isLoading, isError, data } = useGetLeadboardQuery(undefined);
 
   const { locale } = useLocale();
 
-  const topList = data?.top;
+  const topList = data?.[tab]?.top;
 
   if (isError) {
     return <ErrorPage />;
@@ -52,6 +57,26 @@ function Leadboard() {
         </p>
       </div>
 
+      <div className={styles.tabs}>
+        <button
+          className={tab === 'farm' ? styles.buttonActive : ''}
+          onClick={() => setTab('farm')}
+          type="button"
+        >
+          <img src={farmIcon} alt="farm" />
+          По добыче
+        </button>
+
+        <button
+          className={tab === 'invite' ? styles.buttonActive : ''}
+          onClick={() => setTab('invite')}
+          type="button"
+        >
+          <img src={inviteIcon} alt="invite" />
+          По друзьям
+        </button>
+      </div>
+
       <div className={styles.blockWrapper}>
         <h5>
           {locale('Leaders')}
@@ -63,7 +88,7 @@ function Leadboard() {
       <div className={styles.scoreWrapper}>
         <div className={styles.positionWrapper}>
           <div>
-            {data?.position.index}
+            {data?.[tab].position.index}
           </div>
 
           <div>
@@ -72,7 +97,7 @@ function Leadboard() {
         </div>
 
         <div className={styles.score}>
-          {data?.position.leadboardScore}
+          {data?.[tab].position.leadboardScore}
           {' '}
           KKX POITNS
         </div>
