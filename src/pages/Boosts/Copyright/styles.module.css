@@ -1,9 +1,0 @@
-.root {
-    text-align: center;
-    margin-top: calc(var(--unit) * 3);
-}
-
-.root > a {
-    color: var(--text-secondary);
-    font-size: var(--body2);
-}

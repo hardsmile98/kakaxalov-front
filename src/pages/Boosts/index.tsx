@@ -9,7 +9,6 @@ import Improvements from './Improvements';
 import styles from './styles.module.css';
 import Wallet from './Wallet';
 import Nft from './Nft';
-import Copyright from './Copyright';
 
 function Boosts() {
   const { data, isLoading, isError } = useGetBoostsQuery(undefined);
@@ -86,10 +85,6 @@ function Boosts() {
 
           <Nft />
         </div>
-      </div>
-
-      <div>
-        <Copyright />
       </div>
     </div>
   );
