@@ -5,7 +5,7 @@ import styles from './styles.module.css';
 interface UserListProps {
   type?: 'default' | 'numeric'
   list: Array<{
-    id: number
+    id: number | string
     name: string
     value: string
   }> | undefined

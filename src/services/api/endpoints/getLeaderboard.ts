@@ -4,7 +4,6 @@ import tagTypes from '../tagTypes';
 interface LeadboardResponse {
   farm: {
     top: Array<{
-      userId: number
       score: number
       name: string
       username: string
@@ -16,7 +15,6 @@ interface LeadboardResponse {
   }
   invite: {
     top: Array<{
-      userId: number
       score: number
       name: string
       username: string
@@ -30,14 +28,14 @@ interface LeadboardResponse {
 }
 
 const transformTop100 = (response: LeadboardResponse) => {
-  const topFarmFormatted = response.farm.top.map((user) => ({
-    id: user.userId,
+  const topFarmFormatted = response.farm.top.map((user, index) => ({
+    id: `farm_${index}`,
     name: user.name ?? 'Not indicated',
     value: `${formatNumber(user.score)} KKXP`,
   }));
 
-  const topInviteFormatted = response.invite.top.map((user) => ({
-    id: user.userId,
+  const topInviteFormatted = response.invite.top.map((user, index) => ({
+    id: `invite_${index}`,
     name: user.name ?? 'Not indicated',
     value: `${formatNumber(user.score)} KKXP`,
   }));

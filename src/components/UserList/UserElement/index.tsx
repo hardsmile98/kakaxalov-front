@@ -3,7 +3,7 @@ import styles from './styles.module.css';
 
 interface User {
   index?: number
-  id: number
+  id: number | string
   name: string
   value: string
 }
