@@ -6,9 +6,10 @@ import {
 } from 'react-router-dom';
 import { useLocale, useTelegram } from 'hooks';
 import { useEffect, useState } from 'react';
-import { ErrorPage, PageLoader } from 'components';
+import { ErrorPage, PageLoader, WelcomeModal } from 'components';
 import { envs } from 'constants/index';
 import { useTonWallet } from '@tonconnect/ui-react';
+import { setWelcomeModalOpened } from 'store/slices/settings';
 import { useGetNftBonusQuery, useGetProfileQuery } from './services';
 import { isDev } from './helpers';
 import {
@@ -18,12 +19,18 @@ import {
   Boosts,
   Earn,
 } from './pages';
+import { useDispatch, useSelector } from './store';
 
 function App() {
+  const isWelcomeModalOpened = useSelector((state) => state.settings.isWelcomeModalOpened);
+
   const tg = useTelegram();
 
   const navigate = useNavigate();
+
   const { pathname } = useLocation();
+
+  const dispatch = useDispatch();
 
   const [isTgLoading, setTgLoading] = useState(true);
   const [isTgReady, setTgReady] = useState(false);
@@ -32,8 +39,11 @@ function App() {
 
   const {
     isLoading: isGetProfileLoading,
+    data: profileData,
     isError,
   } = useGetProfileQuery(undefined, { skip: !isTgReady });
+
+  const isNewUser = profileData?.newUser;
 
   const wallet = useTonWallet();
 
@@ -69,6 +79,12 @@ function App() {
     }
   }, [tg, navigate, pathname]);
 
+  useEffect(() => {
+    if (isNewUser) {
+      dispatch(setWelcomeModalOpened(true));
+    }
+  }, [isNewUser]);
+
   if (isError) {
     return <ErrorPage />;
   }
@@ -78,13 +94,17 @@ function App() {
   }
 
   return (
-    <Routes>
-      <Route path="/*" element={<Game />} />
-      <Route path="/referals" element={<Referals />} />
-      <Route path="/leadboard" element={<Leadboard />} />
-      <Route path="/boosts" element={<Boosts />} />
-      <Route path="/earn" element={<Earn />} />
-    </Routes>
+    <>
+      <Routes>
+        <Route path="/*" element={<Game />} />
+        <Route path="/referals" element={<Referals />} />
+        <Route path="/leadboard" element={<Leadboard />} />
+        <Route path="/boosts" element={<Boosts />} />
+        <Route path="/earn" element={<Earn />} />
+      </Routes>
+
+      <WelcomeModal isOpen={isWelcomeModalOpened} />
+    </>
   );
 }
 

@@ -6,6 +6,7 @@ import Modal from './Modal';
 import PageLoader from './PageLoader';
 import ErrorPage from './ErrorPage';
 import Loader from './Loader';
+import WelcomeModal from './WelcomeModal';
 
 export {
   Input,
@@ -16,4 +17,5 @@ export {
   PageLoader,
   ErrorPage,
   Loader,
+  WelcomeModal,
 };
