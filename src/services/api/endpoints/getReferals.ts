@@ -8,7 +8,8 @@ interface ReferalsResponse {
     isPremium: boolean
     bonus: number
   }>
-  maxBonus: number
+  bonusForInvite: number
+  bonusForInviteWithPremium: number
   success: boolean
 }
 

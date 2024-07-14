@@ -1,7 +1,7 @@
 {
     "ru": {
       "Immerse yourself in a fascinating world and collect KKX POINTS": "Погрузись в\u00A0увлекательный мир и\u00A0собирай KKX POINTS",
-      "The more KKX POINTS you collect, the higher your league and place on the leaderboard": "Чем больше сбора, тем больше твоя лига и\u00A0место в\u00A0идрборде",
+      "The more KKX POINTS you collect, the higher your league and place on the leaderboard": "Чем больше сбора, тем больше твоя лига и\u00A0место в\u00A0лидрборде",
       "To catch, just tap on the screen": "Чтобы ловить, достаточно просто использовать тап по\u00A0экрану",
       "Use the tap on the side (top/bottom) from which the poop is flying, beware of bombs, otherwise you will lose your energy": "Используй тап на ту сторону (верх/низ), с\u00A0которой летит какашка, остерегайся бомб, иначе потеряешь свою энергию",
       "Soon, loot battles between each other will be introduced for even more exciting gameplay": "В скором времени будут внедрены бои по\u00A0добыче между друг-другом для еще более увлекательного геймплея",
@@ -13,12 +13,14 @@
       "Loading": "Загрузка",
       "The list is empty": "Список пустой",
       "Invite your friends and get KKX POINTS together": "Пригласи друзей и\u00A0собирай KKX POINTS вместе",
-      "You get up to {bonus} KKX POINTS for each friend you bring in": "За каждого приведенного друга, ты\u00A0получаешь до\u00A0{bonus} KKX POINTS",
+      "You get KKX POINTS for each friend you bring in": "За каждого приведенного друга, ты\u00A0получаешь KKX\u00A0POINTS",
       "Referral link": "Реферальная ссылка",
       "Your friends": "Твои друзья",
       "Invite": "Пригласить",
       "By extraction": "По добыче",
       "By friends": "По друзьям",
+      "For an ordinary friend - {bonus} KKX POINTS": "За обычного друга - {bonus} KKX\u00A0POINTS",
+      "For a friend with premium - {bonus} KKX POINTS": "За друга с\u00A0premium - {bonus} KKX\u00A0POINTS",
 
       "1second": "секунда",
       "ManySeconds": "секунды",

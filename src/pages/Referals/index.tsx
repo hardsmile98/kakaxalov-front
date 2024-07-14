@@ -41,11 +41,24 @@ function Referals() {
           </h2>
 
           <p>
-            {locale('You get up to {bonus} KKX POINTS for each friend you bring in').replace(
-              /{bonus}/g,
-              formatNumber(referrals?.maxBonus || 0),
-            )}
+            {locale('You get KKX POINTS for each friend you bring in')}
           </p>
+
+          <div className={styles.description}>
+            <p>
+              {locale('For an ordinary friend - {bonus} KKX POINTS').replace(
+                /{bonus}/g,
+                formatNumber(referrals?.bonusForInvite || 0),
+              )}
+            </p>
+
+            <p>
+              {locale('For a friend with premium - {bonus} KKX POINTS').replace(
+                /{bonus}/g,
+                formatNumber(referrals?.bonusForInviteWithPremium || 0),
+              )}
+            </p>
+          </div>
         </div>
 
         <div className={styles.blockWrapper}>

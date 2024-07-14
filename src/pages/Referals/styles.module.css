@@ -12,6 +12,10 @@
     margin-bottom: calc(var(--unit) * 1);
 }
 
+.description {
+    margin-top: calc(var(--unit) * 1);
+}
+
 .image {
     max-width: 250px;
     width: 100%;
