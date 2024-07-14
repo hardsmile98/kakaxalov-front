@@ -39,11 +39,11 @@ function App() {
 
   const {
     isLoading: isGetProfileLoading,
-    data: profileData,
+    // data: profileData,
     isError,
   } = useGetProfileQuery(undefined, { skip: !isTgReady });
 
-  const isNewUser = profileData?.newUser;
+  // const isNewUser = profileData?.newUser;
 
   const wallet = useTonWallet();
 
@@ -80,10 +80,8 @@ function App() {
   }, [tg, navigate, pathname]);
 
   useEffect(() => {
-    if (isNewUser) {
-      dispatch(setWelcomeModalOpened(true));
-    }
-  }, [isNewUser]);
+    dispatch(setWelcomeModalOpened(true));
+  }, []);
 
   if (isError) {
     return <ErrorPage />;
