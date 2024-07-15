@@ -10,10 +10,10 @@ function Slide2() {
     <div className={styles.root}>
       <div className={styles.text}>
         <h2>
-          {locale('To catch, just tap on the screen')}
+          {locale('To catch, just use tap on the screen')}
         </h2>
         <p>
-          {locale('Use the tap on the side (top/bottom) from which the poop is flying, beware of bombs, otherwise you will lose your energy')}
+          {locale('Use tap on the side (up/down) from which the poop is flying, beware of bombs or you will lose your energy')}
         </p>
       </div>
 

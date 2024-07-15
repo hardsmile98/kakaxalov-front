@@ -12,10 +12,10 @@ function Slide1() {
     <div className={styles.root}>
       <div className={styles.text}>
         <h2>
-          {locale('Immerse yourself in a fascinating world and collect KKX POINTS')}
+          {locale('Immerse yourself in an exciting world and collect KKX POINTS')}
         </h2>
         <p>
-          {locale('The more KKX POINTS you collect, the higher your league and place on the leaderboard')}
+          {locale('The more you collect, the bigger your league and place on the leaderboard')}
         </p>
       </div>
 

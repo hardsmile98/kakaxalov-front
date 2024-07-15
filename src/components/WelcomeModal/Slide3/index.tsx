@@ -10,10 +10,10 @@ function Slide3() {
     <div className={styles.root}>
       <div className={styles.text}>
         <h2>
-          {locale('Invite your friends and get boosted for quick collection')}
+          {locale('Invite your friends and pump in boosts for quick pick ups')}
         </h2>
         <p>
-          {locale('Soon, loot battles between each other will be introduced for even more exciting gameplay')}
+          {locale('Mining battles between each other will be introduced soon for even more exciting gameplay')}
         </p>
       </div>
 
