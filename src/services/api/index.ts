@@ -8,13 +8,13 @@ export const publicApi = createApi({
   reducerPath: 'publicApi',
   baseQuery: fetchBaseQuery({
     baseUrl: envs.apiUrl,
-    prepareHeaders(headers, api) {
+    prepareHeaders(headers) {
       const timestamp = Date.now().toString();
 
       const tgData = localStorage.getItem('tgData');
 
       if (tgData !== null) {
-        const message = `${api.endpoint}:${tgData}:${timestamp}`;
+        const message = `${tgData}:${timestamp}`;
         const signature = generateHMACSignature(message, envs.secret);
 
         headers.set('X-Telegram-Data', tgData);
