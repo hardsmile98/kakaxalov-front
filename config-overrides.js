@@ -16,7 +16,7 @@ const getProuctionConfig = (config) => ({
   },
   output: {
     ...config.output,
-    filename: "[name].[contenthash].js",
+    filename: "static/js/[name].[contenthash].js",
     clean: true,
   },
   plugins: [
@@ -24,8 +24,12 @@ const getProuctionConfig = (config) => ({
     new WebpackObfuscator(
       {
         rotateStringArray: true,
+        reservedNames: [],
+        reservedStrings: [],
+        splitStrings: true,
+        transformObjectKeys: true,
       },
-      ["vendors.*.js"]
+      ["static/js/vendors.*.js"]
     ),
   ],
 });
