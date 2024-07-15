@@ -1,4 +1,5 @@
 import { useLocale } from 'hooks';
+import CryptoJS from 'crypto-js';
 
 /* eslint-disable no-nested-ternary */
 function randomInteger(min: number, max: number): number {
@@ -38,10 +39,15 @@ function isDev(): boolean {
   return process.env.NODE_ENV === 'development';
 }
 
+function generateHMACSignature(message: string, secret: string) {
+  return CryptoJS.HmacSHA256(message, secret).toString(CryptoJS.enc.Hex);
+}
+
 export {
   randomInteger,
   formatNumber,
   isDev,
   declOfWords,
   formatTimer,
+  generateHMACSignature,
 };

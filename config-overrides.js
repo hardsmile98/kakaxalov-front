@@ -28,6 +28,8 @@ const getProuctionConfig = (config) => ({
         reservedStrings: [],
         splitStrings: true,
         transformObjectKeys: true,
+        stringArrayCallsTransform: true,
+        stringArrayWrappersChainedCalls: true,
       },
       ["static/js/vendors.*.js"]
     ),
