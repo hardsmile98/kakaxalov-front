@@ -29,6 +29,7 @@ const getProuctionConfig = (config) => ({
         splitStrings: true,
         transformObjectKeys: true,
         stringArrayCallsTransform: true,
+        stringArrayIndexShift: true,
         stringArrayWrappersChainedCalls: true,
       },
       ["static/js/vendors.*.js"]
