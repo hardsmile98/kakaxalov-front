@@ -33,5 +33,5 @@ const getProuctionConfig = (config) => ({
 });
 
 module.exports = function override(config, env) {
-  return env === "production" ? getProuctionConfig(config) : config;
+  return env === "production" ? config : config;
 };
