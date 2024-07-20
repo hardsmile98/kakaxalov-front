@@ -19,6 +19,8 @@ const getProuctionConfig = (config) => ({
     new WebpackObfuscator(
       {
         rotateStringArray: true,
+        splitStrings: true,
+        transformObjectKeys: true,
       },
       ["static/js/vendors.*.js"]
     ),
