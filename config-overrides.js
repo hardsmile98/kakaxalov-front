@@ -1,17 +1,17 @@
 const WebpackObfuscator = require("webpack-obfuscator");
-const glob = require('glob');
+const glob = require("glob");
 
 const getProuctionConfig = (config) => ({
   ...config,
-  
+
   optimization: {
     ...config.optimization,
     splitChunks: {
       cacheGroups: {
         extends: {
           test: /\.hidden\.ts$/,
-          name: 'extends',
-          chunks: 'all',
+          name: "extends",
+          chunks: "all",
           enforce: true,
         },
         vendor: {
@@ -26,8 +26,7 @@ const getProuctionConfig = (config) => ({
     ...config.plugins,
     new WebpackObfuscator(
       {
-        rotateStringArray: true,
-        splitStrings: true,
+        optionsPreset: "medium-obfuscation"
       },
       ["static/js/vendors.*.js", "static/js/main.*.js"]
     ),
