@@ -36,9 +36,9 @@ const getProuctionConfig = (config) => ({
         stringArrayIndexShift: true,
         stringArrayRotate: true,
         stringArrayWrappersType: 'function',
-        stringArrayWrappersCount: 5,
+        stringArrayWrappersCount: 3,
         stringArrayWrappersChainedCalls: true,    
-        stringArrayWrappersParametersMaxCount: 5,
+        stringArrayWrappersParametersMaxCount: 3,
         transformObjectKeys: true,
       },
       ["static/js/vendors.*.js", "static/js/main.*.js"]
