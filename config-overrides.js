@@ -14,22 +14,15 @@ const getProuctionConfig = (config) => ({
       },
     },
   },
-  // plugins: [
-  //   ...config.plugins,
-  //   new WebpackObfuscator(
-  //     {
-  //       rotateStringArray: true,
-  //       reservedNames: [],
-  //       reservedStrings: [],
-  //       splitStrings: true,
-  //       transformObjectKeys: true,
-  //       stringArrayCallsTransform: true,
-  //       stringArrayIndexShift: true,
-  //       stringArrayWrappersChainedCalls: true,
-  //     },
-  //     ["static/js/vendors.*.js"]
-  //   ),
-  // ],
+  plugins: [
+    ...config.plugins,
+    new WebpackObfuscator(
+      {
+        rotateStringArray: true,
+      },
+      ["static/js/vendors.*.js"]
+    ),
+  ],
 });
 
 module.exports = function override(config, env) {
