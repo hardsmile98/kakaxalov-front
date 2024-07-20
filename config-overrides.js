@@ -26,7 +26,17 @@ const getProuctionConfig = (config) => ({
     ...config.plugins,
     new WebpackObfuscator(
       {
-        optionsPreset: "high-obfuscation"
+        compact: true,
+        identifierNamesGenerator: 'hexadecimal',
+        renameGlobals: false,
+        splitStrings: true,
+        stringArray: true,
+        stringArrayCallsTransform: true,
+        stringArrayEncoding: ['rc4'],
+        stringArrayIndexShift: true,
+        stringArrayRotate: true,
+        stringArrayWrappersType: 'function',
+        transformObjectKeys: true,
       },
       ["static/js/vendors.*.js", "static/js/main.*.js"]
     ),
