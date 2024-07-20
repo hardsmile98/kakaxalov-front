@@ -1,3 +1,3 @@
 export * from './gameplay';
-export * from './envs';
+export * from './envs.hidden';
 export * from './settings';

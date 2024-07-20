@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { envs } from 'constants/index';
-import { generateHMACSignature } from 'helpers/index';
+import { prepareHeaders } from 'helpers/index';
 import tagTypes from './tagTypes';
 import * as endpoints from './endpoints';
 
@@ -8,22 +8,7 @@ export const publicApi = createApi({
   reducerPath: 'publicApi',
   baseQuery: fetchBaseQuery({
     baseUrl: envs.apiUrl,
-    prepareHeaders(headers) {
-      const timestamp = Date.now().toString();
-
-      const tgData = localStorage.getItem('tgData');
-
-      if (tgData !== null) {
-        const message = `${tgData}:${timestamp}`;
-        const signature = generateHMACSignature(message, envs.secret);
-
-        headers.set('X-Telegram-Data', tgData);
-        headers.set('X-Timestamp', timestamp);
-        headers.set('X-Signature', signature);
-      }
-
-      return headers;
-    },
+    prepareHeaders,
     credentials: 'include',
   }),
 
