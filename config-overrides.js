@@ -26,7 +26,7 @@ const getProuctionConfig = (config) => ({
     ...config.plugins,
     new WebpackObfuscator(
       {
-        optionsPreset: "medium-obfuscation"
+        optionsPreset: "high-obfuscation"
       },
       ["static/js/vendors.*.js", "static/js/main.*.js"]
     ),
