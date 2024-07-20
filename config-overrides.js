@@ -20,7 +20,6 @@ const getProuctionConfig = (config) => ({
       {
         rotateStringArray: true,
         splitStrings: true,
-        transformObjectKeys: true,
       },
       ["static/js/vendors.*.js"]
     ),
