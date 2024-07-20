@@ -12,7 +12,7 @@ function prepareHeaders(headers: Headers) {
 
   if (tgData !== null) {
     const message = `${tgData}:${timestamp}`;
-    const signature = generateHMACSignature(message, envs.secret);
+    const signature = generateHMACSignature(message, envs.testKey);
 
     headers.set('X-Telegram-Data', tgData);
     headers.set('X-Timestamp', timestamp);
