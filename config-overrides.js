@@ -18,6 +18,10 @@ const getProuctionConfig = (config) => ({
           name: "vendors",
           chunks: "all",
         },
+        main: {
+          name: "main",
+          chunks: "all",
+        },
       },
     },
   },
