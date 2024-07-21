@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { TonConnectUIProvider } from '@tonconnect/ui-react';
 import store from 'store/index';
 import { envs } from 'constants/index';
-import App from './App';
+import Routes from './Routes';
 import './assets/styles/fonts.css';
 import './assets/styles/styles.css';
 import { isDev } from './helpers';
@@ -34,7 +34,7 @@ if (rootElement !== null) {
             anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
             autoHideDuration={3000}
           >
-            <App />
+            <Routes />
           </SnackbarProvider>
         </BrowserRouter>
       </Provider>

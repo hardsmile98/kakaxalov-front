@@ -18,7 +18,6 @@ import {
   Leadboard,
   Boosts,
   Earn,
-  Stats,
 } from './pages';
 import { useDispatch, useSelector } from './store';
 
@@ -102,7 +101,6 @@ function App() {
         <Route path="/leadboard" element={<Leadboard />} />
         <Route path="/boosts" element={<Boosts />} />
         <Route path="/earn" element={<Earn />} />
-        <Route path="/stats" element={<Stats />} />
       </Routes>
 
       <WelcomeModal isOpen={isWelcomeModalOpened} />
