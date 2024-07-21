@@ -1,0 +1,14 @@
+.root {
+    text-align: center;
+    margin-top: calc(var(--unit) * 3);
+    font-size: var(--body1);
+}
+
+.stats {
+    margin-top: calc(var(--unit) * 1);
+}
+
+.stats > span {
+    color: var(--primary);
+    font-weight: 600;
+}

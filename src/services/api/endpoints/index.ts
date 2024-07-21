@@ -10,3 +10,4 @@ export * from './startGame';
 export * from './endGame';
 export * from './checkEnergy';
 export * from './getNftBonus';
+export * from './getStats';

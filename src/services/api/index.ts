@@ -16,6 +16,7 @@ export const publicApi = createApi({
     getProfile: builder.query<endpoints.ProfileResponse, undefined>(endpoints.getProfile),
     getLeadboard: builder.query(endpoints.getLeadboard),
     getTasks: builder.query<endpoints.Tasks, undefined>(endpoints.getTasks),
+    getStats: builder.query<endpoints.StatsResponse, undefined>(endpoints.getStats),
     completeTask: builder.mutation(endpoints.completeTask),
     getReferals: builder.query(endpoints.getReferals),
     getBoosts: builder.query(endpoints.getBoosts),
@@ -44,6 +45,7 @@ export const {
   useEndGameMutation,
   useCheckEnergyQuery,
   useGetNftBonusQuery,
+  useGetStatsQuery,
 } = publicApi;
 
 export function isErrorWithMessage(

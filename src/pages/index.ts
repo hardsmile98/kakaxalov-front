@@ -3,6 +3,7 @@ import Referals from './Referals';
 import Boosts from './Boosts';
 import Leadboard from './Leadboard';
 import Earn from './Earn';
+import Stats from './Stats';
 
 export {
   Game,
@@ -10,4 +11,5 @@ export {
   Boosts,
   Leadboard,
   Earn,
+  Stats,
 };
