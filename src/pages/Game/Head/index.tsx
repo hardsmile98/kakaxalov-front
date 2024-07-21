@@ -1,15 +1,14 @@
 /* eslint-disable react/no-array-index-key */
 import { memo } from 'react';
 import coinIcon from 'assets/images/kakaxaCoin.webp';
-import helth from 'assets/images/helth.svg';
 import { useSelector } from 'store';
 import { useGetProfileQuery } from 'services/api';
 import { GameStatuses } from 'constants/index';
 import { declOfWords, formatNumber } from 'helpers';
 import { useLocale } from 'hooks';
-import styles from './styles.module.css';
-import Timer from './Timer';
 import Setting from './Setting';
+import Helths from './Helths';
+import styles from './styles.module.css';
 
 function Head() {
   const { data } = useGetProfileQuery(undefined);
@@ -35,18 +34,11 @@ function Head() {
       <div className={styles.wrapper}>
         <div className={styles.helthsWrapper}>
           <div className={styles.helths}>
-            {amountEnergy > 0
-              ? (
-                new Array(amountEnergy)
-                  .fill(null)
-                  .map((_, idx) => <img key={idx} src={helth} alt="helth" />)
-              )
-              : (
-                <Timer
-                  energyRecoveryTimeSeconds={energyRecoveryTimeSeconds}
-                  useEneryTimestamp={useEneryTimestamp}
-                />
-              )}
+            <Helths
+              energyRecoveryTimeSeconds={energyRecoveryTimeSeconds}
+              useEneryTimestamp={useEneryTimestamp}
+              amountEnergy={amountEnergy}
+            />
           </div>
         </div>
 

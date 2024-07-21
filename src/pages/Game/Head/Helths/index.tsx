@@ -1,5 +1,7 @@
+/* eslint-disable react/no-array-index-key */
 import { formatTimer } from 'helpers/index';
 import { useEffect, useRef, useState } from 'react';
+import helth from 'assets/images/helth.svg';
 import { publicApi, useCheckEnergyQuery } from 'services/api';
 import { Loader } from 'components';
 import { useDispatch } from 'react-redux';
@@ -10,6 +12,7 @@ import styles from './styles.module.css';
 interface TimerProps {
   energyRecoveryTimeSeconds: number
   useEneryTimestamp: string
+  amountEnergy: number
 }
 
 const getSeconds = (useEneryTimestamp: string, energyRecoveryTimeSeconds: number) => {
@@ -18,9 +21,10 @@ const getSeconds = (useEneryTimestamp: string, energyRecoveryTimeSeconds: number
   return timerSeconds;
 };
 
-function Timer({
+function Helths({
   energyRecoveryTimeSeconds,
   useEneryTimestamp,
+  amountEnergy,
 }: TimerProps) {
   const dispatch = useDispatch();
 
@@ -66,6 +70,16 @@ function Timer({
 
   const timer = formatTimer(seconds, locale);
 
+  if (amountEnergy > 0) {
+    return (
+      <span>
+        {new Array(amountEnergy)
+          .fill(null)
+          .map((_, idx) => <img key={idx} src={helth} alt="helth" />)}
+      </span>
+    );
+  }
+
   return (
     <div className={styles.root}>
       {isLoading ? <Loader size={12} width={3} /> : timer }
@@ -73,4 +87,4 @@ function Timer({
   );
 }
 
-export default Timer;
+export default Helths;
