@@ -61,6 +61,16 @@ function Referals() {
           </div>
         </div>
 
+        <div className={styles.earnedWrapper}>
+          <p>
+            0 KKX POINTS
+          </p>
+
+          <Button>
+            {locale('Claim')}
+          </Button>
+        </div>
+
         <div className={styles.blockWrapper}>
           <h5>
             {locale('Referral link')}

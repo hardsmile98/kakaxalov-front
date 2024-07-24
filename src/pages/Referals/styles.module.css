@@ -16,6 +16,24 @@
     margin-top: calc(var(--unit) * 1);
 }
 
+.earnedWrapper {
+    margin-top: calc(var(--unit) * 3);
+    border-radius: calc(var(--unit) * 1);
+    border: 1px solid var(--border);
+    padding: calc(var(--unit) * 3);
+    text-align: center;
+}
+
+.earnedWrapper > p {
+    font-weight: 600;
+    margin-bottom: calc(var(--unit) * 1);
+}
+
+.earnedWrapper > button {
+    max-width: 200px;
+    height: 48px;
+}
+
 .image {
     max-width: 250px;
     width: 100%;
