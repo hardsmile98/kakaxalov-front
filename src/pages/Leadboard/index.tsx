@@ -19,6 +19,8 @@ function Leadboard() {
 
   const topList = data?.[tab]?.top;
 
+  const battleDisabled = !data?.activeBattle;
+
   if (isError) {
     return <ErrorPage />;
   }
@@ -83,15 +85,17 @@ function Leadboard() {
           className={tab === 'battle' ? styles.buttonActive : ''}
           onClick={() => setTab('battle')}
           type="button"
-          disabled
+          disabled={battleDisabled}
         >
           <img src={battleIcon} alt="battle" />
 
           {locale('Leaderboard of the battle')}
 
-          <span>
-            {locale('Soon')}
-          </span>
+          {battleDisabled && (
+            <span>
+              {locale('Soon')}
+            </span>
+          )}
         </button>
       </div>
 

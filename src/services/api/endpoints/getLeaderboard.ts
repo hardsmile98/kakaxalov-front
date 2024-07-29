@@ -35,6 +35,11 @@ interface LeadboardResponse {
       score: number
     }
   }
+  activeBattle: {
+    status: 'none' | 'running' | 'finishing' | 'finished',
+    startDate: true,
+    endDate: true,
+  } | undefined
   success: boolean
 }
 
@@ -79,6 +84,7 @@ const transformTop100 = (response: LeadboardResponse) => {
         leadboardScore: formatNumber(response.battle?.position?.score),
       },
     },
+    activeBattle: response.activeBattle,
   };
 };
 
