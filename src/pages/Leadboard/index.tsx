@@ -117,7 +117,7 @@ function Leadboard() {
       <div className={styles.scoreWrapper}>
         <div className={styles.positionWrapper}>
           <div>
-            {data?.[tab].position.index}
+            {data?.[tab].position.index || '-'}
           </div>
 
           <div>
@@ -126,7 +126,7 @@ function Leadboard() {
         </div>
 
         <div className={styles.score}>
-          {data?.[tab].position.leadboardScore}
+          {data?.[tab].position.leadboardScore || '-'}
           {' '}
           KKX POITNS
         </div>
