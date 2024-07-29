@@ -7,6 +7,10 @@ function randomInteger(min: number, max: number): number {
 }
 
 function formatNumber(num: number, options?: Intl.NumberFormatOptions): string {
+  if (typeof num !== 'number') {
+    return num;
+  }
+
   return num.toLocaleString(undefined, {
     minimumFractionDigits: 3,
     ...options,

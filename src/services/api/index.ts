@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import {
   BaseQueryApi,
   BaseQueryFn,
@@ -38,14 +39,10 @@ export const publicApi = createApi({
   baseQuery,
 
   endpoints: (builder) => ({
-    getProfile: builder.query<endpoints.ProfileResponse, undefined>(
-      endpoints.getProfile,
-    ),
+    getProfile: builder.query<endpoints.ProfileResponse, undefined>(endpoints.getProfile),
     getLeadboard: builder.query(endpoints.getLeadboard),
     getTasks: builder.query<endpoints.Tasks, undefined>(endpoints.getTasks),
-    getStats: builder.query<endpoints.StatsResponse, undefined>(
-      endpoints.getStats,
-    ),
+    getStats: builder.query<endpoints.StatsResponse, undefined>(endpoints.getStats),
     completeTask: builder.mutation(endpoints.completeTask),
     getReferals: builder.query(endpoints.getReferals),
     getBoosts: builder.query(endpoints.getBoosts),
@@ -53,13 +50,8 @@ export const publicApi = createApi({
     applyBoost: builder.mutation(endpoints.applyBoost),
     startGame: builder.mutation(endpoints.startGame),
     endGame: builder.mutation(endpoints.endGame),
-    checkEnergy: builder.query<endpoints.CheckEnergyResponse, undefined>(
-      endpoints.checkEnergy,
-    ),
-    getNftBonus: builder.query<
-    endpoints.GetNftBonusResponse,
-    string | undefined
-    >(endpoints.getNftBonus),
+    checkEnergy: builder.query<endpoints.CheckEnergyResponse, undefined>(endpoints.checkEnergy),
+    getNftBonus: builder.query<endpoints.GetNftBonusResponse, string | undefined>(endpoints.getNftBonus),
   }),
 
   tagTypes: Object.values(tagTypes),

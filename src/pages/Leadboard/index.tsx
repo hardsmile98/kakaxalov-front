@@ -4,13 +4,14 @@ import topText from 'assets/images/topText.svg';
 import topIcon from 'assets/images/topIcon.svg';
 import farmIcon from 'assets/images/earnIcon.svg';
 import inviteIcon from 'assets/images/medalIcon.svg';
+import battleIcon from 'assets/images/battleIcon.svg';
 import { ErrorPage, PageLoader, UserList } from 'components';
 import { useGetLeadboardQuery } from 'services/api';
 import { useLocale } from 'hooks';
 import styles from './styles.module.css';
 
 function Leadboard() {
-  const [tab, setTab] = useState<'farm' | 'invite'>('farm');
+  const [tab, setTab] = useState<'farm' | 'invite' | 'battle'>('farm');
 
   const { isLoading, isError, data } = useGetLeadboardQuery(undefined);
 
@@ -58,22 +59,39 @@ function Leadboard() {
       </div>
 
       <div className={styles.tabs}>
-        <button
-          className={tab === 'farm' ? styles.buttonActive : ''}
-          onClick={() => setTab('farm')}
-          type="button"
-        >
-          <img src={farmIcon} alt="farm" />
-          {locale('By extraction')}
-        </button>
+        <div className={styles.tabsWrapper}>
+          <button
+            className={tab === 'farm' ? styles.buttonActive : ''}
+            onClick={() => setTab('farm')}
+            type="button"
+          >
+            <img src={farmIcon} alt="farm" />
+            {locale('By extraction')}
+          </button>
+
+          <button
+            className={tab === 'invite' ? styles.buttonActive : ''}
+            onClick={() => setTab('invite')}
+            type="button"
+          >
+            <img src={inviteIcon} alt="invite" />
+            {locale('By friends')}
+          </button>
+        </div>
 
         <button
-          className={tab === 'invite' ? styles.buttonActive : ''}
-          onClick={() => setTab('invite')}
+          className={tab === 'battle' ? styles.buttonActive : ''}
+          onClick={() => setTab('battle')}
           type="button"
+          disabled
         >
-          <img src={inviteIcon} alt="invite" />
-          {locale('By friends')}
+          <img src={battleIcon} alt="battle" />
+
+          {locale('Leaderboard of the battle')}
+
+          <span>
+            {locale('Soon')}
+          </span>
         </button>
       </div>
 
