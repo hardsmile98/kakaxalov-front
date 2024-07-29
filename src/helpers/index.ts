@@ -25,15 +25,32 @@ function declOfWords(n: number, forms: string[]) {
       : forms[2];
 }
 
-function formatTimer(seconds: number, locale: ReturnType<typeof useLocale>['locale']): string {
+function formatTimer(seconds: number, locale: ReturnType<typeof useLocale>['locale'], options?: { withDay: boolean }): string {
   if (seconds < 0) {
-    return `0 ${locale('h')} 00 ${locale('m')}`;
+    return `${options?.withDay ? `0${locale('d')}` : ''} 0${locale('h')} 00${locale('m')}`;
+  }
+
+  if (options?.withDay) {
+    const days = Math.floor((seconds) / (60 * 60 * 24));
+
+    const hours = Math.floor((seconds / (60 * 60)) - (24 * days));
+
+    const minutes = Math.ceil(seconds / 60) - (hours * 60 + days * 24 * 60);
+
+    let timer = '';
+
+    timer += days > 0 ? `${days}${locale('d')} ` : '';
+    timer += hours > 0 ? `${hours}${locale('h')} ` : '';
+    timer += minutes > 0 ? `${minutes}${locale('m')} ` : '';
+
+    return timer;
   }
 
   const hours = Math.floor((seconds / (60 * 60)));
+
   const minutes = Math.ceil(seconds / 60) - hours * 60;
 
-  const timer = `${hours > 0 ? hours : 0} ${locale('h')} ${minutes > 0 ? minutes.toString().padStart(2, '0') : '00'} ${locale('m')}`;
+  const timer = `${hours > 0 ? hours : 0}${locale('h')} ${minutes > 0 ? minutes.toString().padStart(2, '0') : '00'}${locale('m')}`;
 
   return timer;
 }

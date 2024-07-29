@@ -80,6 +80,17 @@
     color: var(--primary);
 }
 
+.blockDescription {
+    margin-top: calc(var(--unit) * 2);
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+.blockDescription span {
+    color: var(--white);
+    font-weight: 500;
+}
+
 .tabs {
     margin-top: calc(var(--unit) * 2);
     display: flex;

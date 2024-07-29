@@ -58,6 +58,7 @@
       "LotTimes": "раз",
       "m": "м",
       "h": "ч",
+      "d": "д",
 
       "Leaderboard": "Таблица лидеров",
       "Collect more KKX POINTS to get to the top of the leaders and get more rewards": "Собирай больше KKX POINTS, чтобы выбиться в\u00A0топ лидеров и\u00A0заполучить больше наград",
@@ -65,6 +66,9 @@
       "Your ranking": "Ваш рейтинг",
       "Leaderboard of the battle": "Лидерборд битвы",
       "Soon": "Скоро",
+      "The battle has not started yet": "Битва еще не начата",
+      "The battle is over": "Битва завершена",
+      "The battle will end in": "Битва закончится через",
 
       "Complete tasks and get KKX POINTS, which you can spend on boosts": "Выполняй задания и\u00A0получай KKX POINTS, которые можешь потратить на\u00A0бусты",
       "Tasks": "Задания",

@@ -37,8 +37,8 @@ interface LeadboardResponse {
   }
   activeBattle: {
     status: 'none' | 'running' | 'finishing' | 'finished',
-    startDate: true,
-    endDate: true,
+    startDate: string,
+    endDate: string,
   } | undefined
   success: boolean
 }

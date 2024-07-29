@@ -9,6 +9,7 @@ import { ErrorPage, PageLoader, UserList } from 'components';
 import { useGetLeadboardQuery } from 'services/api';
 import { useLocale } from 'hooks';
 import styles from './styles.module.css';
+import BattleDescription from './BattleDescription';
 
 function Leadboard() {
   const [tab, setTab] = useState<'farm' | 'invite' | 'battle'>('farm');
@@ -98,6 +99,12 @@ function Leadboard() {
           )}
         </button>
       </div>
+
+      {tab === 'battle' && (
+        <div className={styles.blockDescription}>
+          <BattleDescription activeBattle={data?.activeBattle} />
+        </div>
+      )}
 
       <div className={styles.blockWrapper}>
         <h5>
