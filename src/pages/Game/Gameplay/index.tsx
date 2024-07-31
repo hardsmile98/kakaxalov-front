@@ -7,7 +7,8 @@ import islandBig from 'assets/images/island-big.svg';
 import islandOriginal from 'assets/images/island-original.svg';
 import islandBlack from 'assets/images/island-black.svg';
 import kakaxaCoin from 'assets/images/kakaxa-money.gif';
-import bomb from 'assets/images/bomb.gif';
+import kingCoin from 'assets/images/kingCoin.gif';
+import bombCoin from 'assets/images/bomb.gif';
 import explosion from 'assets/images/explosion.gif';
 import magnit from 'assets/images/magnit.gif';
 import { useImagesPreload, useTelegram } from 'hooks';
@@ -57,6 +58,12 @@ Position,
   },
 };
 
+const coinMap = {
+  coin: kakaxaCoin,
+  bomb: bombCoin,
+  king: kingCoin,
+};
+
 function Gameplay() {
   const {
     game,
@@ -71,7 +78,14 @@ function Gameplay() {
     runGame,
   } = useGameplay();
 
-  useImagesPreload([bomb, kakaxaTop, kakaxaBotoom, explosion, magnit]);
+  useImagesPreload([
+    bombCoin,
+    kingCoin,
+    kakaxaTop,
+    kakaxaBotoom,
+    explosion,
+    magnit,
+  ]);
 
   const setting = settings[game.position];
 
@@ -133,7 +147,7 @@ function Gameplay() {
           className={`${styles.coin} ${
             game.coinPosition !== null ? stylesCoinMap[game.coinPosition] : styles.none
           }`}
-          src={game.isBomb ? bomb : kakaxaCoin}
+          src={coinMap[game.coinType]}
           alt="coin"
         />
 

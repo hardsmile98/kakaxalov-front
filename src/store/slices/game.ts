@@ -10,7 +10,7 @@ const initialState = {
   position: Position.initial,
   coin: 0,
   coinPosition: null,
-  isBomb: false,
+  coinType: 'coin' as 'coin' | 'king' | 'bomb',
   isExplosionVisible: false,
 };
 
@@ -34,8 +34,8 @@ const gameSlice = createSlice({
         ? state.gameTimer - 1
         : 0;
     },
-    setIsBomb: (state, action) => {
-      state.isBomb = action.payload;
+    setCoinType: (state, action) => {
+      state.coinType = action.payload;
     },
     setCoinPosition: (state, action) => {
       state.coinPosition = action.payload;
@@ -65,7 +65,7 @@ export const {
   setPosition,
   setTimer,
   decrementTimer,
-  setIsBomb,
+  setCoinType,
   setCoinPosition,
   incrementCoin,
   hideExplosion,

@@ -11,7 +11,7 @@ import {
   setGameStatus,
   setInitial,
   setPosition,
-  setIsBomb,
+  setCoinType,
   setTimer,
   setCoinPosition,
   hideExplosion,
@@ -149,14 +149,28 @@ const useGameplay = () => {
     }
   }, [endGame, gameData, game.gameStatus]);
 
-  const generateCoin = useCallback(() => {
-    let isBomb = false;
-
+  const getCoinType = () => {
     if (config.current.boost === null) {
-      isBomb = randomInteger(0, 10) < gameSettings.BOMB_DROP_CHANCE * 10;
+      const isBomb = randomInteger(0, 100) < gameSettings.BOMB_DROP_CHANCE * 100;
+
+      if (isBomb) {
+        return 'bomb';
+      }
+
+      const isKingCoin = randomInteger(0, 100) < gameSettings.KING_COIN_CHANCE * 100;
+
+      if (isKingCoin) {
+        return 'king';
+      }
     }
 
-    dispatch(setIsBomb(isBomb));
+    return 'coin';
+  };
+
+  const generateCoin = useCallback(() => {
+    const coinType = getCoinType();
+
+    dispatch(setCoinType(coinType));
 
     config.current = {
       ...config.current,
@@ -203,7 +217,7 @@ const useGameplay = () => {
         return;
       }
 
-      if (config.current.isBomb) {
+      if (config.current.coinType === 'bomb') {
         dispatch(caughtBomb());
 
         tg.HapticFeedback.notificationOccurred('error');
@@ -214,7 +228,13 @@ const useGameplay = () => {
           stopGame();
         }, gameSettings.DURATION_ANIMATION_EXPLOSION);
       } else {
-        dispatch(incrementCoin({ bonus: config.current.bonus }));
+        const bonusForTypeCoin = config.current.coinType === 'king'
+          ? gameSettings.BONUS_FOR_KING_COIN
+          : 0;
+
+        const coinBonus = bonusForTypeCoin + config.current.bonus;
+
+        dispatch(incrementCoin({ bonus: coinBonus }));
 
         tg.HapticFeedback.notificationOccurred('success');
       }

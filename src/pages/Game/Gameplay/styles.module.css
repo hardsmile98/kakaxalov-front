@@ -156,8 +156,8 @@
 .coin {
     position: absolute;
     z-index: 30;
-    width: 75px;
-    height: auto;
+    width: auto;
+    height: 72px;
 }
 
 .coinLeftTop {
