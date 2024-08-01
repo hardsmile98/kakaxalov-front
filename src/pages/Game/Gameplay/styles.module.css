@@ -160,12 +160,22 @@
     height: 75px;
 }
 
+.coin > img {
+    width: auto;
+    height: 100%;
+}
+
 .coinLeftTop {
     opacity: 1;
     transform: scaleX(-1) rotate(-35deg) translateZ(0);
     left: 95px;
     bottom: 315px;
     animation: 2s animate-coin-left-top forwards;
+}
+
+.person > img {
+    height: 100%;
+    width: auto;
 }
 
 @keyframes animate-coin-left-top {

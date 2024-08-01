@@ -2,7 +2,7 @@ import { memo } from 'react';
 import coinIcon from 'assets/images/kakaxaCoin.webp';
 import kakaxaInit from 'assets/images/kakaxa-init.gif';
 import kakaxaTop from 'assets/images/kakaxa-top.webp';
-import kakaxaBotoom from 'assets/images/kakaxa-bottom.webp';
+import kakaxaBotom from 'assets/images/kakaxa-bottom.webp';
 import islandBig from 'assets/images/island-big.svg';
 import islandOriginal from 'assets/images/island-original.svg';
 import islandBlack from 'assets/images/island-black.svg';
@@ -11,7 +11,7 @@ import kingCoin from 'assets/images/kingCoin.gif';
 import bombCoin from 'assets/images/bomb.gif';
 import explosion from 'assets/images/explosion.gif';
 import magnit from 'assets/images/magnit.gif';
-import { useImagesPreload, useTelegram } from 'hooks';
+import { useTelegram } from 'hooks';
 import { GameStatuses, Position } from 'constants/index';
 import { formatNumber } from 'helpers/index';
 import styles from './styles.module.css';
@@ -29,39 +29,27 @@ Position,
 {
   style: string
   explosionStyles?: string
-  image: string
 }
 > = {
   [Position.initial]: {
     style: styles.kakaxa,
-    image: kakaxaInit,
   },
   [Position.leftBottom]: {
     style: styles.kakaxaLeftBottom,
     explosionStyles: styles.explosionLeftBottom,
-    image: kakaxaBotoom,
   },
   [Position.rightBottom]: {
     style: styles.kakaxaRightBottom,
     explosionStyles: styles.explosionRightBottom,
-    image: kakaxaBotoom,
   },
   [Position.leftTop]: {
     style: styles.kakaxaLeftTop,
     explosionStyles: styles.explosionLeftTop,
-    image: kakaxaTop,
   },
   [Position.rightTop]: {
     style: styles.kakaxaRightTop,
     explosionStyles: styles.explosionRightTop,
-    image: kakaxaTop,
   },
-};
-
-const coinMap = {
-  coin: kakaxaCoin,
-  bomb: bombCoin,
-  king: kingCoin,
 };
 
 function Gameplay() {
@@ -78,18 +66,7 @@ function Gameplay() {
     runGame,
   } = useGameplay();
 
-  useImagesPreload([
-    bombCoin,
-    kingCoin,
-    kakaxaTop,
-    kakaxaBotoom,
-    explosion,
-    magnit,
-  ]);
-
   const setting = settings[game.position];
-
-  const personImage = game.boost !== null ? magnit : setting.image;
 
   const tg = useTelegram();
 
@@ -98,6 +75,14 @@ function Gameplay() {
 
     runGame();
   };
+
+  const kakaxaInitVisible = game.boost === null && game.position === Position.initial;
+
+  const kakaxaTopVisible = [Position.leftTop, Position.rightTop].includes(game.position);
+
+  const kakaxaBottomVisible = [Position.leftBottom, Position.rightBottom].includes(game.position);
+
+  const magnitVisible = game.boost !== null;
 
   return (
     <div className={styles.root}>
@@ -141,15 +126,31 @@ function Gameplay() {
           aria-hidden="true"
         />
 
-        <img
+        <div
           style={{ animationDuration: `${config.current.duration}ms` }}
           ref={coinRef}
           className={`${styles.coin} ${
             game.coinPosition !== null ? stylesCoinMap[game.coinPosition] : styles.none
           }`}
-          src={coinMap[game.coinType]}
-          alt="coin"
-        />
+        >
+          <img
+            src={kakaxaCoin}
+            alt="coin"
+            style={{ display: game.coinType === 'coin' ? 'block' : 'none' }}
+          />
+
+          <img
+            src={bombCoin}
+            alt="coin"
+            style={{ display: game.coinType === 'bomb' ? 'block' : 'none' }}
+          />
+
+          <img
+            src={kingCoin}
+            alt="coin"
+            style={{ display: game.coinType === 'king' ? 'block' : 'none' }}
+          />
+        </div>
 
         <img className={styles.islandLeftTop} src={islandBlack} alt="island" />
 
@@ -170,11 +171,35 @@ function Gameplay() {
         <img
           className={`${game.isExplosionVisible ? styles.explosion : styles.none} 
             ${setting.explosionStyles}`}
-          src={game.isExplosionVisible ? explosion : undefined}
+          src={explosion}
           alt="explosion"
         />
 
-        <img className={setting.style} src={personImage} alt="kakaxa" />
+        <div className={`${setting.style} ${styles.person}`}>
+          <img
+            src={kakaxaInit}
+            style={{ display: kakaxaInitVisible ? 'block' : 'none' }}
+            alt="kakaxa"
+          />
+
+          <img
+            src={kakaxaTop}
+            style={{ display: kakaxaTopVisible ? 'block' : 'none' }}
+            alt="kakaxa"
+          />
+
+          <img
+            src={kakaxaBotom}
+            style={{ display: kakaxaBottomVisible ? 'block' : 'none' }}
+            alt="kakaxa bottom"
+          />
+
+          <img
+            src={magnit}
+            style={{ display: magnitVisible ? 'block' : 'none' }}
+            alt="magnit"
+          />
+        </div>
 
         <img className={styles.islandBig} src={islandBig} alt="island" />
       </div>
